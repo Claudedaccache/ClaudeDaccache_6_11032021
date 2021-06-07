@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Utiliser Fisheye pour trouver les meilleurs photos prise par des photographes professionnels">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/Style.css">
+    <link rel="icon" type="image/svg" href="./SamplePhotos/camera-solid.svg">
+    <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
+    <title>Fisheye - Rhode Dubois</title>
+</head>
+<!--body-->
+                                          <!-----id: 925------>
+<body>
+    <div id="all_body">
+        <div class="thePricingSec">
+            <p>---- <i class="fas fa-heart"></i></p>
+            <p>275€ / jour</p>
+        </div>
+        <div>
+          <button class="photographerContactResp">Contactez-moi</button>
+        </div>
+        <header>
+            <a href="#" id="scrollMainPage">Passer au contenu</a>
+            <a href="index.html"><img src="./SamplePhotos/logo.jpeg" alt="logo Fisheye" class="logo_Fisheye"></a>
+        </header>
+
+    <section>
+      <div class="photographerInfo">
+        <div class="photographerDescription">
+          <div class="photographerDescriptionId">
+                <h1 class="photographerFullName">Rhode Dubois</h1>
+                 <div class="photographerDescriptionText">
+                    <p class="photographerDescriptionLocation">Barcelona, Spain</p>
+                    <p class="photographerDescriptionQuote">Je crée des souvenirs</p>
+                </div>
+                <div class="photographerDescriptionHashtags">
+                  <a href="#" class="Sport">#sport</a>
+                  <a href="#" class="Fashion">#fashion</a>
+                  <a href="#" class="Events">#events</a>
+                  <a href="#" class="Animals">#animals</a>
+                </div>
+              </div>
+              <button class="photographerContact">Contactez-moi</button>
+          </div>
+            <img src="./SamplePhotos/PhotographersIDPhotos/RhodeDubois.jpg"
+            alt="image d'un ..." title="clicker pour voir ce photographe"
+            class="photographerInfoPic">
+        </div>
+    </section>
+
+
+    <section class="bground">
+      <div class="content">
+        <span class="close"><i class="fas fa-times"></i></span>
+        <div class="modal-body">
+          <form
+            id="myForm"
+            name="reserve"
+            action="contact.php"
+            method="POST"
+            onsubmit="return formValidation();"
+          >
+
+            <div class="formTitle">Contactez-moi<br>Rhode Dubois</div>
+              <div class="formData">
+                <label for="first" >Prénom</label><br>
+                <input class="text-control" type="text" id="first" name="first" minlength="2" placeholder="Ex: James.."  /><br>
+                <span id="nameErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="last" >Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  placeholder="Ex: Smith.."
+                  
+                /><br>
+                <span id="lastNameErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Ex: James_Smith@hotmail.com"
+                  
+                /><br>
+                <span id="emailErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="message">Votre message</label><br>
+                <textarea 
+                  rows="6" 
+                  placeholder="Entrez votre message ici..."
+                  ></textarea>
+                <span id="messageErrorMessage"></span>
+              </div><br>
+              <input
+                class="btn-submit"
+                type="submit"
+                value="Envoyer"
+              />
+            </form>
+          </div>
+          <span id="formValidationMessage">Votre message a bien été envoyé<br><br><br>Merci et à bientôt!</span>
+        </div>
+    </section>
+    
+    <section>
+        <div class="filterSection">
+            <p>Trier par</p>
+            <ul>
+              <li class="filterList active">Popularité<span>&nbsp&nbsp&nbsp&nbsp<i class="fas fa-chevron-up"></i></span></li>
+              <li class="filterList notActive">Date</li>
+              <li class="filterList notActive">Titre</li>
+          </ul>
+        </div>
+    </section>
+
+    <section class="thePhotographsSection">
+      <figure class="photographerPhotos sport">
+          <img src="./SamplePhotos/Rhode/Sport_2000_with_8.jpg"
+          alt="image de plusieur personne qui s'entraine au rafting" title="clicker pour voir la photo"
+          class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>8 Rows</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">52</span>
+                <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+                </div>
+            </figcaption>
+        </figure>
+
+        <figure class="photographerPhotos fashion">
+            <img src="./SamplePhotos/Rhode/Fashion_Wings.jpg"
+                    alt="image d'un homme et une femme africaine" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Fashion Wings</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">58</span>
+                <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+        </figure>
+
+        <figure class="photographerPhotos fashion" >
+            <img src="./SamplePhotos/Rhode/Fashion_Melody_Red_on_Stripes.jpg"
+                    alt="image d'une femme africaine portant une robe rouge" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Melody Red on Stripes</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">11</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos events">
+            <img src="./SamplePhotos/Rhode/Event_VentureConference.jpg"
+                    alt="image d'une femme africaine portant une robe rouge" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Venture Conference</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">2</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos events">
+            <img src="./SamplePhotos/Rhode/Event_ProductPitch.jpg"
+                    alt="image d'un homme qui address la parole a plusieur personne lors d'une conference" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Product Pitch</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">3</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos events">
+            <img src="./SamplePhotos/Rhode/Event_KeyboardCheck.jpg"
+                    alt="image d'une femme qui joue a l'orgue lors d'un festival" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Musical Festival Keyboard</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">52</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos events">
+          <img src="./SamplePhotos/Rhode/Event_Emcee.jpg"
+          alt="image d'une femme qui chante lors d'un festival" title="clicker pour voir la photo"
+          class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Musical Festival Singer</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">23</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos animals">
+            <img src="./SamplePhotos/Rhode/Animals_Majesty.jpg"
+                    alt="image d'une renne " title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Animal Majesty</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">52</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos animals">
+          <video src="./SamplePhotos/Rhode/Animals_Puppiness.mp4" type="video/mp4" controls="controls"
+          title="clicker pour voir la video"
+          class="thePhotograph"></video>
+            <figcaption class="photographDescr">
+                <h2>Cute Puppy on Sunset</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">52</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+   </section>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
