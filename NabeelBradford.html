@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Utiliser Fisheye pour trouver les meilleurs photos prise par des photographes professionnels">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/Style.css">
+    <link rel="icon" type="image/svg" href="./SamplePhotos/camera-solid.svg">
+    <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
+    <title>Fisheye - Nabeel Bradford</title>
+</head>
+<!--body-->
+                                          <!-----id: 527------>
+<body>
+    <div id="all_body">
+        <div class="thePricingSec">
+            <p>---- <i class="fas fa-heart"></i></p>
+            <p>350€ / jour</p>
+        </div>
+        <div>
+          <button class="photographerContactResp">Contactez-moi</button>
+        </div>
+        <header>
+            <a href="#" id="scrollMainPage">Passer au contenu</a>
+            <a href="index.html"><img src="./SamplePhotos/logo.jpeg" alt="logo Fisheye" class="logo_Fisheye"></a>
+        </header>
+
+    <section>
+      <div class="photographerInfo">
+        <div class="photographerDescription">
+          <div class="photographerDescriptionId">
+                <h1 class="photographerFullName">Nabeel Bradford</h1>
+                 <div class="photographerDescriptionText">
+                    <p class="photographerDescriptionLocation">Mexico City, Mexico</p>
+                    <p class="photographerDescriptionQuote">Toujours aller de l'avant</p>
+                </div>
+                <div class="photographerDescriptionHashtags">
+                  <a href="#" class="Travel">#travel</a>
+                  <a href="#" class="Portrait">#portrait</a>
+                </div>
+              </div>
+              <button class="photographerContact">Contactez-moi</button>
+          </div>
+            <img src="./SamplePhotos/PhotographersIDPhotos/NabeelBradford.jpg"
+            alt="image d'un ..." title="clicker pour voir ce photographe"
+            class="photographerInfoPic">
+        </div>
+    </section>
+
+
+    <section class="bground">
+      <div class="content">
+        <span class="close"><i class="fas fa-times"></i></span>
+        <div class="modal-body">
+          <form
+            id="myForm"
+            name="reserve"
+            action="contact.php"
+            method="POST"
+            onsubmit="return formValidation();"
+          >
+
+            <div class="formTitle">Contactez-moi<br>Nabeel Bradford</div>
+              <div class="formData">
+                <label for="first" >Prénom</label><br>
+                <input class="text-control" type="text" id="first" name="first" minlength="2" placeholder="Ex: James.."  /><br>
+                <span id="nameErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="last" >Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  placeholder="Ex: Smith.."
+                  
+                /><br>
+                <span id="lastNameErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Ex: James_Smith@hotmail.com"
+                  
+                /><br>
+                <span id="emailErrorMessage"></span>
+              </div>
+              <div
+                class="formData">
+                <label for="message">Votre message</label><br>
+                <textarea 
+                rows="6" 
+                placeholder="Entrez votre message ici..."
+                ></textarea>
+                <span id="messageErrorMessage"></span>
+              </div><br>
+              <input
+                class="btn-submit"
+                type="submit"
+                value="Envoyer"
+              />
+            </form>
+          </div>
+          <span id="formValidationMessage">Votre message a bien été envoyé<br><br><br>Merci et à bientôt!</span>
+        </div>
+    </section>
+    
+    <section>
+        <div class="filterSection">
+            <p>Trier par</p>
+            <ul>
+              <li class="filterList active">Popularité<span>&nbsp&nbsp&nbsp&nbsp<i class="fas fa-chevron-up"></i></span></li>
+              <li class="filterList notActive">Date</li>
+              <li class="filterList notActive">Titre</li>
+          </ul>
+        </div>
+    </section>
+
+    <section class="thePhotographsSection">
+      <figure class="photographerPhotos travel">
+          <video src="./SamplePhotos/Nabeel/Travel_Rock_Mountains.mp4" type="video/mp4" controls="controls"
+          title="clicker pour voir la video"
+          class="thePhotograph"></video>
+            <figcaption class="photographDescr">
+                <h2>Rock Mountains</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">23</span>
+                <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+                </div>
+            </figcaption>
+        </figure>
+
+        <figure class="photographerPhotos travel">
+            <img src="./SamplePhotos/Nabeel/Travel_Outdoor_Baths.jpg"
+                    alt="image du lagon bleu à iceland" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Outdoor Baths</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">101</span>
+                <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+        </figure>
+
+        <figure class="photographerPhotos travel" >
+            <img src="./SamplePhotos/Nabeel/Travel_Road_into_Hill.jpg"
+                    alt="image d'une route en asphalt entre les petite collines" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Road into the Hill</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">99</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos travel">
+            <img src="./SamplePhotos/Nabeel/Travel_Bridge_into_Forest.jpg"
+                    alt="image d'un pont menant à la forêt" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Bridge into the Forest</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">34</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos travel">
+            <img src="./SamplePhotos/Nabeel/Travel_Boat_Wanderer.jpg"
+                    alt="image de l'avant d'un bateau dans un lac et qui fait face à une grande montagne rocheuse" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Boat Wonderer</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">23</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos portrait">
+            <img src="./SamplePhotos/Nabeel/Portrait_Sunkissed.jpg"
+                    alt="image d'une jeune fille rousse avec des taches de rousseur sur son visage" title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Portrait Sunkiss</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">66</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos portait">
+          <img src="./SamplePhotos/Nabeel/Portrait_Shaw.jpg"
+          alt="portrait noir d'un homme" title="clicker pour voir la photo"
+          class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Shaw Potrait</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">52</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos portait">
+            <img src="./SamplePhotos/Nabeel/Portrait_Alexandra.jpg"
+                    alt="portrait noir et blanc d'une femme africaine  " title="clicker pour voir la photo"
+                    class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Alexandra</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">95</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+
+         <figure class="photographerPhotos portait">
+          <img src="./SamplePhotos/Nabeel/Portrait_AfternoonBreak.jpg"
+          alt="portrait noir et blanc d'un homme âgé fumant une cigarette" title="clicker pour voir la photo"
+          class="thePhotograph">
+            <figcaption class="photographDescr">
+                <h2>Afternoon Break</h2>
+                <div class="LikesSection">
+                <span class="likesNumber">25</span>
+                  <div class="LikesIcon">
+                    <i class="far fa-heart"></i> <!-- empty heart -->
+                    <i class="fas fa-heart"></i> <!-- full heart -->
+                </div>
+            </div>
+            </figcaption>
+         </figure>
+   </section>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
