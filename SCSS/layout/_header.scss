@@ -1,0 +1,62 @@
+@import "../abstracts/variables";
+
+header {
+  position: relative;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // margin-bottom: 4rem;
+}
+
+.logo_Fisheye {
+  position: relative;
+  top: 0.3rem;
+  left: 5%;
+  width: 15rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+
+.photographsListTitle {
+  display: block;
+  // padding-right: 1rem;
+  // padding-left: 1rem;
+  color: $primaryColor;
+  font-size: 1.8rem;
+  white-space: nowrap;
+}
+
+.header_nav {
+  display: flex;
+  flex-direction: row;
+}
+
+#header_nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+#header_nav ul li {
+  margin: 0.4rem;
+  padding: 0.3rem;
+  border: 1px solid $tertiaryColor;
+  border-radius: 1rem;
+  background-color: $quaternaryColor;
+  z-index: 100;
+}
+#header_nav ul li a {
+  font-weight: bold;
+  color: $primaryColor;
+  text-decoration: none;
+}
+
+#header_nav ul li:hover {
+  background-color: $primaryColor;
+}
+#header_nav ul li:hover a {
+  color: $quaternaryColor;
+}

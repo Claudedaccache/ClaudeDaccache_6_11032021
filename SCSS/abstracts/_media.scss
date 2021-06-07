@@ -1,0 +1,192 @@
+@media screen and (max-width: 1024px) {
+  header {
+    // height: 10rem;
+    position: relative;
+  }
+
+  .logo_Fisheye {
+    position: relative;
+    top: 0.3rem;
+    left: 5%;
+    width: 10rem;
+    height: 5rem;
+  }
+
+  .photographsListTitle {
+    margin-right: 0.5rem;
+    padding-left: 1rem;
+    color: $primaryColor;
+    font-size: 1.4rem;
+  }
+  #header_nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #header_nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // align-items: center;
+    position: absolute;
+    top: 8rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 918px) {
+  .thePhotograph {
+    object-fit: cover;
+    width: 19rem;
+    height: 18rem;
+  }
+  .photographerContact {
+    display: none;
+  }
+
+  .thePricingSec {
+    display: none;
+  }
+
+  .photographerInfoPic {
+    width: 12rem;
+    height: 12rem;
+    margin-right: 2rem;
+  }
+
+  .photographerContactResp {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 655px) {
+  .photographerInfo {
+    margin: 0rem auto;
+    // flex-direction: column-reverse;
+  }
+
+  #scrollMainPage {
+    left: 35%;
+  }
+
+  #header_nav ul {
+    width: 100%;
+  }
+
+  .photographDescr {
+    font-size: 0.8rem;
+    align-items: center;
+  }
+
+  .photographerInfoPic {
+    position: absolute;
+    right: 0rem;
+    width: 8rem;
+    height: 8rem;
+    // margin-right: 2rem;
+  }
+
+  .photographerDescriptionId {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 0.2rem;
+  }
+
+  .photographerFullName {
+    font-size: 2rem;
+    color: $primaryColor;
+  }
+
+  .photographerDescriptionHashtags a {
+    margin: 0.1rem;
+  }
+
+  .photographerContactResp {
+    position: "";
+    bottom: 1.5rem;
+    left: 33%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .photographerInfoPic {
+    width: 6rem;
+    height: 6em;
+    margin-right: 1rem;
+  }
+
+  #header_nav ul {
+    width: 100%;
+  }
+
+  #photographs {
+    width: 100%;
+    margin-top: 10rem;
+    // margin-left: 2rem;
+  }
+
+  .photographsListTitle {
+    margin-right: 0.3rem;
+    padding-left: 1rem;
+    color: $primaryColor;
+    font-size: 1.4rem;
+  }
+
+  .logo_Fisheye {
+    width: 10rem;
+    height: 5rem;
+  }
+
+  .photographerInfo {
+    margin-top: 0rem auto;
+    // height: 5rem;
+  }
+
+  .photographerFullName {
+    font-size: 1.5rem;
+    color: $primaryColor;
+  }
+
+  .photographerDescriptionText {
+    font-size: 1rem;
+  }
+
+  .photographerDescriptionQuote {
+    margin: 0.4rem 0 0.4rem 0;
+  }
+
+  .photographerDescriptionLocation {
+    margin-top: 0.4rem;
+  }
+
+  #scrollMainPage {
+    left: 35%;
+  }
+
+  .photographerDescriptionHashtags a {
+    font-size: 0.7rem;
+  }
+
+  .photographerPhotos {
+    margin: 2rem 1rem;
+  }
+
+  .thePhotograph {
+    object-fit: cover;
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #photographs {
+    width: 100%;
+    margin-top: 10rem;
+    margin-left: 3rem;
+  }
+}
