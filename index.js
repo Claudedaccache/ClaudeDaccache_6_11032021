@@ -14,19 +14,21 @@ var validEmail = /^[a-zàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ][a-zA-Z�
 var content = document.querySelector(".content");
 var buttonSubmit = document.querySelector(".btn-submit");
 
-var scrollBtn = document.querySelector("#scrollMainPage");
-
-var filterIcon = document.getElementById("#filterIcon");
-var filterNotActive = document.querySelector(".notActive");
-
-
-// DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBody = document.querySelector(".modal-body");
-const btnSubmit = document.querySelectorAll(".photographerContact");
-const btnSubmitResp = document.querySelectorAll(".photographerContactResp");
 const myForm = document.getElementById ("myForm");
 const close = document.querySelectorAll(".close");
+
+
+// scrolling variable:
+var scrollBtn = document.querySelector("#scrollMainPage");
+
+
+var btnSubmit = document.querySelectorAll(".photographerContact");
+var btnSubmitResp = document.querySelectorAll(".photographerContactResp");
+
+// DOM Elements
+
 
 // launching modal form
 btnSubmit.forEach((btn) => btn.addEventListener("click", launchForm));
@@ -172,14 +174,89 @@ window.addEventListener("scroll", () => {
 
   console.log(scrolled)
 
- if(scrolled < 600){
+ if(scrolled < 300){
     scrollBtn.style.display ="none";
   }
   else {
-    scrollBtn.style.display ="block";}
-    scrollBtn.style.position ="fixed";
+    scrollBtn.style.display ="block";
+    scrollBtn.style.position ="fixed";}
   }
 )
+
+// filter section:
+
+var FilterIcon = document.querySelector(".active");
+var FilterNotActive = document.querySelectorAll(".notActive")
+
+// filterIcon.forEach((btn) => btn.addEventListener("click", launchFilter));
+FilterIcon.addEventListener("click", launchFilter);
+
+
+function launchFilter () {
+  FilterNotActive.forEach((btn) => btn.classList.toggle('responsive'));
+
+  }
+
+// clickable counting heart
+
+  var icons = document.querySelectorAll(".LikesIcon i"); 
+
+  icons.forEach((icon) => icon.addEventListener("click",  () => {
+    icon.classList.toggle('resp')
+   }))
+
+
+
+
+
+
+
+
+
+
+   
+
+
+// increasing and decreasing likes:
+
+var likesNumber = document.querySelectorAll(".likesNumber").value;
+
+console.log(likesNumber)
+
+likesNumber.forEach((like) => like.addEventListener("change",  () => {
+
+if(icons.className === ".LikesIcon i"){
+  likesNumber = likesNumber + 1
+}
+else{
+  likesNumber = likesNumber - 1
+}
+}))
+
+//filter photos:
+// var sortBtn = document.querySelectorAll(".photographerDescriptionHashtags a");
+// var sortItems = document.querySelectorAll(".photographerPhotos");
+// var section = document.querySelectorAll(".thePhotographsSection")
+// var targetData = document.getElementsByTagName('data-target');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,3 +270,5 @@ window.addEventListener("scroll", () => {
 //     filterNotActive.className = "notActive";
 //   }
 // })
+
+
