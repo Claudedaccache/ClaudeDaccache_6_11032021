@@ -3,21 +3,13 @@
   cursor: pointer;
 }
 
-.LikesSection .far {
-  position: relative;
+.LikesIcon i {
+  color: rgb(197, 196, 196);
+  font-size: 1.2rem;
+}
+
+.LikesIcon i.resp {
   color: $primaryColor;
-  opacity: 0.8;
-}
-
-.LikesSection .fas {
-  position: absolute;
-  right: 0;
-  top: 0.05rem;
-  color: transparent;
-}
-
-.LikesSection .fas:hover {
-  animation: likeicon 0.9s ease-in-out forwards;
 }
 
 .btn-submit {
@@ -40,7 +32,7 @@
 // contact photographer
 
 .photographerContact {
-  display: block;
+  display: none;
   align-items: center;
   height: 3rem;
   width: 10rem;
@@ -59,10 +51,10 @@
 }
 
 .photographerContactResp {
-  display: none;
+  display: block;
   position: fixed;
-  bottom: 2.5rem;
-  left: 45%;
+  bottom: 1.5rem;
+  left: 25%;
   height: 3rem;
   width: 10rem;
   font-size: 1.2rem;
