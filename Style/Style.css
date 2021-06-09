@@ -11,23 +11,49 @@
 }
 
 @-webkit-keyframes formopen {
-  from {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-150px);
             transform: translateY(-150px);
   }
-  to {
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes formopen {
-  from {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-150px);
             transform: translateY(-150px);
   }
-  to {
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes photographPrice {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes photographPrice {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
     opacity: 1;
   }
 }
@@ -38,13 +64,16 @@
 }
 
 body {
-  margin: 0 5%;
+  margin: 3%;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
   position: relative;
   width: 100%;
-  height: 8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,10 +90,7 @@ header {
 }
 
 .logo_Fisheye {
-  position: relative;
-  top: 0.3rem;
-  left: 5%;
-  width: 15rem;
+  width: 9rem;
   height: 5rem;
   margin-right: 1rem;
 }
@@ -72,18 +98,8 @@ header {
 .photographsListTitle {
   display: block;
   color: #901c1c;
-  font-size: 1.8rem;
+  font-size: 0.9rem;
   white-space: nowrap;
-}
-
-.header_nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
 }
 
 #header_nav ul {
@@ -94,12 +110,38 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  list-style-type: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 5.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-right: 1rem;
+}
+
+#header_nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #header_nav ul li {
-  margin: 0.4rem;
-  padding: 0.3rem;
+  display: block;
+  list-style-type: none;
+  margin: 0.2rem;
+  padding: 0.2rem;
   border: 1px solid #525252;
   border-radius: 1rem;
   background-color: #fafafa;
@@ -110,6 +152,7 @@ header {
   font-weight: bold;
   color: #901c1c;
   text-decoration: none;
+  font-size: 0.8rem;
 }
 
 #header_nav ul li:hover {
@@ -127,36 +170,52 @@ header {
 }
 
 @keyframes formopen {
-  from {
+  0% {
     opacity: 0;
     -webkit-transform: translateY(-150px);
             transform: translateY(-150px);
   }
-  to {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes photographPrice {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
     opacity: 1;
   }
 }
 
 #scrollMainPage {
-  display: block;
   position: absolute;
   top: 0.4rem;
   right: 50%;
-  left: 45%;
+  left: 30%;
   font-weight: bold;
   width: 8rem;
   padding: 0.2rem 0.5rem;
-  background-color: #d3573c;
+  background-color: #e18d7a;
   border-radius: 0.5rem;
-  z-index: 100;
-  opacity: 0.8;
-  text-decoration: none;
+  z-index: 10000;
+  opacity: 0.7;
   color: black;
 }
 
+#photographs {
+  width: 100%;
+  margin-top: 7rem;
+}
+
 .photographerImg {
-  width: 12rem;
-  height: 12rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   margin: 1rem auto;
   display: -webkit-box;
@@ -172,11 +231,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#photographs {
-  width: 100%;
-  margin-top: 5rem;
 }
 
 .photographersList {
@@ -199,7 +253,7 @@ header {
 }
 
 .photographer {
-  width: 25rem;
+  width: 20rem;
   margin-bottom: 5rem;
 }
 
@@ -239,31 +293,14 @@ header {
   margin: 0 auto 0.5rem auto;
 }
 
-.photographerFullName {
-  font-size: 2.8rem;
-  color: #901c1c;
-  margin-right: 2rem;
-}
-
 .photographerLocation {
   color: #901c1c;
   margin-bottom: 0.5rem;
   font-size: medium;
 }
 
-.photographerDescriptionLocation {
-  color: #901c1c;
-  margin-top: 0.8rem;
-  font-weight: bold;
-  font-size: 0.9;
-}
-
 .photographerQuote {
   margin-bottom: 0.2rem;
-}
-
-.photographerDescriptionQuote {
-  margin: 1rem 0 1rem 0;
 }
 
 .photographerFees {
@@ -285,6 +322,42 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.photographerHashtags a {
+  font-weight: bold;
+  margin: 0.2rem 0 0 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid #525252;
+  border-radius: 1rem;
+  background-color: #fafafa;
+  text-decoration: none;
+  color: #901c1c;
+}
+
+.photographerHashtags a:hover,
+.photographerDescriptionHashtags a:hover {
+  background-color: #901c1c;
+  color: #fafafa;
+}
+
+.photographerFullName {
+  font-size: 1.5rem;
+  color: #901c1c;
+  margin-right: 1rem;
+}
+
+.photographerDescriptionLocation {
+  color: #901c1c;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.photographerDescriptionQuote {
+  margin: 1rem 0 1rem 0;
 }
 
 .photographerDescriptionHashtags {
@@ -297,45 +370,29 @@ header {
           flex-direction: row;
 }
 
-.photographerHashtags a {
-  font-weight: bold;
-  margin: 0.1rem 0 0 0.3rem;
-  padding: 0.2rem 0.6rem;
-  border: 1px solid #525252;
-  border-radius: 1rem;
-  background-color: #fafafa;
-  text-decoration: none;
-  color: #901c1c;
-}
-
 .photographerDescriptionHashtags a {
   font-weight: bold;
   padding: 0.2rem 0.6rem;
   border: 1px solid #525252;
   border-radius: 1rem;
   background-color: #fafafa;
-  text-decoration: none;
   color: #901c1c;
   margin-right: 0.2rem;
-}
-
-.photographerHashtags a:hover,
-.photographerDescriptionHashtags a:hover {
-  background-color: #901c1c;
-  color: #fafafa;
+  font-size: 0.9rem;
 }
 
 .thePricingSec {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 18rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 12rem;
   position: fixed;
   bottom: 4.5%;
   right: 2%;
@@ -360,18 +417,17 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #fafafa;
+  margin: 1rem auto;
   width: 100%;
-  height: 17rem;
-  max-height: 18rem;
-  margin: 3rem auto 0 auto;
 }
 
 .photographerInfoPic {
-  width: 14rem;
-  height: 14rem;
+  position: absolute;
+  right: 0.3rem;
+  top: 1rem;
+  width: 6rem;
+  height: 5.2rem;
   border-radius: 50%;
-  margin-right: 5rem;
 }
 
 .photographerDescription {
@@ -382,9 +438,8 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  margin: 2rem 0;
+  position: relative;
 }
 
 .photographerDescriptionId {
@@ -395,7 +450,6 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 4rem;
 }
 
 .filterSection {
@@ -406,17 +460,16 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-top: 2rem;
 }
 
 .filterSection p {
   margin-right: 1.8rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .filterSection ul {
-  z-index: 10000;
+  z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -435,20 +488,26 @@ header {
   background-color: #d3573c;
   display: inline-block;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.8rem 1.2rem;
   color: #fafafa;
   cursor: pointer;
   position: relative;
-  z-index: 10000;
+  z-index: 1000;
+  overflow: visible;
 }
 
 .notActive {
   visibility: hidden;
-  display: block;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.notActive.responsive {
+  opacity: 1;
+  visibility: visible;
   z-index: 1000;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 .notActive::after {
@@ -460,6 +519,7 @@ header {
   left: 7%;
   height: 0.1rem;
   width: 8.1rem;
+  z-index: 1000;
 }
 
 .thePhotographsSection {
@@ -483,21 +543,25 @@ header {
 }
 
 .photographerPhotos {
-  margin: 2rem;
+  margin: 2rem 1rem;
+  position: relative;
+  margin: 1.5rem;
 }
 
 .thePhotograph {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 24rem;
+  -o-object-position: center;
+     object-position: center;
+  width: 18rem;
   height: 18rem;
-  z-index: -1;
+  border-radius: 0.7rem;
+  cursor: pointer;
 }
 
-.photographDescr,
-.LikesSection {
+.photographDescr {
   margin-top: 0.3rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -509,13 +573,111 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #901c1c;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  position: relative;
+}
+
+.LikesSection {
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  color: #901c1c;
+}
+
+.likesNumber {
+  background-color: none;
+  width: 2.6rem;
+  font-size: 1rem;
+  padding-right: 0;
+  pointer-events: none;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  color: #901c1c;
+}
+
+.photographPriceDate {
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  padding-top: 0.2rem;
+}
+
+.photographerPhotos:hover .photographDetails p {
+  visibility: visible;
+  -webkit-animation: photographPrice 0.5s ease-in-out forwards;
+          animation: photographPrice 0.5s ease-in-out forwards;
+}
+
+.photographDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.photographPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 2rem;
+}
+
+.thePricingSec input {
+  background-color: transparent;
+  width: 2rem;
+  height: 1.1rem;
+  border: black;
+  padding: 0;
+  margin-right: 0;
+  font-size: 1rem;
+}
+
+.photographerLikesSec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.likesNumber {
-  margin-right: 0.5rem;
+#likesHeart {
+  color: black;
+  font-size: 1.2rem;
+  left: 4.3rem;
+  top: 0.7rem;
 }
 
 .LikesSection {
@@ -523,22 +685,13 @@ header {
   cursor: pointer;
 }
 
-.LikesSection .far {
-  position: relative;
+.LikesIcon i {
+  color: #c5c4c4;
+  font-size: 1.2rem;
+}
+
+.LikesIcon i.resp {
   color: #901c1c;
-  opacity: 0.8;
-}
-
-.LikesSection .fas {
-  position: absolute;
-  right: 0;
-  top: 0.05rem;
-  color: transparent;
-}
-
-.LikesSection .fas:hover {
-  -webkit-animation: likeicon 0.9s ease-in-out forwards;
-          animation: likeicon 0.9s ease-in-out forwards;
 }
 
 .btn-submit {
@@ -558,7 +711,7 @@ header {
 }
 
 .photographerContact {
-  display: block;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -578,10 +731,10 @@ header {
 }
 
 .photographerContactResp {
-  display: none;
+  display: block;
   position: fixed;
-  bottom: 2.5rem;
-  left: 45%;
+  bottom: 1.5rem;
+  left: 25%;
   height: 3rem;
   width: 10rem;
   font-size: 1.2rem;
@@ -613,7 +766,7 @@ header {
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
   -webkit-animation-name: formopen;
           animation-name: formopen;
   -webkit-animation-duration: 0.8s;
@@ -627,8 +780,10 @@ header {
 }
 
 .modal-body {
-  padding: 15px 8%;
-  margin: 0rem auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 10%;
 }
 
 .formTitle {
@@ -639,7 +794,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   color: #1f1f1f;
 }
 
@@ -711,191 +866,164 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
-  header {
-    position: relative;
-  }
-  .logo_Fisheye {
-    position: relative;
-    top: 0.3rem;
-    left: 5%;
-    width: 10rem;
-    height: 5rem;
-  }
+@media screen and (min-width: 330px) {
   .photographsListTitle {
-    margin-right: 0.5rem;
     padding-left: 1rem;
     color: #901c1c;
     font-size: 1.4rem;
   }
-  #header_nav {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  .logo_Fisheye {
+    width: 12rem;
+    height: 5rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
   }
-  #header_nav ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    position: absolute;
-    top: 8rem;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  #header_nav ul li a {
+    font-size: 1rem;
+  }
+  .thePhotograph {
+    width: 20rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .photographerContactResp {
+    display: block;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 30%;
+  }
+  .photographerFullName {
+    font-size: 2rem;
+  }
+  .photographerDescriptionLocation {
+    font-size: 1.2rem;
+  }
+  .photographerDescriptionQuote {
+    font-size: 1.1rem;
+  }
+  .photographerDescriptionId {
+    margin-left: 1rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .photographerDescriptionHashtags a {
+    font-size: 1rem;
+  }
+  .photographer {
+    width: 22rem;
+    margin-bottom: 5rem;
+  }
+  .photographPriceDate {
+    font-size: 0.9rem;
+  }
+  .filterSection p {
+    font-size: 1.1rem;
+  }
+  .filterList {
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (max-width: 918px) {
-  .thePhotograph {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 19rem;
-    height: 18rem;
+@media screen and (min-width: 500px) {
+  #scrollMainPage {
+    left: 40%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .photographerInfoPic {
+    width: 8rem;
+    height: 8rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .photographerDescriptionHashtags a {
+    font-size: 1rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .thePricingSec {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .photographerInfoPic {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .formTitle {
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (min-width: 755px) {
+  .photographerContactResp {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 30%;
+  }
+  .photographerContactResp {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 30%;
   }
   .photographerContact {
-    display: none;
+    display: block;
   }
-  .thePricingSec {
-    display: none;
+  .photographerInfoPic {
+    position: absolute;
+    top: 0.7rem;
   }
+}
+
+@media screen and (min-width: 990px) {
   .photographerInfoPic {
     width: 12rem;
     height: 12rem;
     margin-right: 2rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
   }
-  .photographerContactResp {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 655px) {
-  .photographerInfo {
-    margin: 0rem auto;
-  }
-  #scrollMainPage {
-    left: 35%;
+  .photographsListTitle {
+    padding-left: 1rem;
+    color: #901c1c;
+    font-size: 1.8rem;
   }
   #header_nav ul {
-    width: 100%;
-  }
-  .photographDescr {
-    font-size: 0.8rem;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .photographerInfoPic {
-    position: absolute;
-    right: 0rem;
-    width: 8rem;
-    height: 8rem;
-  }
-  .photographerDescriptionId {
-    margin-top: 3rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    margin-left: 0.2rem;
-  }
-  .photographerFullName {
-    font-size: 2rem;
-    color: #901c1c;
-  }
-  .photographerDescriptionHashtags a {
-    margin: 0.1rem;
-  }
-  .photographerContactResp {
-    position: "";
-    bottom: 1.5rem;
-    left: 33%;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .photographerInfoPic {
-    width: 6rem;
-    height: 6em;
-    margin-right: 1rem;
-  }
-  #header_nav ul {
-    width: 100%;
-  }
-  #photographs {
-    width: 100%;
-    margin-top: 10rem;
-  }
-  .photographsListTitle {
-    margin-right: 0.3rem;
-    padding-left: 1rem;
-    color: #901c1c;
-    font-size: 1.4rem;
-  }
-  .logo_Fisheye {
-    width: 10rem;
-    height: 5rem;
-  }
-  .photographerInfo {
-    margin-top: 0rem auto;
-  }
-  .photographerFullName {
-    font-size: 1.5rem;
-    color: #901c1c;
-  }
-  .photographerDescriptionText {
-    font-size: 1rem;
-  }
-  .photographerDescriptionQuote {
-    margin: 0.4rem 0 0.4rem 0;
-  }
-  .photographerDescriptionLocation {
-    margin-top: 0.4rem;
-  }
-  #scrollMainPage {
-    left: 35%;
-  }
-  .photographerDescriptionHashtags a {
-    font-size: 0.7rem;
-  }
-  .photographerPhotos {
-    margin: 2rem 1rem;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 1.5rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
   }
   .thePhotograph {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 16rem;
-    height: 16rem;
+    width: 24rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
   }
-}
-
-@media screen and (max-width: 360px) {
-  #photographs {
-    width: 100%;
-    margin-top: 10rem;
-    margin-left: 3rem;
+  #scrollMainPage {
+    left: 45%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .photographerInfoPic {
+    margin-right: 5rem;
   }
 }
 /*# sourceMappingURL=Style.css.map */
