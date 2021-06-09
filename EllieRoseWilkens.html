@@ -16,8 +16,10 @@
 <body>
     <div id="all_body">
         <div class="thePricingSec">
-            <p>--- <i class="fas fa-heart"></i></p>
-            <p>250€ / jour</p>
+          <div class="photographerLikesSec">
+            <input type="number" value=""><i id="likesHeart" class="fas fa-heart"></i>
+          </div>         
+           <p>250€ / jour</p>
         </div>
         <div>
           <button class="photographerContactResp">Contactez-moi</button>
@@ -37,8 +39,8 @@
                     <p class="photographerDescriptionQuote">Capturer des compositions complexes</p>
                 </div>
                 <div class="photographerDescriptionHashtags">
-                    <a href="#" class="Sport">#sport</a>
-                    <a href="#" class="Architecture">#architecture</a>
+                    <a href="#" class="Sport" data-target="sport">#sport</a>
+                    <a href="#" class="Architecture" data-target="sport">#architecture</a>
                   </div>
                 </div>
                 <button class="photographerContact">Contactez-moi</button>
@@ -126,176 +128,252 @@
     </section>
 
     <section class="thePhotographsSection">
-      <figure class="photographerPhotos sport">
+      <figure data-item="sport" class="photographerPhotos sport">
             <video src="./SamplePhotos/EllieRose/Sport_Tricks_in_the_air.mp4 "  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph"></video>
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Tricks in the Air</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-02-30</p>
+                <p class="photographPrice">70€</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                    <span class="likesNumber">150</span>
+                    <input type="number" value="150" class="likesNumber">
                     <div class="LikesIcon">
-                        <i class="far fa-heart"></i> <!-- empty heart -->
-                        <i class="fas fa-heart"></i> <!-- full heart -->
+                        <i class="fa fa-heart"></i> 
+                        <!-- <i class="fa fa-heart"></i> full heart -->
                     </div>
                 </div>
             </figcaption>
         </figure>
 
-        <figure class="photographerPhotos travel">
+        <figure data-item="sport" class="photographerPhotos sport">
             <img src="./SamplePhotos/EllieRose/Sport_Next_Hold.jpg"
                     alt="image de jeune femme qui fait de l'escalade" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Climber</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-03-05</p>
+                <p class="photographPrice">65€</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                <span class="likesNumber">101</span>
-                <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                  <input type="number"value="101" class="likesNumber">
+                  <div class="LikesIcon">
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
         </figure>
 
-        <figure class="photographerPhotos sport" >
+        <figure data-item="sport" class="photographerPhotos sport" >
             <img src="./SamplePhotos/EllieRose/sport_water_tunnel.jpg"
                     alt="image d'un homme  qui fait du surfing" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Surfer</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-03-10</p>
+                <p class="photographPrice">70</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                <span class="likesNumber">103</span>
+                  <input type="number"value="103" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos sport">
+         <figure data-item="sport" class="photographerPhotos sport">
             <img src="./SamplePhotos/EllieRose/Sport_Sky_Cross.jpg"
                     alt="image d'une personne qui fait du ski" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Skier</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-04-16</p>
+                <p class="photographPrice">50€</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                <span class="likesNumber">77</span>
+                  <input type="number"value="77" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos sport">
+         <figure data-item="sport" class="photographerPhotos sport">
             <img src="./SamplePhotos/EllieRose/Sport_Race_End.jpg"
                     alt="image de plusieurs filles courant dans un stade olympique" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Race End</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-04-22</p>
+                <p class="photographPrice">65€</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                <span class="likesNumber">88</span>
+                  <input type="number"value="88" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos sport">
+         <figure data-item="sport" class="photographerPhotos sport">
             <img src="./SamplePhotos/EllieRose/Sport_Jump.jpg"
                     alt="image de plusieurs jeune faisant du skateboard" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Jump!</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-04-27</p>
+                <p class="photographPrice">70€</p>
+                </div>
+               </div> 
                 <div class="LikesSection">
-                <span class="likesNumber">95</span>
+                  <input type="number"value="95" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos architecture">
+         <figure data-item="architecture" class="photographerPhotos architecture">
             <img src="./SamplePhotos/EllieRose/Architecture_White_Light.jpg"
                     alt="image d'un plafond dont le centre est blanc et reflète la lumière blanche" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>White Light</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-05-03</p>
+                <p class="photographPrice">75€</p></div>
+               </div>
                 <div class="LikesSection">
-                <span class="likesNumber">52</span>
+                  <input type="number"value="52" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos architecture">
+         <figure data-item="architecture" class="photographerPhotos architecture">
             <img src="./SamplePhotos/EllieRose/Architecture_Water_on_Modern.jpg"
                     alt="image d une maison moderne entouré de l'eau" title="clicker pour voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Water on Modern Building</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-05-10</p>
+                <p class="photographPrice">72€</p>
+                </div>
+               </div>
                 <div class="LikesSection">
-                <span class="likesNumber">55</span>
+                  <input type="number"value="55" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos architecture">
+         <figure data-item="architecture" class="photographerPhotos architecture">
             <img src="./SamplePhotos/EllieRose/Architecture_Horseshoe.jpg"
             alt="image d' un immeuble qui ressemble au chaussures pour chevaux" title="clicker pour voir la photo"
             class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Horseshoe</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-05-15</p>
+                <p class="photographPrice">71€</p>
+                </div>
+               </div>
                 <div class="LikesSection">
-                <span class="likesNumber">85</span>
+                  <input type="number"value="85" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
          
-         <figure class="photographerPhotos architecture" >
+         <figure data-item="architecture" class="photographerPhotos architecture" >
             <img src="./SamplePhotos/EllieRose/Architecture_Cross_Bar.jpg"
                     alt="traversée entre deux immeubles moderne" title="clicker pour  voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Cross Bar</h2>
+                <div class="photographPriceDate">
+
+                <p>2018-05-20</p>
+                <p class="photographPrice">58€</p>
+                </div>
+               </div>
                 <div class="LikesSection">
-                <span class="likesNumber">66</span>
+                  <input type="number"value="66" class="likesNumber">
                   <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                    <i class="fa fa-heart"></i> 
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
          </figure>
 
-         <figure class="photographerPhotos architecture" >
+         <figure data-item="architecture" class="photographerPhotos architecture" >
             <img src="./SamplePhotos/EllieRose/Architecture_Connected_Curves.jpg"
                     alt="image de deux centre modern connecté entre eux par un pont" title="clicker pour  voir la photo"
                     class="thePhotograph">
             <figcaption class="photographDescr">
+              <div class="photographDetails">
                 <h2>Connected Curves</h2>
-                <div class="LikesSection">
-                <span class="likesNumber">79</span>
-                  <div class="LikesIcon">
-                    <i class="far fa-heart"></i> <!-- empty heart -->
-                    <i class="fas fa-heart"></i> <!-- full heart -->
+                <div class="photographPriceDate">
+
+                <p>2018-05-21</p>
+                <p class="photographPrice">80€</p>
+                </div>
+              </div>
+              <div class="LikesSection">
+                <input type="number"value="79" class="likesNumber">
+                <div class="LikesIcon">
+                    <i class="fa fa-heart "></i>
+                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
