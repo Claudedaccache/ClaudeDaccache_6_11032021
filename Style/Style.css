@@ -217,6 +217,8 @@ header {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  -webkit-box-shadow: 0.1rem 0.2rem 0.5rem gray;
+          box-shadow: 0.1rem 0.2rem 0.5rem gray;
   margin: 1rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -428,6 +430,8 @@ header {
   width: 6rem;
   height: 5.2rem;
   border-radius: 50%;
+  -webkit-box-shadow: 0.1rem 0.2rem 0.5rem gray;
+          box-shadow: 0.1rem 0.2rem 0.5rem gray;
 }
 
 .photographerDescription {
@@ -466,6 +470,8 @@ header {
   margin-right: 1.8rem;
   font-size: 1rem;
   font-weight: bold;
+  position: relative;
+  top: 0.5rem;
 }
 
 .filterSection ul {
@@ -495,6 +501,14 @@ header {
   position: relative;
   z-index: 1000;
   overflow: visible;
+}
+
+#filterIcon {
+  background: none;
+  border: none;
+  color: #fafafa;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .notActive {
@@ -555,7 +569,7 @@ header {
      object-position: center;
   width: 18rem;
   height: 18rem;
-  border-radius: 0.7rem;
+  border-radius: 0.3rem;
   cursor: pointer;
 }
 
@@ -595,15 +609,12 @@ header {
 }
 
 .likesNumber {
-  background-color: none;
-  width: 2.6rem;
-  font-size: 1rem;
-  padding-right: 0;
-  pointer-events: none;
+  font-size: 1.1rem;
+  color: #901c1c;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  color: #901c1c;
+  margin-right: 0.8rem;
 }
 
 .photographPriceDate {
@@ -751,6 +762,25 @@ header {
   color: #fafafa;
 }
 
+.btnClose {
+  background-color: #d3573c;
+  display: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  color: #1f1f1f;
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  bottom: 5%;
+  left: 35%;
+}
+
+.btnClose:hover {
+  background-color: #901c1c;
+  color: #fafafa;
+}
+
 .bground {
   display: none;
   position: fixed;
@@ -760,13 +790,12 @@ header {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: #fafafa;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   -webkit-animation-name: formopen;
           animation-name: formopen;
   -webkit-animation-duration: 0.8s;
@@ -854,6 +883,21 @@ textarea::placeholder {
 #formValidationMessage {
   visibility: hidden;
   font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .close {
@@ -866,7 +910,7 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-@media screen and (min-width: 330px) {
+@media screen and (min-width: 370px) {
   .photographsListTitle {
     padding-left: 1rem;
     color: #901c1c;
@@ -875,16 +919,16 @@ textarea::placeholder {
   .logo_Fisheye {
     width: 12rem;
     height: 5rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   #header_nav ul li a {
     font-size: 1rem;
   }
   .thePhotograph {
     width: 20rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .photographerContactResp {
     display: block;
@@ -893,7 +937,7 @@ textarea::placeholder {
     left: 30%;
   }
   .photographerFullName {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .photographerDescriptionLocation {
     font-size: 1.2rem;
@@ -903,8 +947,8 @@ textarea::placeholder {
   }
   .photographerDescriptionId {
     margin-left: 1rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .photographerDescriptionHashtags a {
     font-size: 1rem;
@@ -922,6 +966,12 @@ textarea::placeholder {
   .filterList {
     font-size: 1.1rem;
   }
+  .photographerInfoPic {
+    width: 6rem;
+    height: 6rem;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -933,13 +983,13 @@ textarea::placeholder {
   .photographerInfoPic {
     width: 8rem;
     height: 8rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .photographerDescriptionHashtags a {
     font-size: 1rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -950,11 +1000,11 @@ textarea::placeholder {
     display: flex;
   }
   .photographerInfoPic {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     margin-right: 2rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .formTitle {
     font-size: 2.8rem;
@@ -968,18 +1018,24 @@ textarea::placeholder {
     bottom: 1.5rem;
     left: 30%;
   }
-  .photographerContactResp {
-    display: none;
-    position: fixed;
-    bottom: 1.5rem;
-    left: 30%;
+  .photographerFullName {
+    font-size: 2rem;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .photographerContact {
     display: block;
+    margin-left: 2rem;
   }
   .photographerInfoPic {
     position: absolute;
     top: 0.7rem;
+  }
+  .bground {
+    background-color: #fafafa;
+  }
+  .btnClose {
+    left: 40%;
   }
 }
 
@@ -988,8 +1044,16 @@ textarea::placeholder {
     width: 12rem;
     height: 12rem;
     margin-right: 2rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .photographerContact {
+    display: block;
+    margin-left: 3rem;
+  }
+  .photographer {
+    width: 24rem;
+    margin-bottom: 5rem;
   }
   .photographsListTitle {
     padding-left: 1rem;
@@ -1009,13 +1073,13 @@ textarea::placeholder {
             justify-content: center;
     position: absolute;
     top: 1.5rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .thePhotograph {
     width: 24rem;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.5 ease-in-out;
+    transition: all 0.5 ease-in-out;
   }
   #scrollMainPage {
     left: 45%;
