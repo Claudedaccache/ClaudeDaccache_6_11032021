@@ -1,4 +1,4 @@
-@media screen and (min-width: 330px) {
+@media screen and (min-width: 370px) {
   .photographsListTitle {
     padding-left: 1rem;
     color: $primaryColor;
@@ -8,14 +8,14 @@
   .logo_Fisheye {
     width: 12rem;
     height: 5rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   #header_nav ul li a {
     font-size: 1rem;
   }
   .thePhotograph {
     width: 20rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   .photographerContactResp {
@@ -26,7 +26,7 @@
   }
 
   .photographerFullName {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .photographerDescriptionLocation {
@@ -38,7 +38,7 @@
 
   .photographerDescriptionId {
     margin-left: 1rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   .photographerDescriptionHashtags a {
@@ -60,6 +60,13 @@
   .filterList {
     font-size: 1.1rem;
   }
+
+  .photographerInfoPic {
+    width: 6rem;
+    height: 6rem;
+    transition: all 0.5s ease-in-out;
+    // margin-right: 2rem;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -71,13 +78,13 @@
   .photographerInfoPic {
     width: 8rem;
     height: 8rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
     // margin-right: 2rem;
   }
 
   .photographerDescriptionHashtags a {
     font-size: 1rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -86,10 +93,10 @@
     display: flex;
   }
   .photographerInfoPic {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     margin-right: 2rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .formTitle {
     font-size: 2.8rem;
@@ -103,19 +110,26 @@
     bottom: 1.5rem;
     left: 30%;
   }
-  .photographerContactResp {
-    display: none;
-    position: fixed;
-    bottom: 1.5rem;
-    left: 30%;
+
+  .photographerFullName {
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
   }
 
   .photographerContact {
     display: block;
+    margin-left: 2rem;
   }
   .photographerInfoPic {
     position: absolute;
     top: 0.7rem;
+  }
+  .bground {
+    background-color: $quaternaryColor;
+  }
+
+  .btnClose {
+    left: 40%;
   }
 }
 
@@ -124,7 +138,17 @@
     width: 12rem;
     height: 12rem;
     margin-right: 2rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .photographerContact {
+    display: block;
+    margin-left: 3rem;
+  }
+
+  .photographer {
+    width: 24rem;
+    margin-bottom: 5rem;
   }
   .photographsListTitle {
     padding-left: 1rem;
@@ -138,11 +162,11 @@
     // align-items: center;
     position: absolute;
     top: 1.5rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .thePhotograph {
     width: 24rem;
-    transition: all 1s ease-in-out;
+    transition: all 0.5 ease-in-out;
   }
   #scrollMainPage {
     left: 45%;

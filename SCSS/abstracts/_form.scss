@@ -9,13 +9,13 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: $quaternaryColor;
+  // background-color: $quaternaryColor;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   animation-name: formopen;
   animation-duration: 0.8s;
   background: lighten($secondaryColor, 15%);
@@ -78,6 +78,11 @@ textarea::placeholder {
 #formValidationMessage {
   visibility: hidden;
   font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .close {
