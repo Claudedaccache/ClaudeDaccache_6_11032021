@@ -9,23 +9,22 @@ var validLastName = /^[a-zA-ZîèéïÉÈ][a-zàâçéèêëîïùûüÜÛÙÏÎ
 
 var email = document.getElementById ("email");
 var emailErrorMessage = document.getElementById("emailErrorMessage");
-var validEmail = /^[a-zàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ][a-zA-ZàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/
+var validEmail = /^[a-zA-ZàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ][a-zA-ZàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/
 
 var content = document.querySelector(".content");
 var buttonSubmit = document.querySelector(".btn-submit");
+
+
+var btnSubmit = document.querySelectorAll(".photographerContact");
+var btnSubmitResp = document.querySelectorAll(".photographerContactResp");
 
 const modalbg = document.querySelector(".bground");
 const modalBody = document.querySelector(".modal-body");
 const myForm = document.getElementById ("myForm");
 const close = document.querySelectorAll(".close");
+const closeBtn = document.querySelector(".btnClose")
 
 
-// scrolling variable:
-var scrollBtn = document.querySelector("#scrollMainPage");
-
-
-var btnSubmit = document.querySelectorAll(".photographerContact");
-var btnSubmitResp = document.querySelectorAll(".photographerContactResp");
 
 // DOM Elements
 
@@ -54,11 +53,17 @@ function closing (){
 }
 
 
+function closingForm(){
+  modalbg.style.display = "none";
+}
+
+
 //addEventListener section:
 myForm.addEventListener("submit", formValidation);
 yourName.addEventListener ("input", nameValidation);
 lastName.addEventListener ("input", lastNameValidation);
 email.addEventListener ("input", emailValidation);
+closeBtn.addEventListener("click", closingForm);
 
 
 //form validation:
@@ -66,10 +71,11 @@ function formValidation (e){
   e.preventDefault();
   if (nameValidation() && lastNameValidation() && emailValidation()){    
     modalBody.remove();
-    content.style.width= "100%";
+    content.style.width= "85%";
     content.style.height= "100%";
-    content.style.padding= "8rem 3rem 0 3rem";
+    content.style.padding= "10rem 5% 0 5%";
     formValidationMessage.style.visibility= "visible";
+    closeBtn.style.display="block"
     return myForm.submit();
     }
 }
@@ -86,11 +92,11 @@ function nameValidation(e){
     return false;
   }
 
-    else if (yourName.value.length <= 2){
+    else if (yourName.value.length < 2){
       // e.preventDefault();
       nameErrorMessage.innerHTML = "Le prénom renseigné est très court!";
       nameErrorMessage.style.color = "white";
-      yourName.style.border = "3px solid red";
+      yourName.style.border = "3px solid orange";
       return false;
     }
     
@@ -120,11 +126,11 @@ function lastNameValidation(e){
     return false;
   }
 
-    else if (lastName.value.length <= 2){
+    else if (lastName.value.length < 2){
       // e.preventDefault();
       lastNameErrorMessage.innerHTML = "Le prénom renseigné est très court!";
       lastNameErrorMessage.style.color = "white";
-      lastName.style.border = "3px solid red";
+      lastName.style.border = "3px solid orange";
       return false;
     }
     
@@ -158,7 +164,7 @@ function emailValidation(e){
         // e.preventDefault();
         emailErrorMessage.innerHTML = "Veuillez respecter le format du e-mail! (exemple@domaine.fr)";
         emailErrorMessage.style.color = "white";
-        email.style.border = "3px solid red";
+        email.style.border = "3px solid orange";
         return false;
       }
     
@@ -169,10 +175,14 @@ function emailValidation(e){
       return true;}
 }
 
+
+// scrolling btn
+var scrollBtn = document.querySelector("#scrollMainPage");
+
 window.addEventListener("scroll", () => {
   const scrolled = window.scrollY;
 
-  console.log(scrolled)
+  // console.log(scrolled)
 
  if(scrolled < 300){
     scrollBtn.style.display ="none";
@@ -183,27 +193,27 @@ window.addEventListener("scroll", () => {
   }
 )
 
-// filter section:
+// filter section:                                                working but need to make it sort and filter
 
-var FilterIcon = document.querySelector(".active");
+var FilterIcon = document.querySelector("#filterIcon");
 var FilterNotActive = document.querySelectorAll(".notActive")
 
 // filterIcon.forEach((btn) => btn.addEventListener("click", launchFilter));
 FilterIcon.addEventListener("click", launchFilter);
-
 
 function launchFilter () {
   FilterNotActive.forEach((btn) => btn.classList.toggle('responsive'));
 
   }
 
-// clickable counting heart
 
-  var icons = document.querySelectorAll(".LikesIcon i"); 
+// clickable hearts                                   working
+
+  var icons = document.querySelectorAll(".LikesIcon i");
 
   icons.forEach((icon) => icon.addEventListener("click",  () => {
-    icon.classList.toggle('resp')
-   }))
+  icon.classList.toggle('resp');
+  }))
 
 
 
@@ -214,30 +224,65 @@ function launchFilter () {
 
 
 
-   
 
 
-// increasing and decreasing likes:
+// increasing and decreasing likes:                            not workingggg
 
-var likesNumber = document.querySelectorAll(".likesNumber").value;
+var likesNumber = document.querySelectorAll(".likesNumber");
 
-console.log(likesNumber)
+// icons.forEach((icon) => icon.addEventListener("click",  () => {
 
-likesNumber.forEach((like) => like.addEventListener("change",  () => {
 
-if(icons.className === ".LikesIcon i"){
-  likesNumber = likesNumber + 1
-}
-else{
-  likesNumber = likesNumber - 1
-}
-}))
+// if(icon.className === "LikesIcon i.resp"){
+//   parseInt(likesNumber++)
+// }
+// else {
+//   parseInt(likesNumber--)
+// }
 
-//filter photos:
-// var sortBtn = document.querySelectorAll(".photographerDescriptionHashtags a");
-// var sortItems = document.querySelectorAll(".photographerPhotos");
-// var section = document.querySelectorAll(".thePhotographsSection")
-// var targetData = document.getElementsByTagName('data-target');
+// }))
+
+
+
+// for (i=0; i < icons.length; i++){
+//   icons[i].addEventListener("click", () => {
+
+
+//   if(icons.checked == true ){
+//       // parseInt(likesNumber++)
+//       likesNumber.textContent++
+// }
+// else {
+//     // parseInt(likesNumber--)
+//     likesNumber.textContent--
+
+//   }
+// })}
+
+
+
+
+
+
+
+
+
+
+
+// total likes:
+
+// var totalLikes = document.querySelector("photographerLikesSec imput")
+// var sum =0
+// likesNumber.forEach((like) => {
+//   var likeValue = parseInt(like.textContent)
+//   sum+=likeValue
+// })
+
+
+//   console.log(sum)
+
+
+
 
 
 
