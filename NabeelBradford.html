@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./Style/Style.css">
     <link rel="icon" type="image/svg" href="./SamplePhotos/camera-solid.svg">
     <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
+    <script src="index.js" defer></script>
+    <script src="Media.js" defer></script>
     <title>Fisheye - Nabeel Bradford</title>
 </head>
 <!--body-->
@@ -37,15 +39,14 @@
                     <p class="photographerDescriptionQuote">Toujours aller de l'avant</p>
                 </div>
                 <div class="photographerDescriptionHashtags">
-                  <a href="#" class="Travel">#travel</a>
-                  <a href="#" class="Portrait">#portrait</a>
+                  <a href="#" class="btnTag" data-filter="travel">#travel</a>
+                  <a href="#" class="btnTag" data-filter="portrait">#portrait</a>
                 </div>
               </div>
               <button class="photographerContact">Contactez-moi</button>
           </div>
             <img src="./SamplePhotos/PhotographersIDPhotos/NabeelBradford.jpg"
-            alt="image d'un ..." title="clicker pour voir ce photographe"
-            class="photographerInfoPic">
+            alt="image de Nabeel Bradford" class="photographerInfoPic">
         </div>
     </section>
 
@@ -111,6 +112,11 @@
             </form>
           </div>
           <span id="formValidationMessage">Votre message a bien été envoyé<br><br><br>Merci et à bientôt!</span>
+          <input
+          class="btnClose"
+          type="button"
+          value="close"
+        />
         </div>
     </section>
     
@@ -118,7 +124,7 @@
         <div class="filterSection">
             <p>Trier par</p>
             <ul>
-              <li class="filterList active">Popularité<span>&nbsp&nbsp&nbsp&nbsp<i class="fas fa-chevron-up"></i></span></li>
+              <li class="filterList active">Popularité&nbsp&nbsp&nbsp&nbsp<button id="filterIcon"><i  class="fas fa-chevron-up"></i></button></li>
               <li class="filterList notActive">Date</li>
               <li class="filterList notActive">Titre</li>
           </ul>
@@ -139,7 +145,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="23" class="likesNumber">
+                  <span class="likesNumber" >23</span>
+                   <!-- <input type="number"value="23" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -161,7 +168,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="101" class="likesNumber">
+                  <span class="likesNumber" >101</span>
+                  <!-- <input type="number"value="101" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -183,7 +191,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="99" class="likesNumber">
+                  <span class="likesNumber" >99</span>
+                  <!-- <input type="number"value="99" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -205,7 +214,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="34" class="likesNumber">
+                  <span class="likesNumber" >34</span>
+                  <!-- <input type="number"value="34" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -227,7 +237,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="23" class="likesNumber">
+                  <span class="likesNumber" >23</span>
+                  <!-- <input type="number"value="23" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -249,7 +260,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="66" class="likesNumber">
+                  <span class="likesNumber" >66</span>
+                  <!-- <input type="number"value="66" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -271,7 +283,8 @@
                 <p class="photographPrice">54€</p></div>
               </div>
                 <div class="LikesSection">
-                  <input type="number" value="52" class="likesNumber">
+                  <span class="likesNumber" >52</span>
+                  <!-- <input type="number" value="52" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -293,7 +306,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="95" class="likesNumber">
+                  <span class="likesNumber" >95</span>
+                  <!-- <input type="number"value="95" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -315,7 +329,8 @@
                 <p class="photographPrice">45€</p></div>
                </div>
                 <div class="LikesSection">
-                  <input type="number"value="25" class="likesNumber">
+                  <span class="likesNumber" >25</span>
+                  <!-- <input type="number"value="25" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
                     <!-- <i class="fas fa-heart"></i> full heart -->
@@ -325,6 +340,7 @@
          </figure>
    </section>
 </div>
-<script src="index.js"></script>
+
+
 </body>
 </html>
