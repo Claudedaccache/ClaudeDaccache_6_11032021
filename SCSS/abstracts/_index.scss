@@ -8,7 +8,7 @@
   right: 50%;
   left: 30%;
   font-weight: bold;
-  width: 9rem;
+  width: 10rem;
   padding: 0.2rem 0.5rem;
   background-color: lighten($secondaryColor, 15%);
   border-radius: 0.5rem;
@@ -130,7 +130,7 @@
 .photographerDescriptionHashtags {
   display: flex;
   flex-direction: row;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .photographerDescriptionHashtags a {
