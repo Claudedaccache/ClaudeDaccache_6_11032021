@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @-webkit-keyframes likeicon {
   100% {
     color: #901c1c;
   }
 }
-
 @keyframes likeicon {
   100% {
     color: #901c1c;
@@ -69,6 +69,14 @@ body {
 
 a {
   text-decoration: none;
+}
+
+p,
+h1,
+h3,
+h2,
+a {
+  font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -141,7 +149,7 @@ header {
   display: block;
   list-style-type: none;
   margin: 0.2rem;
-  padding: 0.2rem;
+  padding: 0.2rem 0.4rem;
   border: 1px solid #525252;
   border-radius: 1rem;
   background-color: #fafafa;
@@ -194,6 +202,7 @@ header {
 }
 
 #scrollMainPage {
+  display: none;
   position: absolute;
   top: 0.4rem;
   right: 50%;
@@ -420,6 +429,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   margin: 1rem auto;
+  background-color: #fafafa;
   width: 100%;
 }
 
