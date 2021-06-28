@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Utiliser Fisheye pour trouver les meilleurs photos prise par des photographes professionnels">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Style/Style.css">
-    <link rel="icon" type="image/svg" href="./SamplePhotos/camera-solid.svg">
-    <script src="https://kit.fontawesome.com/406da18a0b.js" crossorigin="anonymous" defer></script>
-    <!-- <script src="./Js/Fetch.js" defer></script> -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Utiliser Fisheye pour trouver les meilleurs photos prise par des photographes professionnels"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Style/Style.css" />
+    <link rel="icon" type="image/svg" href="./SamplePhotos/camera-solid.svg" />
+    <script
+      src="https://kit.fontawesome.com/406da18a0b.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <script src="./Js/index.js" defer></script>
     <script src="./Js/Media.js" defer></script>
     <script src="./Js/Form.js" defer></script>
+    <script src="./Js/lightbox.js" defer></script>
+
     <title>Fisheye - Mimi Keel</title>
-</head>
-<!--body-->
-                                          <!-----id: 243------>
-<body>
+  </head>
+  <!--body-->
+  <!-----id: 243------>
+  <body>
     <div id="all_body">
-        <div class="thePricingSec">
-          <div class="photographerLikesSec">
-            <input type="number" value=""><i id="likesHeart" class="fas fa-heart"></i>
-          </div>
-            <p>400€ / jour</p>
+      <div class="thePricingSec">
+        <div class="photographerLikesSec">
+          <span id="totalLikes"></span><i id="likesHeart" class="fas fa-heart"></i>
         </div>
+        <p>400€ / jour</p>
+      </div>
 
-        <div>
-          <button class="photographerContactResp">Contactez-moi</button>
-        </div>
-        <header>
-            <a href="#" id="scrollMainPage">Passer au contenu</a>
-            <a href="index.html"><img src="./SamplePhotos/logo.jpeg" alt="logo Fisheye" class="logo_Fisheye"></a>
-        </header>
+      <div>
+        <button class="photographerContactResp">Contactez-moi</button>
+      </div>
+      <header>
+        <a href="#" id="scrollMainPage">Passer au contenu</a>
+        <a href="index.html"
+          ><img
+            src="./SamplePhotos/logo.jpeg"
+            alt="logo Fisheye"
+            class="logo_Fisheye"
+        /></a>
+      </header>
 
-    <section>
+      <section>
         <div class="photographerInfo">
-            <div class="photographerDescription">
-              <div class="photographerDescriptionId">
-                <h1 class="photographerFullName">Mimi Keel</h1>
-                 <div class="photographerDescriptionText">
-                    <p class="photographerDescriptionLocation">London, UK</p>
-                    <p class="photographerDescriptionQuote">Voir le beau dans le quotidien</p>
-                </div>
-                <div class="photographerDescriptionHashtags">
-                    <a href="#" class="btnTag" data-filter="portrait">#portrait</a>
-                    <a href="#" class="btnTag" data-filter="events">#events</a>
-                    <a href="#" class="btnTag" data-filter="travel">#travel</a>
-                    <a href="#" class="btnTag" data-filter="animals">#animals</a>
-                </div>
+          <div class="photographerDescription">
+            <div class="photographerDescriptionId">
+              <h1 class="photographerFullName">Mimi Keel</h1>
+              <div class="photographerDescriptionText">
+                <p class="photographerDescriptionLocation">London, UK</p>
+                <p class="photographerDescriptionQuote">
+                  Voir le beau dans le quotidien
+                </p>
               </div>
-              <button class="photographerContact">Contactez-moi</button>
+              <div class="photographerDescriptionHashtags">
+                <a href="#" class="btnTag" data-filter="portrait">#portrait</a>
+                <a href="#" class="btnTag" data-filter="events">#events</a>
+                <a href="#" class="btnTag" data-filter="travel">#travel</a>
+                <a href="#" class="btnTag" data-filter="animals">#animals</a>
+              </div>
+            </div>
+            <button class="photographerContact">Contactez-moi</button>
           </div>
-            <img src="./SamplePhotos/PhotographersIDPhotos/MimiKeel.jpg"
-            alt="image de Mimi Keel" class="photographerInfoPic">
-        </div> 
-    </section>
+          <img
+            src="./SamplePhotos/PhotographersIDPhotos/MimiKeel.jpg"
+            alt="image de Mimi Keel"
+            class="photographerInfoPic"
+          />
+        </div>
+      </section>
 
-
-    <section class="bground">
+      <section class="bground">
         <div class="content">
           <span class="close"><i class="fas fa-times"></i></span>
           <div class="modal-body">
@@ -68,81 +84,83 @@
               method="POST"
               onsubmit="return formValidation();"
             >
-
-            <div class="formTitle">Contactez-moi<br>Mimi Keel</div>
+              <div class="formTitle">Contactez-moi<br />Mimi Keel</div>
               <div class="formData">
-                <label for="first" >Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first" minlength="2" placeholder="Ex: James.."  /><br>
+                <label for="first">Prénom</label><br />
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                  placeholder="Ex: James.."
+                /><br />
                 <span id="nameErrorMessage"></span>
               </div>
-              <div
-                class="formData">
-                <label for="last" >Nom</label><br>
+              <div class="formData">
+                <label for="last">Nom</label><br />
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
                   placeholder="Ex: Smith.."
-                  
-                /><br>
+                /><br />
                 <span id="lastNameErrorMessage"></span>
               </div>
-              <div
-                class="formData">
-                <label for="email">E-mail</label><br>
+              <div class="formData">
+                <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
                   placeholder="Ex: James_Smith@hotmail.com"
-                  
-                /><br>
+                /><br />
                 <span id="emailErrorMessage"></span>
               </div>
-              <div
-                class="formData">
-                <label for="message">Votre message</label><br>
-                <textarea 
-                  rows="6" 
+              <div class="formData">
+                <label for="message">Votre message</label><br />
+                <textarea
+                  rows="6"
                   placeholder="Entrez votre message ici..."
-                  ></textarea>
-                   <!-- class="text-control"
+                ></textarea>
+                <!-- class="text-control"
                   id="message"
                   name="message"> -->
-                  
+
                 <span id="messageErrorMessage"></span>
-              </div><br>
-              <input
-                class="btn-submit"
-                type="submit"
-                value="Envoyer"
-              />
+              </div>
+              <br />
+              <input class="btn-submit" type="submit" value="Envoyer" />
             </form>
           </div>
-          <span id="formValidationMessage">Votre message a bien été envoyé <br><br><br> Merci et à bientôt!</span>
-          <input
-                class="btnClose"
-                type="button"
-                value="close"
-              />
+          <span id="formValidationMessage"
+            >Votre message a bien été envoyé <br /><br /><br />
+            Merci et à bientôt!</span
+          >
+          <input class="btnClose" type="button" value="close" />
         </div>
-    </section>
-    
-    <section>
-        <div class="filterSection">
-            <p>Trier par</p>
-            <ul>
-              <li class="filterList active">Popularité&nbsp&nbsp&nbsp&nbsp<button id="filterIcon"><i  class="fas fa-chevron-up"></i></button></li>
-                <li class="filterList notActive">Date</li>
-                <li class="filterList notActive">Titre</li>
-            </ul>
-        </div>
-    </section>
+      </section>
 
-    <section class="thePhotographsSection">
-        <figure class="photographerPhotos travel">
+      <section>
+        <div class="filterSection">
+          <p>Trier par</p>
+          <ul>
+            <li class="filterList active" id="Popular">
+              Popularité&nbsp&nbsp&nbsp&nbsp
+            </li>
+            <button id="filterIcon">
+              <i class="fas fa-chevron-up"></i>
+            </button>
+            <li class="filterList notActive" id="Date">Date</li>
+            <li class="filterList notActive" id="Title">Titre</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="thePhotographsSection">
+        <!-- <figure class="photographerPhotos travel">
             <img src="./SamplePhotos/Mimi/Travel_Lonesome.jpg"
                     alt="image d'un voyageur au sommet d'une colline entourée de plusieur colline vertes" title="clicker pour voir la photo"
                     class="thePhotograph">
@@ -156,10 +174,8 @@
                </div></div>
                 <div class="LikesSection">
                   <span class="likesNumber" >88</span>
-                  <!-- <input type="number"value="88" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
                 </div>
             </figcaption>
@@ -179,10 +195,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >85</span>
-                  <!-- <input type="number"value="85" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -203,10 +217,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >34</span>
-                  <!-- <input type="number"value="34" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -227,10 +239,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >63</span>
-                  <!-- <input type="number"value="63" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -251,10 +261,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >55</span>
-                  <!-- <input type="number"value="55" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -275,10 +283,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >25</span>
-                  <!-- <input type="number"value="25" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -298,10 +304,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >52</span>
-                  <!-- <input type="number"value="52" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -323,10 +327,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >77</span>
-                  <!-- <input type="number"value="77" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -346,10 +348,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >142</span>
-                  <!-- <input type="number"value="142" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -370,31 +370,27 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >59</span>
-                  <!-- <input type="number"value="59" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
-         </figure>
-   </section>
+         </figure> -->
+      </section>
+
+      <section>
+        <div class="previewBox">
+          <div class="closing">
+            <span class="icon fas fa-times"></span>
+          </div>
+          <div class="imageBox">
+            <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+            <div class="slide next"><i class="fas fa-angle-right"></i></div>
+            <img src="" alt="" />
+          </div>
+        </div>
+        <div class="shadow"></div>
+      </section>
     </div>
-
-    <section>
-      <div class="previewBox">
-       <div class="closing">
-         <span class="icon fas fa-times"></span>
-       </div>
-       <div class="imageBox">
-         <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-         <div class="slide next"><i class="fas fa-angle-right"></i></div>
-         <img src="" alt="">
-       </div>
-     </div>
-     <div class="shadow"></div>
-     </section>
-   
-
   </body>
-  </html>
+</html>
