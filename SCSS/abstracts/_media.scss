@@ -83,7 +83,7 @@
   }
 
   .photographerDescriptionHashtags a {
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all 0.5s ease-in-out;
   }
 }
@@ -118,7 +118,6 @@
 
   .photographerContact {
     display: block;
-    margin-left: 2rem;
   }
   .photographerInfoPic {
     position: absolute;
@@ -130,6 +129,15 @@
 
   .btnClose {
     left: 40%;
+  }
+
+  .filterSection {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .thePhotographsSection {
+    margin: -6rem auto 3rem auto;
   }
 }
 
@@ -144,6 +152,7 @@
   .photographerContact {
     display: block;
     margin-left: 3rem;
+    transition: all0.5s ease-in-out;
   }
 
   .photographer {
@@ -155,18 +164,10 @@
     color: $primaryColor;
     font-size: 1.8rem;
   }
-  #header_nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    // align-items: center;
-    position: absolute;
-    top: 1.5rem;
-    transition: all 0.5s ease-in-out;
-  }
+
   .thePhotograph {
     width: 24rem;
-    transition: all 0.5 ease-in-out;
+    // transition: 0.5 ease-in-out;
   }
   #scrollMainPage {
     left: 45%;
@@ -174,5 +175,17 @@
   }
   .photographerInfoPic {
     margin-right: 5rem;
+  }
+}
+
+@media screen and (min-width: 1070px) {
+  #header_nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // align-items: center;
+    position: absolute;
+    top: 1.5rem;
+    // transition: 0.5s ease-in-out;
   }
 }
