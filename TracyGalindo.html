@@ -20,7 +20,7 @@
     <div id="all_body">
         <div class="thePricingSec">
           <div class="photographerLikesSec">
-            <input type="number" value=""><i id="likesHeart" class="fas fa-heart"></i>
+            <span id="totalLikes"></span><i id="likesHeart" class="fas fa-heart"></i>
           </div>            <p>500€ / jour</p>
         </div>
         <div>
@@ -127,15 +127,19 @@
         <div class="filterSection">
             <p>Trier par</p>
             <ul>
-              <li class="filterList active">Popularité&nbsp&nbsp&nbsp&nbsp<button id="filterIcon"><i  class="fas fa-chevron-up"></i></button></li>
-              <li class="filterList notActive">Date</li>
-              <li class="filterList notActive">Titre</li>
-          </ul>
+              <li class="filterList active" id="Popular">
+                Popularité&nbsp&nbsp&nbsp&nbsp
+              </li><button id="filterIcon">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+              <li class="filterList notActive" id="Date">Date</li>
+              <li class="filterList notActive" id="Title">Titre</li>
+            </ul>
         </div>
     </section>
 
     <section class="thePhotographsSection">
-      <figure class="photographerPhotos fashion">
+      <!-- <figure class="photographerPhotos fashion">
             <img src="./SamplePhotos/Tracy/Fashion_Yellow_Beach.jpg"
                     alt="image d'une jeune fille en tenue de sport jaune sur la plage et en arrière-plan un terrain de basket" title="clicker pour voir la photo"
                     class="thePhotograph">
@@ -149,10 +153,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >62</span>
-                  <!-- <input type="number"value="62" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
                 </div>
             </figcaption>
@@ -172,10 +174,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >11</span>
-                  <!-- <input type="number"value="11" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -195,10 +195,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >72</span>
-                  <!-- <input type="number"value="72" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -218,10 +216,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >69</span>
-                  <!-- <input type="number"value="69" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -241,10 +237,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >2</span>
-                  <!-- <input type="number"value="2" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -264,10 +258,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >33</span>
-                  <!-- <input type="number"value="33" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -287,10 +279,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >24</span>
-                  <!-- <input type="number"value="24" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -310,10 +300,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >88</span>
-                  <!-- <input type="number"value="88" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -333,10 +321,8 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >24</span>
-                  <!-- <input type="number"value="24" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
@@ -358,16 +344,14 @@
                </div>
                 <div class="LikesSection">
                   <span class="likesNumber" >75</span>
-                  <!-- <input type="number"value="75" class="likesNumber"> -->
                   <div class="LikesIcon">
                     <i class="fa fa-heart"></i> 
-                    <!-- <i class="fas fa-heart"></i> full heart -->
                 </div>
             </div>
             </figcaption>
-         </figure>
+         </figure> -->
    </section>
-    </div>
+
 
     <section>
       <div class="previewBox">
@@ -383,6 +367,6 @@
      <div class="shadow"></div>
      </section>
    
-
+  </div>
   </body>
   </html>
