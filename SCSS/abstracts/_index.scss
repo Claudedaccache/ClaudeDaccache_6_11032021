@@ -12,7 +12,7 @@
   padding: 0.2rem 0.5rem;
   background-color: lighten($secondaryColor, 15%);
   border-radius: 0.5rem;
-  z-index: 10000;
+  z-index: 999;
   opacity: 0.7;
   // text-decoration: none;
   color: black;
@@ -235,7 +235,7 @@
   color: $quaternaryColor;
   cursor: pointer;
   position: relative;
-  z-index: 1000;
+  z-index: 999;
   overflow: visible;
 }
 
