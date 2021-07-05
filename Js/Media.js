@@ -748,18 +748,6 @@ thePhotographsSection.innerHTML = `${json["media"]
   .join("")}`;
 
 /**
- * clickable hearts for each photo or video liked
- */
-
-var icons = document.querySelectorAll(".LikesIcon i");
-
-icons.forEach((icon) =>
-  icon.addEventListener("click", () => {
-    icon.classList.toggle("resp");
-  })
-);
-
-/**
  * [when clicking on a tag from the tags of each photographer, the photos and videos will be filtered and displayed according the tag clicked]
  */
 const photographersBtnSearch = document.querySelectorAll(".btnTag");
@@ -813,10 +801,10 @@ function getPhotographLikesNbr() {
     toSort += mediaFilteredByPhgId[i].likes;
     sumLikes.push(toSort);
   }
-  let ff = parseInt(sumLikes.slice(sumLikes.length - 1));
-  console.log(ff);
+  let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
+  // console.log(totalPhgLikes);
 
-  totalLikes.innerHTML = ff;
+  totalLikes.innerHTML = totalPhgLikes;
 }
 
 /**
@@ -873,3 +861,15 @@ title.addEventListener("click", () => {
     .map(getPhotographsByPhotographersId)
     .join("")}`;
 });
+
+/**
+ * clickable hearts for each photo or video liked
+ */
+
+var icons = document.querySelectorAll(".LikesIcon i");
+
+icons.forEach((icon) =>
+  icon.addEventListener("click", () => {
+    icon.classList.toggle("resp");
+  })
+);
