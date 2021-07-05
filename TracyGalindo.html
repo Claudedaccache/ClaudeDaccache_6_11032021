@@ -12,6 +12,7 @@
     <script src="./Js/index.js" defer></script>
     <script src="./Js/Media.js" defer></script>
     <script src="./Js/Form.js" defer></script>
+    <script src="./Js/lightbox.js" defer></script>
     <title>Fisheye - Tracy Galindo</title>
 </head>
 <!--body-->
@@ -104,6 +105,7 @@
                 <textarea 
                 rows="6" 
                 placeholder="Entrez votre message ici..."
+                id="message"
                 ></textarea>
                 <span id="messageErrorMessage"></span>
               </div><br>
@@ -128,10 +130,10 @@
             <p>Trier par</p>
             <ul>
               <li class="filterList active" id="Popular">
-                Popularité&nbsp&nbsp&nbsp&nbsp
-              </li><button id="filterIcon">
+                Popularité&nbsp;&nbsp;&nbsp;&nbsp;
+              </li><li id="filterIcon">
                 <i class="fas fa-chevron-up"></i>
-              </button>
+              </li>
               <li class="filterList notActive" id="Date">Date</li>
               <li class="filterList notActive" id="Title">Titre</li>
             </ul>
@@ -353,19 +355,20 @@
    </section>
 
 
-    <section>
-      <div class="previewBox">
-       <div class="closing">
-         <span class="icon fas fa-times"></span>
-       </div>
-       <div class="imageBox">
-         <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-         <div class="slide next"><i class="fas fa-angle-right"></i></div>
-         <img src="" alt="">
-       </div>
-     </div>
-     <div class="shadow"></div>
-     </section>
+   <section id="lightBox">
+    <!-- <div class="previewBox">
+      <div class="closing">
+        <span id="lightboxClosingBtn" class="icon fas fa-times"></span>
+      </div>
+      <div class="imageBox">
+        <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+        <div class="slide next"><i class="fas fa-angle-right"></i></div>
+        <img src="./SamplePhotos/Mimi Keel/Animals_Rainbow.jpg" alt="" />
+      </div>
+      <span id="lightBoxPhotographTitle">Rainbow Bird</span>
+    </div>
+    <div class="shadow"></div> -->
+  </section>
    
   </div>
   </body>
