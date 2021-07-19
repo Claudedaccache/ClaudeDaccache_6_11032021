@@ -3,45 +3,54 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
-  background: #fff;
-  max-width: 700px;
+  background: $quaternaryColor;
+  max-width: 80%;
   width: 100%;
-  z-index: 9999;
+  z-index: 10000;
   opacity: 0;
   pointer-events: none;
   border-radius: 3px;
-  padding: 0 5px 5px 5px;
+  // padding: 2rem 5rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  background-color: red;
+  overflow: hidden;
+  // background-color: #fff;
 }
 .previewBox.show {
   opacity: 1;
+  padding: 1.8rem 2rem;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
   transition: all 0.3s ease;
 }
-.previewBox .closing {
-  display: flex;
-  align-items: center;
-  padding: 12px 15px 12px 10px;
-  justify-content: flex-end;
+.lightboxClosingBtn {
+  color: $secondaryColor;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10001;
 }
 
-.closing .icon {
-  color: black;
+.lightboxClosingBtn {
+  color: $secondaryColor;
   font-size: 25px;
   cursor: pointer;
 }
-.previewBox .image-box {
+.lightBoxPhotograph {
   display: flex;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  // padding: 1.5rem 2rem;
+  max-height: 600px;
 }
-.imageBox .slide {
+
+.slide {
   position: absolute;
   top: 50%;
+  padding: 2rem 0;
+  overflow: hidden;
   transform: translateY(-50%);
-  color: #fff;
+  color: $secondaryColor;
   font-size: 30px;
   cursor: pointer;
   height: 50px;
@@ -49,16 +58,30 @@
   line-height: 50px;
   text-align: center;
   border-radius: 3px;
+  font-size: 2rem;
 }
 .slide.prev {
-  left: 0px;
+  left: -1rem;
 }
 .slide.next {
-  right: 0px;
+  right: -1rem;
 }
-.imageBox img {
+
+.lightboxClosingBtn:hover,
+.slide:hover {
+  color: $primaryColor;
+}
+.lightBoxPhotograph {
   width: 100%;
   border-radius: 0 0 3px 3px;
+}
+
+.lightBoxPhotographTitle {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 2.8rem;
+  color: $secondaryColor;
+  font-family: "Roboto", sans-serif;
 }
 .shadow {
   position: fixed;
@@ -69,5 +92,5 @@
   z-index: 1000;
   display: none;
   background: rgb(255, 255, 255);
-  opacity: 0.9;
+  opacity: 0.95;
 }

@@ -16,7 +16,7 @@ window.addEventListener("scroll", () => {
 
 // increasing and decreasing likes:                            not workingggg
 
-var likesNumber = document.querySelectorAll(".likesNumber");
+// var likesNumber = document.querySelectorAll(".likesNumber");
 
 // icons.forEach((icon) => icon.addEventListener("click",  () => {
 

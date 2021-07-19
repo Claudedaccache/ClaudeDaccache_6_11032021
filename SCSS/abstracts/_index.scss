@@ -8,11 +8,11 @@
   right: 50%;
   left: 30%;
   font-weight: bold;
-  width: 10rem;
+  width: 8.5rem;
   padding: 0.2rem 0.5rem;
   background-color: lighten($secondaryColor, 15%);
   border-radius: 0.5rem;
-  z-index: 10000;
+  z-index: 999;
   opacity: 0.7;
   // text-decoration: none;
   color: black;
@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
 }
 
 .photographersList {
@@ -124,6 +125,7 @@
 }
 
 .photographerDescriptionQuote {
+  font-family: "Roboto", sans-serif;
   margin: 1rem 0 1rem 0;
 }
 
@@ -175,6 +177,7 @@
 
 .photographerInfoPic {
   position: absolute;
+  object-fit: cover;
   right: 0.3rem;
   top: 1.2rem;
   width: 6rem;
@@ -235,7 +238,7 @@
   color: $quaternaryColor;
   cursor: pointer;
   position: relative;
-  z-index: 1000;
+  z-index: 999;
   overflow: visible;
 }
 
