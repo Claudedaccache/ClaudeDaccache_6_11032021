@@ -31,60 +31,54 @@ function displayPhotographersTags(container, phgTags){
 /**
  * [display the photographers on the main page]
  */
-var photographersList = document.querySelector(".photographersList");
+let photographers = getPhotographersFromData(data.photographers);
+displayPhotographers(".photographersList", photographers);
 
-///get the hashtags
-function tags(tags) {
+
+function getPhotographersFromData(phg){
+  return phg;
+}
+
+function displayingEachPhgTags(tags) {
   return `
-<div class="photographerHashtags">
-${tags
+  <div class="photographerHashtags">
+  ${tags
     .map(function (tag) {
       return `<a href="#">#${tag}</a>`;
     })
     .join("")}
-</div>
-`;
+  </div>
+  `;
 }
 
-///Save phg's id in localStorage
-function setCurrentId(id) {
-  // console.log(id);
-  let idSet = localStorage.setItem("currentId", JSON.stringify(id));
-  return idSet;
-  // sessionStorage.setItem("currentId", id);
-}
-
-/// creating a template literal to display it in innerHTML
-function photographersInfo(photographer) {
-  return `
-<figure class="photographer">
-<a href="./Photographer.html" id="${photographer.id}" onclick=${setCurrentId(
-  photographer.id
-)}) 
-  ><img src="./SamplePhotos/PhotographersIDPhotos/${photographer.portrait}"
-	alt="photo de ${photographer.name}" title="clicker pour voir ce photographe"
-	class="photographerImg"></a>
-	<figcaption class="photographerComment">
-		<a href="${photographer.link}"><h2 class="photographerName">${
-  photographer.name
+function displayPhotographers(container, photographers){
+  let phgContainer = document.querySelector(container);
+  photographers.forEach((phg) => {
+    phgContainer.innerHTML += `
+    <figure class="photographer">
+    <a href="./Photographer.html" id="${phg.id}" 
+    )}) 
+      ><img src="./SamplePhotos/PhotographersIDPhotos/${phg.portrait}"
+    	alt="photo de ${phg.name}" title="clicker pour voir ce photographe"
+    	class="photographerImg"></a>
+    	<figcaption class="photographerComment">
+    		<a href="./Photographer.html"><h2 class="photographerName">${
+  phg.name
 }</h2></a>
-	<div class="photographerCommentText">
-		<p class="photographerLocation">${photographer.city}, ${
-  photographer.country
+    	<div class="photographerCommentText">
+    		<p class="photographerLocation">${phg.city}, ${
+  phg.country
 }</p>
-		<p class="photographerQuote">${photographer.tagline}</p>
-		<p class="photographerFees">${photographer.price}€/jour</p>
-	</div>
-	${tags(photographer.tags)}
-	
-</figcaption>
-</figure>
-`;
-}
+    		<p class="photographerQuote">${phg.tagline}</p>
+    		<p class="photographerFees">${phg.price}€/jour</p>
+    	</div>
+ ${displayingEachPhgTags(phg.tags)}
+      
+    </figcaption>
+    </figure>
+    `;
+  });}
 
-photographersList.innerHTML = `${data["photographers"]
-  .map(photographersInfo)
-  .join("")}`;
 
 /**
  * [when clicked on a hashtag from the main page the photographers will be filtered and only the photographers with the same tag will be displayed]
