@@ -1,13 +1,32 @@
-let jsonData = await fetch("./../data.json");
-let json = await jsonData.json();
+import data from "./../data.js";
 
-// function parseData(json) {
-//   if (!json) return {};
-//   if (typeof json === "object") return json;
-//   if (typeof json === "string") return JSON.parse(json);
-//   return {};
-// }
-// parseData();
+
+/**
+ * [on load display the hashtags on the main page to be use for the search later]
+ */
+
+let phgTags = getTagsFromPhotographers(data.photographers);
+displayPhotographersTags("#tags", phgTags);
+
+
+function getTagsFromPhotographers(photographer){
+  let tagsSet = new Set();
+  photographer.forEach((photographer)=>{
+    photographer.tags.map((tag)=> tagsSet.add(tag));
+  });
+  
+  const arrayTags = [...tagsSet];
+  return arrayTags;
+}
+
+function displayPhotographersTags(container, phgTags){
+  let tagsContainer = document.querySelector(container);
+  phgTags.forEach((tag) => {
+    tagsContainer.innerHTML += `<li><a href="#${tag}" class="MenuTag" data-filter="${tag}">#${tag} </a></li>
+  `;
+  });}
+
+
 
 /**
  * [display the photographers on the main page]
@@ -19,10 +38,10 @@ function tags(tags) {
   return `
 <div class="photographerHashtags">
 ${tags
-  .map(function (tag) {
-    return `<a href="#">#${tag}</a>`;
-  })
-  .join("")}
+    .map(function (tag) {
+      return `<a href="#">#${tag}</a>`;
+    })
+    .join("")}
 </div>
 `;
 }
@@ -37,23 +56,22 @@ function setCurrentId(id) {
 
 /// creating a template literal to display it in innerHTML
 function photographersInfo(photographer) {
-  console.log(photographer.id);
   return `
 <figure class="photographer">
 <a href="./Photographer.html" id="${photographer.id}" onclick=${setCurrentId(
-    photographer.id
-  )}) 
+  photographer.id
+)}) 
   ><img src="./SamplePhotos/PhotographersIDPhotos/${photographer.portrait}"
 	alt="photo de ${photographer.name}" title="clicker pour voir ce photographe"
 	class="photographerImg"></a>
 	<figcaption class="photographerComment">
 		<a href="${photographer.link}"><h2 class="photographerName">${
-    photographer.name
-  }</h2></a>
+  photographer.name
+}</h2></a>
 	<div class="photographerCommentText">
 		<p class="photographerLocation">${photographer.city}, ${
-    photographer.country
-  }</p>
+  photographer.country
+}</p>
 		<p class="photographerQuote">${photographer.tagline}</p>
 		<p class="photographerFees">${photographer.price}€/jour</p>
 	</div>
@@ -64,7 +82,7 @@ function photographersInfo(photographer) {
 `;
 }
 
-photographersList.innerHTML = `${json["photographers"]
+photographersList.innerHTML = `${data["photographers"]
   .map(photographersInfo)
   .join("")}`;
 
@@ -72,14 +90,13 @@ photographersList.innerHTML = `${json["photographers"]
  * [when clicked on a hashtag from the main page the photographers will be filtered and only the photographers with the same tag will be displayed]
  */
 const MenuBtnSearch = document.querySelectorAll(".MenuTag");
-const photographerInfo = document.querySelectorAll(".photographer");
 
 for (let i = 0; i < MenuBtnSearch.length; i++) {
   MenuBtnSearch[i].addEventListener("click", (e) => {
     const filterTags = e.target.dataset.filter;
     // console.log(filterTags);
 
-    const characters = json["photographers"].filter((character) => {
+    const characters = data["photographers"].filter((character) => {
       var characterTags = character.tags;
       return characterTags.includes(filterTags);
     });
@@ -90,45 +107,4 @@ for (let i = 0; i < MenuBtnSearch.length; i++) {
   });
 }
 
-/**
- * [on load display the hashtags on the main page to be use for the search later]
- */
 
-const hashtags = document.querySelector("#header_nav ul");
-
-// let tags = json["photographers"].reduce((sum, currentValue) => {
-//   return sum + currentValue.tags;
-// }, "");
-
-// console.log(tags);
-
-// let uniqueTag = [];
-// u.forEach((c) => {
-// if (!uniqueTag.includes(c)) {
-//   uniqueTag.push(c);
-// }
-// });
-
-function displayHashtags(hashtag) {
-  let xx = hashtag.tags;
-
-  console.log(xx);
-  // let uniqueTag = [];
-
-  xx.forEach((tag) => {
-    console.log(tag);
-  });
-
-  // }
-  // if (!uniqueTag.includes(tag)) {
-  //   uniqueTag.push(tag);
-  // }
-
-  // console.log(uniqueTag);
-
-  // return `
-  // <li><a href="#${tag}"
-  // class="MenuTag" data-filter="${tag}">#${tag}</a></li>`
-}
-
-hashtags.innerHTML = `${json["photographers"].map(displayHashtags).join("")}`;
