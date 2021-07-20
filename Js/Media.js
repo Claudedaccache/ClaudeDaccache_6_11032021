@@ -6,7 +6,8 @@ import data from "./../data.js";
  * @return {innerHTML}
  */
 
-var thePricingSec = document.querySelector(".thePricingSec");
+getPhotographerPrice(".thePricingSec", data.photographers);
+
 
 function getCurrentId() {
   const params = new URLSearchParams(window.location.search);
@@ -14,27 +15,29 @@ function getCurrentId() {
   return product;
 }
 
-
-function getPhotographerPrice(photographer) {
-  return `
+function getPhotographerPrice(container, photographer) {
+  let thePricingSec = document.querySelector(container);
+  thePricingSec.innerHTML = `${photographer
+    .filter((x) => x.id === getCurrentId())
+    .map((photographer)=>{
+      return `
    <div class="photographerLikesSec">
    <span id="totalLikes"></span
    ><i id="likesHeart" class="fas fa-heart"></i>
  </div>
- <p>${photographer.price}€ / jour</p>
- `;
+ <p>${photographer.price}€ / jour</p>`;})
+    .join("")};`;
 }
 
-thePricingSec.innerHTML = `${data["photographers"]
-  .filter((x) => x.id === getCurrentId())
-  .map(getPhotographerPrice)
-  .join("")}`;
+
+
+
 
 /**
  * Display the photographer's Info of according to their Id.
  * @return {innerHTML}
  */
-var photographerInfo = document.querySelector(".photographerInfo");
+getPhotographerInfo(".photographerInfo", data.photographers);
 
 function GetPhgtags(tags) {
   return `
@@ -49,8 +52,12 @@ function GetPhgtags(tags) {
   `;
 }
 
-function getPhotographerInfo(photographer) {
-  return `
+function getPhotographerInfo(container, photographer) {
+  let photographerInfo = document.querySelector(container);
+  photographerInfo.innerHTML = `${photographer
+    .filter((x) => x.id === getCurrentId())
+    .map((photographer) =>{
+      return `
   <div class="photographerDescription">
   <div class="photographerDescriptionId">
     <h1 class="photographerFullName">${photographer.name}</h1>
@@ -73,26 +80,25 @@ function getPhotographerInfo(photographer) {
   alt="image de ${photographer.name}"
   class="photographerInfoPic"
 />
-`;
+`;})
+    .join("")}`;
 }
-
-photographerInfo.innerHTML = `${data["photographers"]
-  .filter((x) => x.id === getCurrentId())
-  .map(getPhotographerInfo)
-  .join("")}`;
 
 /**
  * Display the photos and videos of according to each photographers Id.
  * @return {innerHTML}
  */
+getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-var thePhotographsSection = document.querySelector(".thePhotographsSection");
-
-function getPhotographsByPhotographersId(photographerinfo) {
-  if (photographerinfo.image) {
-    const imageAsHtml = `<figure class="photographerPhotos ${
-      photographerinfo.tags
-    }">
+function getPhotographsByPhotographersId(container, photographerinfo) {
+  var thePhotographsSection = document.querySelector(container);
+  thePhotographsSection.innerHTML = `${photographerinfo
+    .filter((x) => x.photographerId === getCurrentId())
+    .map((photographerinfo) =>{
+      if (photographerinfo.image) {
+        const imageAsHtml = `<figure class="photographerPhotos ${
+          photographerinfo.tags
+        }">
       <img src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
@@ -115,9 +121,9 @@ function getPhotographsByPhotographersId(photographerinfo) {
       </div>
       </figcaption>
     </figure>`;
-    return imageAsHtml;
-  } else if (photographerinfo.video) {
-    const videoAsHtml = `
+        return imageAsHtml;
+      } else if (photographerinfo.video) {
+        const videoAsHtml = `
   <figure class="photographerPhotos ${photographerinfo.tags}" >
   <video src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
@@ -140,36 +146,37 @@ function getPhotographsByPhotographersId(photographerinfo) {
       </div>
   </figcaption>
 </figure>`;
-    return videoAsHtml;
-  }
-}
+        return videoAsHtml;
+      }
+    })
+    .join("")}`;}
 
-thePhotographsSection.innerHTML = `${data["media"]
-  .filter((x) => x.photographerId === getCurrentId())
-  .map(getPhotographsByPhotographersId)
-  .join("")}`;
+
 
 /**
- * [when clicking on a tag from the tags of each photographer, the photos and videos will be filtered and displayed according the tag clicked]
+ * [when clicking a tag on the photographer page, the photos and videos will be filtered and displayed according the tag clicked]
  */
-const photographersBtnSearch = document.querySelectorAll(".btnTag");
-// const photographerPhotos = document.querySelectorAll(".photographerPhotos");
+filteringByTag(".btnTag");
 
-for (let i = 0; i < photographersBtnSearch.length; i++) {
-  photographersBtnSearch[i].addEventListener("click", (e) => {
-    e.preventDefault();
-    const photographerPhotos = document.querySelectorAll(".photographerPhotos");
-    console.log(photographersBtnSearch[i]);
-    const filter = e.target.dataset.filter;
-    photographerPhotos.forEach((photos) => {
-      if (photos.classList.contains(filter)) {
-        photos.style.display = "block";
-      } else {
-        photos.style.display = "none";
-      }
+function filteringByTag(container){
+  const photographersBtnTags= document.querySelectorAll(container);
+  photographersBtnTags.forEach((tag)=>{
+    tag.addEventListener("click", (e) => {
+      e.preventDefault();
+      const photographerPhotos = document.querySelectorAll(".photographerPhotos");
+      console.log(tag);
+      const filter = e.target.dataset.filter;
+      photographerPhotos.forEach((photos) => {
+        if (photos.classList.contains(filter)) {
+          photos.style.display = "block";
+        } else {
+          photos.style.display = "none";
+        }
+      });
     });
   });
 }
+
 
 /**
  * [toggle between classes in css to display the filter section]
@@ -212,25 +219,17 @@ function getPhotographLikesNbr() {
 /**
  * [on click on filter button,  the photographs will be sorted by popularity, date or title]
  *
- *
- *
  */
 var popular = document.querySelector("#Popular");
 var date = document.querySelector("#Date");
 var title = document.querySelector("#Title");
 
 /////////////////////////////////////////////////////////////////////////
-// var sortableByFilter = [];
-
 popular.addEventListener("click", () => {
   let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
     return b.likes - a.likes;
   });
-
-  thePhotographsSection.innerHTML = `${sortingByPopularity
-    .filter((x) => x.photographerId === getCurrentId())
-    .map(getPhotographsByPhotographersId)
-    .join("")} `;
+  getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -238,11 +237,7 @@ date.addEventListener("click", () => {
   let sortingByDate = mediaFilteredByPhgId.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date);
   });
-
-  thePhotographsSection.innerHTML = `${sortingByDate
-    .filter((x) => x.photographerId === getCurrentId())
-    .map(getPhotographsByPhotographersId)
-    .join("")}`;
+  getPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
 });
 
 /////////////////////////////////////////////////////////////////////////
@@ -257,11 +252,7 @@ title.addEventListener("click", () => {
     }
     return 0;
   });
-
-  thePhotographsSection.innerHTML = `${sortingByTitle
-    .filter((x) => x.photographerId === getCurrentId())
-    .map(getPhotographsByPhotographersId)
-    .join("")}`;
+  getPhotographsByPhotographersId(".thePhotographsSection", sortingByTitle);
 });
 
 /**
