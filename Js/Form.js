@@ -1,22 +1,25 @@
-let jsonData = await fetch("./../data.json");
-let json = await jsonData.json();
-
-const formTitle = document.querySelector(".formTitle");
-
-function formDisplay(form) {
-  return `
-      Contactez-moi<br>${form.name}
-  `;
-}
+import data from "./../data.js";
 
 function getCurrentId() {
-  const id = parseInt(localStorage.getItem("currentId"));
-  return id;
+  const params = new URLSearchParams(window.location.search);
+  const product = parseInt(params.get("id"));
+  return product;
 }
-formTitle.innerHTML = `${json["photographers"]
-  .filter((x) => x.photographerId === getCurrentId())
-  .map(formDisplay)
-  .join("")}`;
+
+formDisplay(".formTitle");
+
+
+function formDisplay(container) {
+  const formTitle = document.querySelector(container);
+  formTitle.innerHTML = `${data["photographers"]
+    .filter((x) => x.id === getCurrentId())
+    .map((form)=>{
+      return `
+    Contactez-moi<br>${form.name}
+`;
+    })
+    .join("")}`;
+}
 
 ///////// variables and conditions /////////////
 
@@ -36,7 +39,7 @@ var validEmail =
   /^[a-zA-ZàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ][a-zA-ZàâçéèêëîïùûüÜÛÙÏÎËÊÈÉÇÂÀ0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
 
 var content = document.querySelector(".content");
-var buttonSubmit = document.querySelector(".btn-submit");
+// var buttonSubmit = document.querySelector(".btn-submit");
 
 var btnSubmit = document.querySelectorAll(".photographerContact");
 var btnSubmitResp = document.querySelectorAll(".photographerContactResp");
@@ -46,6 +49,7 @@ const modalbg = document.querySelector(".bground");
 const modalBody = document.querySelector(".modal-body");
 const close = document.querySelectorAll(".close");
 const closeBtn = document.querySelector(".btnClose");
+const formValidationMessage= document.querySelector("#formValidationMessage");
 
 // DOM Elements
 
@@ -99,21 +103,18 @@ function formValidation(e) {
 }
 
 // form functions:
-function nameValidation(e) {
+function nameValidation() {
   if (yourName.value === "" || yourName.value == null) {
-    // e.preventDefault();
     nameErrorMessage.innerHTML = "Veuillez renseigner votre Prénom.";
     nameErrorMessage.style.color = "white";
     yourName.style.border = "3px solid red";
     return false;
   } else if (yourName.value.length < 2) {
-    // e.preventDefault();
     nameErrorMessage.innerHTML = "Le prénom renseigné est très court!";
     nameErrorMessage.style.color = "white";
     yourName.style.border = "3px solid orange";
     return false;
   } else if (validName.test(yourName.value) === false) {
-    // e.preventDefault();
     nameErrorMessage.innerHTML = "Veuillez respecter le format requis!";
     nameErrorMessage.style.color = "white";
     yourName.style.border = "3px solid red";
@@ -126,21 +127,21 @@ function nameValidation(e) {
   }
 }
 
-function lastNameValidation(e) {
+function lastNameValidation() {
   if (lastName.value === "" || lastName.value == null) {
-    // e.preventDefault();
+
     lastNameErrorMessage.innerHTML = "Veuillez renseigner votre Nom.";
     lastNameErrorMessage.style.color = "white";
     lastName.style.border = "3px solid red";
     return false;
   } else if (lastName.value.length < 2) {
-    // e.preventDefault();
+
     lastNameErrorMessage.innerHTML = "Le prénom renseigné est très court!";
     lastNameErrorMessage.style.color = "white";
     lastName.style.border = "3px solid orange";
     return false;
   } else if (validLastName.test(lastName.value) === false) {
-    // e.preventDefault();
+
     lastNameErrorMessage.innerHTML = "Veuillez respecter le format requis!";
     lastNameErrorMessage.style.color = "white";
     lastName.style.border = "3px solid red";
@@ -153,15 +154,15 @@ function lastNameValidation(e) {
   }
 }
 
-function emailValidation(e) {
+function emailValidation() {
   if (email.value === "" || email.value == null) {
-    // e.preventDefault();
+
     emailErrorMessage.innerHTML = "Veuillez renseigner votre e-mail.";
     emailErrorMessage.style.color = "white";
     email.style.border = "3px solid red";
     return false;
   } else if (validEmail.test(email.value) === false) {
-    // e.preventDefault();
+
     emailErrorMessage.innerHTML =
       "Veuillez respecter le format du e-mail! (exemple@domaine.fr)";
     emailErrorMessage.style.color = "white";
