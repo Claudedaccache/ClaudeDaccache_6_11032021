@@ -813,12 +813,13 @@ header {
   height: 100%;
   width: 100%;
   overflow: auto;
+  background-color: #fafafa;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   -webkit-animation-name: formopen;
           animation-name: formopen;
   -webkit-animation-duration: 0.8s;
@@ -905,6 +906,9 @@ textarea::placeholder {
 
 #formValidationMessage {
   visibility: hidden;
+  margin: auto;
+  height: 50%;
+  width: 100%;
   font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1133,6 +1137,7 @@ textarea::placeholder {
           transform: translate(-50%, -50%) scale(0.9);
   background: #fafafa;
   max-width: 80%;
+  max-height: 90%;
   width: 100%;
   z-index: 10000;
   opacity: 0;

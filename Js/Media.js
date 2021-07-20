@@ -26,7 +26,7 @@ function getPhotographerPrice(container, photographer) {
    ><i id="likesHeart" class="fas fa-heart"></i>
  </div>
  <p>${photographer.price}€ / jour</p>`;})
-    .join("")};`;
+    .join("")}`;
 }
 
 

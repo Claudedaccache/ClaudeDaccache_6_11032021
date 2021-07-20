@@ -94,7 +94,7 @@ function formValidation(e) {
   if (nameValidation() && lastNameValidation() && emailValidation()) {
     modalBody.remove();
     content.style.width = "85%";
-    content.style.height = "100%";
+    content.style.height = "70%";
     content.style.padding = "10rem 5% 0 5%";
     formValidationMessage.style.visibility = "visible";
     closeBtn.style.display = "block";

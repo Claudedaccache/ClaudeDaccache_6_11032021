@@ -2,7 +2,7 @@ import data from "./../data.js";
 
 
 /**
- * [on load display the hashtags on the main page to be use for the search later]
+ * [displaying the hashtags on the main page to be used for the search later]
  */
 
 let phgTags = getTagsFromPhotographers(data.photographers);
@@ -22,7 +22,7 @@ function getTagsFromPhotographers(photographer){
 function displayPhotographersTags(container, phgTags){
   let tagsContainer = document.querySelector(container);
   phgTags.forEach((tag) => {
-    tagsContainer.innerHTML += `<li><a href="#${tag}" class="MenuTag" data-filter="${tag}">#${tag} </a></li>
+    tagsContainer.innerHTML += `<li><a href="#${tag}" class="MenuTag" data-filter="${tag}">#${tag}</a></li>
   `;
   });}
 
@@ -56,7 +56,7 @@ function displayPhotographers(container, photographers){
   photographers.forEach((phg) => {
     phgContainer.innerHTML += `
     <figure class="photographer">
-    <a href="./Photographer.html" id="${phg.id}" 
+    <a href="./Photographer.html?id=${phg.id}"   
     )}) 
       ><img src="./SamplePhotos/PhotographersIDPhotos/${phg.portrait}"
     	alt="photo de ${phg.name}" title="clicker pour voir ce photographe"
@@ -77,28 +77,50 @@ function displayPhotographers(container, photographers){
     </figcaption>
     </figure>
     `;
-  });}
-
+  });
+}
 
 /**
  * [when clicked on a hashtag from the main page the photographers will be filtered and only the photographers with the same tag will be displayed]
  */
-const MenuBtnSearch = document.querySelectorAll(".MenuTag");
+getTargetedTags(".MenuTag");
+getFilteredPhgs(getTargetedTags, data.photographers);
+// const MenuBtnSearch = document.querySelectorAll(".MenuTag");
 
-for (let i = 0; i < MenuBtnSearch.length; i++) {
-  MenuBtnSearch[i].addEventListener("click", (e) => {
-    const filterTags = e.target.dataset.filter;
-    // console.log(filterTags);
+function getTargetedTags(tags){
+  const tagsMenu = document.querySelectorAll(tags);
 
-    const characters = data["photographers"].filter((character) => {
-      var characterTags = character.tags;
-      return characterTags.includes(filterTags);
+  tagsMenu.forEach((tag)=>{
+    tag.addEventListener("click", (e) => {
+      const filterTags = e.target.dataset.filter;
+      console.log(filterTags);
     });
-    //  console.log(characters);
-    photographersList.innerHTML = `${characters
-      .map(photographersInfo)
-      .join("")}`;
   });
 }
 
+function getFilteredPhgs(tag, phgs){
+  let filteredPhgs=  phgs.filter((character) => {
+    var characterTags = character.tags;
+    return characterTags.includes(tag);
+  });
+  displayPhotographers(".photographersList", filteredPhgs);
+}
 
+
+
+// const MenuBtnSearch = document.querySelectorAll(".MenuTag");
+
+// for (let i = 0; i < MenuBtnSearch.length; i++) {
+//   MenuBtnSearch[i].addEventListener("click", (e) => {
+//     const filterTags = e.target.dataset.filter;
+
+//     data["photographers"].filter((character) => {
+//       var characterTags = character.tags;
+//       return characterTags.includes(filterTags);
+//     });
+//  console.log(characters);
+// photographersList.innerHTML = `${characters
+//   .map(photographersInfo)
+//   .join("")}`;
+//   });
+// }
