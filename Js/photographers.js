@@ -89,20 +89,21 @@ getFilteredPhgs(getTargetedTags, data.photographers);
 
 function getTargetedTags(tags){
   const tagsMenu = document.querySelectorAll(tags);
-
   tagsMenu.forEach((tag)=>{
     tag.addEventListener("click", (e) => {
       const filterTags = e.target.dataset.filter;
       console.log(filterTags);
+      return filterTags;
     });
   });
 }
 
-function getFilteredPhgs(tag, phgs){
-  let filteredPhgs=  phgs.filter((character) => {
+function getFilteredPhgs(selectedTag, phgs){
+  let filteredPhgs = phgs.filter((character) => {
     var characterTags = character.tags;
-    return characterTags.includes(tag);
+    return characterTags.includes(selectedTag);
   });
+  console.log(filteredPhgs);
   displayPhotographers(".photographersList", filteredPhgs);
 }
 
