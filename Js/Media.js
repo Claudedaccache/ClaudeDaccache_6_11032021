@@ -1,14 +1,5 @@
-let jsonData = await fetch("./../data.json");
-let json = await jsonData.json();
 
-// function parseData(json) {
-//   if (!json) return {};
-//   if (typeof json === "object") return json;
-//   if (typeof json === "string") return JSON.parse(json);
-//   return {};
-// }
-
-// parseData();
+import data from "./../data.js";
 
 /**
  * Display the thePricingSec of each photographer according to each their Id.
@@ -18,9 +9,11 @@ let json = await jsonData.json();
 var thePricingSec = document.querySelector(".thePricingSec");
 
 function getCurrentId() {
-  const id = parseInt(localStorage.getItem("currentId"));
-  return id;
+  const params = new URLSearchParams(window.location.search);
+  const product = parseInt(params.get("id"));
+  return product;
 }
+
 
 function getPhotographerPrice(photographer) {
   return `
@@ -32,7 +25,7 @@ function getPhotographerPrice(photographer) {
  `;
 }
 
-thePricingSec.innerHTML = `${json["photographers"]
+thePricingSec.innerHTML = `${data["photographers"]
   .filter((x) => x.id === getCurrentId())
   .map(getPhotographerPrice)
   .join("")}`;
@@ -63,8 +56,8 @@ function getPhotographerInfo(photographer) {
     <h1 class="photographerFullName">${photographer.name}</h1>
     <div class="photographerDescriptionText">
       <p class="photographerDescriptionLocation">${photographer.city}, ${
-    photographer.country
-  }</p>
+  photographer.country
+}</p>
       <p class="photographerDescriptionQuote">
       ${photographer.tagline}
       </p>
@@ -83,7 +76,7 @@ function getPhotographerInfo(photographer) {
 `;
 }
 
-photographerInfo.innerHTML = `${json["photographers"]
+photographerInfo.innerHTML = `${data["photographers"]
   .filter((x) => x.id === getCurrentId())
   .map(getPhotographerInfo)
   .join("")}`;
@@ -101,8 +94,8 @@ function getPhotographsByPhotographersId(photographerinfo) {
       photographerinfo.tags
     }">
       <img src="./SamplePhotos/${
-        json["photographers"].find((x) => x.id === getCurrentId()).name
-      }/${photographerinfo.image}"
+  data["photographers"].find((x) => x.id === getCurrentId()).name
+}/${photographerinfo.image}"
             alt="${photographerinfo.title}" title="clicker pour voir la photo"
             class="thePhotograph" >
       <figcaption class="photographDescr">
@@ -127,8 +120,8 @@ function getPhotographsByPhotographersId(photographerinfo) {
     const videoAsHtml = `
   <figure class="photographerPhotos ${photographerinfo.tags}" >
   <video src="./SamplePhotos/${
-    json["photographers"].find((x) => x.id === getCurrentId()).name
-  }/${photographerinfo.video}"  
+  data["photographers"].find((x) => x.id === getCurrentId()).name
+}/${photographerinfo.video}"  
   type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph"></video>
   <figcaption class="photographDescr">
     <div class="photographDetails">
@@ -151,7 +144,7 @@ function getPhotographsByPhotographersId(photographerinfo) {
   }
 }
 
-thePhotographsSection.innerHTML = `${json["media"]
+thePhotographsSection.innerHTML = `${data["media"]
   .filter((x) => x.photographerId === getCurrentId())
   .map(getPhotographsByPhotographersId)
   .join("")}`;
@@ -160,7 +153,7 @@ thePhotographsSection.innerHTML = `${json["media"]
  * [when clicking on a tag from the tags of each photographer, the photos and videos will be filtered and displayed according the tag clicked]
  */
 const photographersBtnSearch = document.querySelectorAll(".btnTag");
-const photographerPhotos = document.querySelectorAll(".photographerPhotos");
+// const photographerPhotos = document.querySelectorAll(".photographerPhotos");
 
 for (let i = 0; i < photographersBtnSearch.length; i++) {
   photographersBtnSearch[i].addEventListener("click", (e) => {
@@ -184,7 +177,7 @@ for (let i = 0; i < photographersBtnSearch.length; i++) {
 
 var FilterIcon = document.querySelector("#filterIcon");
 var FilterNotActive = document.querySelectorAll(".notActive");
-var filterList = document.querySelectorAll(".filterList");
+// var filterList = document.querySelectorAll(".filterList");
 
 // filterIcon.forEach((btn) => btn.addEventListener("click", launchFilter));
 FilterIcon.addEventListener("click", launchFilter);
@@ -199,7 +192,7 @@ function launchFilter() {
 
 var totalLikes = document.querySelector("#totalLikes");
 
-let mediaFilteredByPhgId = json["media"].filter(
+let mediaFilteredByPhgId = data["media"].filter(
   (x) => x.photographerId === getCurrentId()
 );
 
@@ -212,7 +205,6 @@ function getPhotographLikesNbr() {
     sumLikes.push(toSort);
   }
   let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
-  // console.log(ff);
 
   totalLikes.innerHTML = totalPhgLikes;
 }
@@ -228,7 +220,7 @@ var date = document.querySelector("#Date");
 var title = document.querySelector("#Title");
 
 /////////////////////////////////////////////////////////////////////////
-var sortableByFilter = [];
+// var sortableByFilter = [];
 
 popular.addEventListener("click", () => {
   let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
@@ -287,17 +279,17 @@ icons.forEach((icon) =>
 /**
  * clicking on the heart for each photo or video will increment or decrement the likes number
  */
-let likesNbrs = document.querySelectorAll(".likesNumber");
-const LikesSection = document.querySelectorAll(".LikesSection");
+// let likesNbrs = document.querySelectorAll(".likesNumber");
+// const LikesSection = document.querySelectorAll(".LikesSection");
 
-function setCurrentlike(likes) {
-  localStorage.setItem("currentLikes", likes);
-}
+// function setCurrentlike(likes) {
+//   localStorage.setItem("currentLikes", likes);
+// }
 
-function getCurrentlike() {
-  const LikesInPhotographs = parseInt(localStorage.getItem("currentLikes"));
-  return LikesInPhotographs;
-}
+// function getCurrentlike() {
+//   const LikesInPhotographs = parseInt(localStorage.getItem("currentLikes"));
+//   return LikesInPhotographs;
+// }
 
 // LikesSection.forEach((Sec) => {
 //   Sec.addEventListener("click", (event) => {
