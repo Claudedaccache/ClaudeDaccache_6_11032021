@@ -6,12 +6,12 @@ function getCurrentId() {
   return product;
 }
 
-formDisplay(".formTitle");
+formDisplay(".formTitle", data.photographers);
 
 
-function formDisplay(container) {
+function formDisplay(container, phgs) {
   const formTitle = document.querySelector(container);
-  formTitle.innerHTML = `${data["photographers"]
+  formTitle.innerHTML = `${phgs
     .filter((x) => x.id === getCurrentId())
     .map((form)=>{
       return `
