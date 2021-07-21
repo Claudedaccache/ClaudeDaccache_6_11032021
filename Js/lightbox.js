@@ -83,11 +83,11 @@ window.addEventListener("load", () => {
       shadow.style.display = "block";
 
       function getSelectedPhg() {
-        let photograph = thePhotograph[newIndex];
-        console.log(photograph);
+        let currentPhotograph = thePhotograph[newIndex];
+        console.log(currentPhotograph);
         let PhotographTitle = thePhotograph[newIndex].alt;
 
-        lightBoxPhotographs.innerHTML = photograph;
+        lightBoxPhotographs.innerHTML = currentPhotograph;
         // console.log(lightBoxPhotographs);
         lightBoxPhotographTitle.innerHTML = PhotographTitle;
       }

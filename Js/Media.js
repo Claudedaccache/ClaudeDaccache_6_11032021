@@ -201,14 +201,12 @@ var popular = document.querySelector("#Popular");
 var date = document.querySelector("#Date");
 var title = document.querySelector("#Title");
 
-/////////////////////////////////////////////////////////////////////////
 popular.addEventListener("click", () => {
   let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
     return b.likes - a.likes;
   });
   getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
 });
-//////////////////////////////////////////////////////////////////////////////////////////
 
 date.addEventListener("click", () => {
   let sortingByDate = mediaFilteredByPhgId.sort(function (a, b) {
@@ -217,7 +215,6 @@ date.addEventListener("click", () => {
   getPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
 });
 
-/////////////////////////////////////////////////////////////////////////
 
 title.addEventListener("click", () => {
   let sortingByTitle = mediaFilteredByPhgId.sort(function (a, b) {
@@ -271,7 +268,25 @@ function getPhotographLikesNbr() {
  * clicking on the heart for each photo or video will increment or decrement the likes number
  */
 
+// let likesNbrs = document.querySelectorAll(".likesNumber");
+const LikeSection = document.querySelectorAll(".LikesSection");
 
+LikeSection.forEach((section) =>{
+  section.addEventListener("click", setLike);});
+
+function setLike(){
+  icons.forEach((icon) =>{
+    mediaFilteredByPhgId.forEach((phg)=>{
+      console.log(phg.likes);
+      if (icon.classList === (".LikesIcon i.resp")){
+        return parseInt(phg.likes++);
+      } 
+      if (!icon.classList === (".LikesIcon i.resp")){
+        return phg.likes;}
+
+    });
+  });
+}
 
 
 
