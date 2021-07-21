@@ -1,54 +1,62 @@
-import data from "./../data.js";
+// import data from "./../data.js";
+// import {getPhotographsByPhotographersId} from "./Media.js";
+
 
 /**
  * Display the photos and videos of according to each photographers Id into the lightbox.
  * @return {innerHTML}
  */
 
-var theLightBoxSection = document.querySelector("#lightBox");
+// function getCurrentId() {
+//   const params = new URLSearchParams(window.location.search);
+//   const phgId = parseInt(params.get("id"));
+//   return phgId;
+// }
 
-function getPhgType(lightBoxinfo) {
-  // console.log(lightBoxinfo.image, lightBoxinfo.video);
-  if (lightBoxinfo.image !== undefined) {
-    // console.log("image", lightBoxinfo.image);
-    return `<img src="" class="lightBoxPhotograph")>`;
-  } else if (lightBoxinfo.video !== undefined) {
-    // console.log("video", lightBoxinfo.video);
+displayPhotographsInLightbox("#lightBox");
 
-    return `<video src=""
-    type="video/mp4" controls="controls" class="lightBoxPhotograph"></video>`;
-  }
-}
+// function getPhotographsById(){
+//   let media =  data.media.filter((x) => x.photographerId === getCurrentId());
+//   return media;
+// }
 
-function displayPhotographsInLightbox(lightBoxinfo) {
-  // console.log(lightBoxinfo);
-  const lightBoxphgAsHtml = `<div class="previewBox">
+// function getPhgType(media) {
+//   // console.log(media.image, media.video);
+//   if (media.image !== undefined) {
+//     // console.log("image", lightBoxinfo.image);
+//     return "<img src=\"\")>";
+//   } else if (media.video !== undefined) {
+//     // console.log("video", lightBoxinfo.video);
+
+//     return `<video src=""
+//     type="video/mp4" controls="controls"></video>`;
+//   }
+// }
+
+function displayPhotographsInLightbox(container) {
+  var theLightBoxSection = document.querySelector(container);
+  theLightBoxSection.innerHTML = 
+  // ${media
+  //   .map((lightBoxinfo) =>{
+    // console.log(lightBoxinfo);
+    theLightBoxSection = `<div class="previewBox">
   <div class="closing">
     <span class="lightboxClosingBtn"><i class="fas fa-times"></i></span>
   </div>
   <div class="photographBox">
     <div class="slide prev"><i class="fas fa-angle-left"></i></div>
     <div class="slide next"><i class="fas fa-angle-right"></i></div>
-    ${getPhgType(lightBoxinfo)}
+    <div class="lightBoxPhotograph></div>
   </div>
   <span class="lightBoxPhotographTitle"></span>
 </div>
 <div class="shadow"></div>`;
-  return lightBoxphgAsHtml;
 }
 
-function getCurrentId() {
-  const id = parseInt(localStorage.getItem("currentId"));
-  return id;
-}
 
-theLightBoxSection.innerHTML = `${data["media"]
-  .filter((x) => x.photographerId === getCurrentId())
-  .map(displayPhotographsInLightbox)
-  .join("")}`;
 
 const thePhotograph = document.querySelectorAll(".thePhotograph");
-const lightBoxPhotographs = document.querySelector(".lightBoxPhotograph");
+let lightBoxPhotographs = document.querySelector(".lightBoxPhotograph");
 const previewBox = document.querySelector(".previewBox");
 const shadow = document.querySelector(".shadow");
 const closingBtn = document.querySelector(".lightboxClosingBtn");
@@ -75,10 +83,11 @@ window.addEventListener("load", () => {
       shadow.style.display = "block";
 
       function getSelectedPhg() {
-        let photographSrc = thePhotograph[newIndex].src;
+        let photograph = thePhotograph[newIndex];
+        console.log(photograph);
         let PhotographTitle = thePhotograph[newIndex].alt;
 
-        lightBoxPhotographs.src = photographSrc;
+        lightBoxPhotographs.innerHTML = photograph;
         // console.log(lightBoxPhotographs);
         lightBoxPhotographTitle.innerHTML = PhotographTitle;
       }

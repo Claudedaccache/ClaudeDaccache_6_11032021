@@ -11,8 +11,8 @@ getPhotographerPrice(".thePricingSec", data.photographers);
 
 function getCurrentId() {
   const params = new URLSearchParams(window.location.search);
-  const product = parseInt(params.get("id"));
-  return product;
+  const phgId = parseInt(params.get("id"));
+  return phgId;
 }
 
 function getPhotographerPrice(container, photographer) {
@@ -90,7 +90,7 @@ function getPhotographerInfo(container, photographer) {
  */
 getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-function getPhotographsByPhotographersId(container, photographerinfo) {
+export function getPhotographsByPhotographersId(container, photographerinfo) {
   var thePhotographsSection = document.querySelector(container);
   thePhotographsSection.innerHTML = `${photographerinfo
     .filter((x) => x.photographerId === getCurrentId())
@@ -194,29 +194,6 @@ function launchFilter() {
 }
 
 /**
- * [displaying the total likes for each photographer]
- */
-
-var totalLikes = document.querySelector("#totalLikes");
-
-let mediaFilteredByPhgId = data["media"].filter(
-  (x) => x.photographerId === getCurrentId()
-);
-
-window.addEventListener("load", getPhotographLikesNbr());
-function getPhotographLikesNbr() {
-  var sumLikes = [];
-  let toSort = 0;
-  for (let i = 0; i < mediaFilteredByPhgId.length; i++) {
-    toSort += mediaFilteredByPhgId[i].likes;
-    sumLikes.push(toSort);
-  }
-  let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
-
-  totalLikes.innerHTML = totalPhgLikes;
-}
-
-/**
  * [on click on filter button,  the photographs will be sorted by popularity, date or title]
  *
  */
@@ -268,8 +245,67 @@ icons.forEach((icon) =>
 );
 
 /**
+ * [displaying the total likes for each photographer]
+ */
+
+var totalLikes = document.querySelector("#totalLikes");
+
+let mediaFilteredByPhgId = data["media"].filter(
+  (x) => x.photographerId === getCurrentId()
+);
+ 
+window.addEventListener("load", getPhotographLikesNbr());
+function getPhotographLikesNbr() {
+  var sumLikes = [];
+  let toSort = 0;
+  for (let i = 0; i < mediaFilteredByPhgId.length; i++) {
+    toSort += mediaFilteredByPhgId[i].likes;
+    sumLikes.push(toSort);
+  }
+  let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
+ 
+  totalLikes.innerHTML = totalPhgLikes;
+}
+
+/**
  * clicking on the heart for each photo or video will increment or decrement the likes number
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let likesNbrs = document.querySelectorAll(".likesNumber");
 // const LikesSection = document.querySelectorAll(".LikesSection");
 

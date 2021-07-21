@@ -57,7 +57,6 @@ function displayPhotographers(container, photographers){
     phgContainer.innerHTML += `
     <figure class="photographer">
     <a href="./Photographer.html?id=${phg.id}"   
-    )}) 
       ><img src="./SamplePhotos/PhotographersIDPhotos/${phg.portrait}"
     	alt="photo de ${phg.name}" title="clicker pour voir ce photographe"
     	class="photographerImg"></a>
@@ -83,45 +82,25 @@ function displayPhotographers(container, photographers){
 /**
  * [when clicked on a hashtag from the main page the photographers will be filtered and only the photographers with the same tag will be displayed]
  */
-getTargetedTags(".MenuTag");
-getFilteredPhgs(getTargetedTags, data.photographers);
-// const MenuBtnSearch = document.querySelectorAll(".MenuTag");
 
-function getTargetedTags(tags){
+getFilteredPhgs(".MenuTag", data.photographers);
+
+
+function getFilteredPhgs(tags, phgs){
   const tagsMenu = document.querySelectorAll(tags);
   tagsMenu.forEach((tag)=>{
     tag.addEventListener("click", (e) => {
       const filterTags = e.target.dataset.filter;
       console.log(filterTags);
-      return filterTags;
+
+      let filteredPhgs = phgs.filter((character) => {
+        var characterTags = character.tags;
+        return characterTags.includes(filterTags);
+      });
+      console.log(filteredPhgs);
+      // displayPhotographers(".photographersList", filteredPhgs);
     });
   });
 }
 
-function getFilteredPhgs(selectedTag, phgs){
-  let filteredPhgs = phgs.filter((character) => {
-    var characterTags = character.tags;
-    return characterTags.includes(selectedTag);
-  });
-  console.log(filteredPhgs);
-  displayPhotographers(".photographersList", filteredPhgs);
-}
 
-
-
-// const MenuBtnSearch = document.querySelectorAll(".MenuTag");
-
-// for (let i = 0; i < MenuBtnSearch.length; i++) {
-//   MenuBtnSearch[i].addEventListener("click", (e) => {
-//     const filterTags = e.target.dataset.filter;
-
-//     data["photographers"].filter((character) => {
-//       var characterTags = character.tags;
-//       return characterTags.includes(filterTags);
-//     });
-//  console.log(characters);
-// photographersList.innerHTML = `${characters
-//   .map(photographersInfo)
-//   .join("")}`;
-//   });
-// }
