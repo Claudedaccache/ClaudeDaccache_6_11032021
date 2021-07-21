@@ -1112,7 +1112,7 @@ textarea::placeholder {
   }
 }
 
-@media screen and (min-width: 1070px) {
+@media screen and (min-width: 1160px) {
   #header_nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1125,7 +1125,7 @@ textarea::placeholder {
         -ms-flex-pack: center;
             justify-content: center;
     position: absolute;
-    top: 1.5rem;
+    top: 1rem;
   }
 }
 
