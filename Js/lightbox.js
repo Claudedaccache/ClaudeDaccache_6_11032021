@@ -13,18 +13,20 @@
 //   return phgId;
 // }
 
+// getPhotographsById(data.media);
 displayPhotographsInLightbox("#lightBox");
 
-// function getPhotographsById(){
-//   let media =  data.media.filter((x) => x.photographerId === getCurrentId());
-//   return media;
+// function getPhotographsById(media){
+//   let mediaFiltered =  media.filter((x) => x.photographerId === getCurrentId());
+//   console.log(mediaFiltered);
+//   return mediaFiltered;
 // }
 
 // function getPhgType(media) {
-//   // console.log(media.image, media.video);
+//   console.log(media);
 //   if (media.image !== undefined) {
 //     // console.log("image", lightBoxinfo.image);
-//     return "<img src=\"\")>";
+//     return `<img src="")>`;
 //   } else if (media.video !== undefined) {
 //     // console.log("video", lightBoxinfo.video);
 
@@ -34,26 +36,26 @@ displayPhotographsInLightbox("#lightBox");
 // }
 
 function displayPhotographsInLightbox(container) {
+  // console.log(phgMedia);
   var theLightBoxSection = document.querySelector(container);
   theLightBoxSection.innerHTML = 
   // ${media
   //   .map((lightBoxinfo) =>{
     // console.log(lightBoxinfo);
-    theLightBoxSection = `<div class="previewBox">
+    // theLightBoxSection =
+  `<div class="previewBox">
   <div class="closing">
     <span class="lightboxClosingBtn"><i class="fas fa-times"></i></span>
   </div>
   <div class="photographBox">
     <div class="slide prev"><i class="fas fa-angle-left"></i></div>
     <div class="slide next"><i class="fas fa-angle-right"></i></div>
-    <div class="lightBoxPhotograph></div>
-  </div>
+    <span class="lightBoxPhotograph> </span>
   <span class="lightBoxPhotographTitle"></span>
-</div>
+  </div>
+  </div>
 <div class="shadow"></div>`;
 }
-
-
 
 const thePhotograph = document.querySelectorAll(".thePhotograph");
 let lightBoxPhotographs = document.querySelector(".lightBoxPhotograph");
@@ -86,6 +88,7 @@ window.addEventListener("load", () => {
         let currentPhotograph = thePhotograph[newIndex];
         console.log(currentPhotograph);
         let PhotographTitle = thePhotograph[newIndex].alt;
+        console.log(PhotographTitle);
 
         lightBoxPhotographs.innerHTML = currentPhotograph;
         // console.log(lightBoxPhotographs);

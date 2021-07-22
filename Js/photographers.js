@@ -74,12 +74,6 @@ function displayPhotographers(container, photographers){
     .join("")}`;
 }
 
-
-
-
-
-
-
 // function displayPhotographers(container, photographers){
 //   let phgContainer = document.querySelector(container);
 //   photographers.forEach((phg) => {
@@ -126,7 +120,6 @@ function getFilteredPhgs(tags, phgs){
         var characterTags = character.tags;
         return characterTags.includes(filterTags);
       });
-      console.log(filteredPhgs);
       displayPhotographers(".photographersList", filteredPhgs);
     });
   });

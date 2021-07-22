@@ -269,24 +269,39 @@ function getPhotographLikesNbr() {
  */
 
 // let likesNbrs = document.querySelectorAll(".likesNumber");
-const LikeSection = document.querySelectorAll(".LikesSection");
+// const LikeSection = document.querySelectorAll(".LikesSection");
 
-LikeSection.forEach((section) =>{
-  section.addEventListener("click", setLike);});
-
-function setLike(){
-  icons.forEach((icon) =>{
-    mediaFilteredByPhgId.forEach((phg)=>{
-      console.log(phg.likes);
-      if (icon.classList === (".LikesIcon i.resp")){
-        return parseInt(phg.likes++);
-      } 
-      if (!icon.classList === (".LikesIcon i.resp")){
-        return phg.likes;}
-
+icons.forEach((icon) =>{
+  icon.addEventListener("click", () => {
+    mediaFilteredByPhgId.forEach((like)=>{
+      if (icon.className === "LikesIcon i.resp") {
+        parseInt(like++);
+      } else {
+        parseInt(like--);
+      }
     });
   });
-}
+});
+
+
+
+
+
+// LikeSection.forEach((section) =>{
+//   section.addEventListener("click", ()=>{
+//     let clicked = false;
+
+//     if(!clicked){
+//       clicked=true;
+//       icons.classList.toggle("resp");
+//       likesNbrs.textContent++;
+//     } else{
+//       clicked = false;
+//       icons.classList.toggle("resp");
+//       likesNbrs.textContent--;
+//     }
+//   });
+// });
 
 
 
