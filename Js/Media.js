@@ -233,13 +233,36 @@ title.addEventListener("click", () => {
  * clickable hearts for each photo or video liked
  */
 
-var icons = document.querySelectorAll(".LikesIcon i");
+// var icons = document.querySelectorAll(".LikesIcon i");
 
-icons.forEach((icon) =>
-  icon.addEventListener("click", () => {
-    icon.classList.toggle("resp");
-  })
-);
+// icons.forEach((icon) =>{
+//   icon.addEventListener("click", () => {
+//     icon.classList.toggle("resp");
+//   });
+// });
+
+
+
+
+// var icons = document.querySelectorAll(".LikesIcon i");
+
+
+// icons.forEach((icon) =>
+//   icon.addEventListener("click", () => {
+//     icon.classList.toggle("resp");
+//     mediaFilteredByPhgId.forEach((photograph) => {
+//       // console.log(photograph.likes);
+//       photograph.likes.forEach((like)=>{
+//         console.log(like);
+//       });
+//       if (icon.className === "LikesIcon i.resp") {
+//         parseInt(++photograph.likes);
+//       } else {
+//         parseInt(--photograph.likes);
+//       }
+//     });
+//   })
+// );
 
 /**
  * [displaying the total likes for each photographer]
@@ -247,22 +270,43 @@ icons.forEach((icon) =>
 
 var totalLikes = document.querySelector("#totalLikes");
 
+
+
+// window.addEventListener("load", getPhotographLikesNbr());
+// function getPhotographLikesNbr() {
+//   var sumLikes = [];
+//   let toSort = 0;
+//   mediaFilteredByPhgId.forEach((photograph) => {
+//     toSort += photograph.likes;
+//     sumLikes.push(toSort);
+//   });
+//   let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
+
+//   totalLikes.innerHTML = totalPhgLikes;
+// }
+
+
+
 let mediaFilteredByPhgId = data["media"].filter(
   (x) => x.photographerId === getCurrentId()
 );
- 
-window.addEventListener("load", getPhotographLikesNbr());
-function getPhotographLikesNbr() {
-  var sumLikes = [];
-  let toSort = 0;
-  for (let i = 0; i < mediaFilteredByPhgId.length; i++) {
-    toSort += mediaFilteredByPhgId[i].likes;
-    sumLikes.push(toSort);
-  }
-  let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
- 
-  totalLikes.innerHTML = totalPhgLikes;
+
+getTotalLikes(mediaFilteredByPhgId);
+
+
+function getTotalLikes(photographs){
+  let LikesArray = [];
+  photographs.forEach((photograph)=>{
+    LikesArray.push(photograph.likes);
+
+  });
+  let sum = LikesArray.reduce((totalValue, currentValue) => {
+    return totalValue + currentValue;
+  }, 0);
+
+  totalLikes.innerHTML = sum;
 }
+
 
 /**
  * clicking on the heart for each photo or video will increment or decrement the likes number
@@ -271,17 +315,17 @@ function getPhotographLikesNbr() {
 // let likesNbrs = document.querySelectorAll(".likesNumber");
 // const LikeSection = document.querySelectorAll(".LikesSection");
 
-icons.forEach((icon) =>{
-  icon.addEventListener("click", () => {
-    mediaFilteredByPhgId.forEach((like)=>{
-      if (icon.className === "LikesIcon i.resp") {
-        parseInt(like++);
-      } else {
-        parseInt(like--);
-      }
-    });
-  });
-});
+// icons.forEach((icon) => {
+//   icon.addEventListener("click", () => {
+//     mediaFilteredByPhgId.forEach((like) => {
+//       if (icon.className === "LikesIcon i.resp") {
+//         parseInt(++like);
+//       } else {
+//         parseInt(--like);
+//       }
+//     });
+//   });
+// });
 
 
 
