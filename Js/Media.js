@@ -197,15 +197,21 @@ function launchFilter() {
  * [on click on filter button,  the photographs will be sorted by popularity, date or title]
  *
  */
-var popular = document.querySelector("#Popular");
-var date = document.querySelector("#Date");
-var title = document.querySelector("#Title");
+const popular = document.querySelector("#Popular");
+const date = document.querySelector("#Date");
+const title = document.querySelector("#Title");
+const mediaFilteredByPhgId = data["media"].filter(
+  (x) => x.photographerId === getCurrentId()
+);
 
 popular.addEventListener("click", () => {
   let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
     return b.likes - a.likes;
   });
-  getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
+  getPhotographsByPhotographersId(
+    ".thePhotographsSection",
+    sortingByPopularity
+  );
 });
 
 date.addEventListener("click", () => {
@@ -214,7 +220,6 @@ date.addEventListener("click", () => {
   });
   getPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
 });
-
 
 title.addEventListener("click", () => {
   let sortingByTitle = mediaFilteredByPhgId.sort(function (a, b) {
@@ -235,7 +240,7 @@ title.addEventListener("click", () => {
 
 // var icons = document.querySelectorAll(".LikesIcon i");
 
-// icons.forEach((icon) =>{
+// icons.forEach((icon) => {
 //   icon.addEventListener("click", () => {
 //     icon.classList.toggle("resp");
 //   });
@@ -244,61 +249,44 @@ title.addEventListener("click", () => {
 
 
 
-// var icons = document.querySelectorAll(".LikesIcon i");
 
+var icons = document.querySelectorAll(".LikesIcon i");
 
-// icons.forEach((icon) =>
-//   icon.addEventListener("click", () => {
-//     icon.classList.toggle("resp");
-//     mediaFilteredByPhgId.forEach((photograph) => {
-//       // console.log(photograph.likes);
-//       photograph.likes.forEach((like)=>{
-//         console.log(like);
-//       });
-//       if (icon.className === "LikesIcon i.resp") {
-//         parseInt(++photograph.likes);
-//       } else {
-//         parseInt(--photograph.likes);
-//       }
-//     });
-//   })
-// );
+icons.forEach((icon) =>
+  icon.addEventListener("click", () => {
+    icon.classList.toggle("resp");
+    // mediaFilteredByPhgId.forEach((photograph) => {
+    //   // console.log(photograph.likes);
+    //   photograph.likes.forEach((like)=>{
+    mediaFilteredByPhgId.forEach((photograph) => {
+      console.log(photograph.likes);
+
+      // console.log(photograph);
+    });
+    // console.log(like);
+
+    // if (icon.className === "LikesIcon i.resp") {
+    //   parseInt(++photograph.likes);
+    // } else {
+    //   parseInt(--photograph.likes);
+    // }
+    // });
+  })
+);
 
 /**
  * [displaying the total likes for each photographer]
  */
 
-var totalLikes = document.querySelector("#totalLikes");
 
+getTotalLikes("#totalLikes", mediaFilteredByPhgId);
 
+function getTotalLikes(container, photographs) {
+  var totalLikes = document.querySelector(container);
 
-// window.addEventListener("load", getPhotographLikesNbr());
-// function getPhotographLikesNbr() {
-//   var sumLikes = [];
-//   let toSort = 0;
-//   mediaFilteredByPhgId.forEach((photograph) => {
-//     toSort += photograph.likes;
-//     sumLikes.push(toSort);
-//   });
-//   let totalPhgLikes = parseInt(sumLikes.slice(sumLikes.length - 1));
-
-//   totalLikes.innerHTML = totalPhgLikes;
-// }
-
-
-
-let mediaFilteredByPhgId = data["media"].filter(
-  (x) => x.photographerId === getCurrentId()
-);
-
-getTotalLikes(mediaFilteredByPhgId);
-
-
-function getTotalLikes(photographs){
   let LikesArray = [];
-  photographs.forEach((photograph)=>{
+  photographs.forEach((photograph) => {
     LikesArray.push(photograph.likes);
-
   });
   let sum = LikesArray.reduce((totalValue, currentValue) => {
     return totalValue + currentValue;
@@ -312,7 +300,7 @@ function getTotalLikes(photographs){
  * clicking on the heart for each photo or video will increment or decrement the likes number
  */
 
-// let likesNbrs = document.querySelectorAll(".likesNumber");
+// let likesNbrs = document.querySelectorAll(".likesNumber").innerHTML;
 // const LikeSection = document.querySelectorAll(".LikesSection");
 
 // icons.forEach((icon) => {
