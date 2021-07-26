@@ -124,7 +124,6 @@ header {
   top: 4rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-right: 1rem;
 }
 
 #header_nav {
@@ -218,7 +217,7 @@ header {
 
 #photographs {
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 10rem;
 }
 
 .photographerImg {
@@ -1043,6 +1042,9 @@ textarea::placeholder {
     position: fixed;
     bottom: 1.5rem;
     left: 30%;
+  }
+  #photographs {
+    margin-top: 6rem;
   }
   .photographerFullName {
     font-size: 2rem;
