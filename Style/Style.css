@@ -100,6 +100,8 @@ header {
 .logo_Fisheye {
   width: 9rem;
   margin-right: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .photographsListTitle {

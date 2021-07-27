@@ -222,10 +222,7 @@ popular.addEventListener("click", () => {
   let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
     return b.likes - a.likes;
   });
-  getPhotographsByPhotographersId(
-    ".thePhotographsSection",
-    sortingByPopularity
-  );
+  getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
 });
 
 date.addEventListener("click", () => {

@@ -7,43 +7,13 @@
  * @return {innerHTML}
  */
 
-// function getCurrentId() {
-//   const params = new URLSearchParams(window.location.search);
-//   const phgId = parseInt(params.get("id"));
-//   return phgId;
-// }
 
-// getPhotographsById(data.media);
 displayPhotographsInLightbox("#lightBox");
 
-// function getPhotographsById(media){
-//   let mediaFiltered =  media.filter((x) => x.photographerId === getCurrentId());
-//   console.log(mediaFiltered);
-//   return mediaFiltered;
-// }
-
-// function getPhgType(media) {
-//   console.log(media);
-//   if (media.image !== undefined) {
-//     // console.log("image", lightBoxinfo.image);
-//     return `<img src="")>`;
-//   } else if (media.video !== undefined) {
-//     // console.log("video", lightBoxinfo.video);
-
-//     return `<video src=""
-//     type="video/mp4" controls="controls"></video>`;
-//   }
-// }
-
 function displayPhotographsInLightbox(container) {
-  // console.log(phgMedia);
   var theLightBoxSection = document.querySelector(container);
   theLightBoxSection.innerHTML = 
-  // ${media
-  //   .map((lightBoxinfo) =>{
-    // console.log(lightBoxinfo);
-    // theLightBoxSection =
-  `<div class="previewBox">
+   `<div class="previewBox">
   <div class="closing">
     <span class="lightboxClosingBtn"><i class="fas fa-times"></i></span>
   </div>
@@ -132,3 +102,41 @@ window.addEventListener("load", () => {
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+// function getCurrentId() {
+//   const params = new URLSearchParams(window.location.search);
+//   const phgId = parseInt(params.get("id"));
+//   return phgId;
+// }
+
+// getPhotographsById(data.media);
+
+
+
+// function getPhotographsById(media){
+//   let mediaFiltered =  media.filter((x) => x.photographerId === getCurrentId());
+//   console.log(mediaFiltered);
+//   return mediaFiltered;
+// }
+
+// function getPhgType(media) {
+//   console.log(media);
+//   if (media.image !== undefined) {
+//     // console.log("image", lightBoxinfo.image);
+//     return `<img src="")>`;
+//   } else if (media.video !== undefined) {
+//     // console.log("video", lightBoxinfo.video);
+
+//     return `<video src=""
+//     type="video/mp4" controls="controls"></video>`;
+//   }
+// }
