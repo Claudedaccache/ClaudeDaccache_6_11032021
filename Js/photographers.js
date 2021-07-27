@@ -39,7 +39,7 @@ function displayingEachPhgTags(tags) {
   <div class="photographerHashtags">
   ${tags
     .map(function (tag) {
-      return `<a href="#">#${tag}</a>`;
+      return `<a href="#" class="photographerTags" data-filter="${tag}">#${tag}</a>`;
     })
     .join("")}
   </div>
@@ -121,6 +121,31 @@ function getFilteredPhgs(tags, phgs){
         return characterTags.includes(filterTags);
       });
       displayPhotographers(".photographersList", filteredPhgs);
+      getFilteredPhotographersByTags(".photographerTags", data.photographers);
+    });
+  });
+}
+
+
+/**
+* [when clicked on a photographer's hashtag on the main page the photographers will be filtered and only the photographers with the same tag will be displayed]
+*/
+
+getFilteredPhotographersByTags(".photographerTags", data.photographers);
+
+
+function getFilteredPhotographersByTags(tags, photographers){
+  const photographerTagsMenu = document.querySelectorAll(tags);
+  photographerTagsMenu.forEach((tag)=>{
+    tag.addEventListener("click", (e) => {
+      const filterTags = e.target.dataset.filter;
+      console.log(filterTags);
+      let filteredPhgs = photographers.filter((character) => {
+        var characterTags = character.tags;
+        return characterTags.includes(filterTags);
+      });
+      displayPhotographers(".photographersList", filteredPhgs);
+      getFilteredPhotographersByTags(".photographerTags", data.photographers);
     });
   });
 }
