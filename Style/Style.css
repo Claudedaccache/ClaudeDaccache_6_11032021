@@ -124,6 +124,11 @@ header {
   top: 4rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 #header_nav {
@@ -217,7 +222,7 @@ header {
 
 #photographs {
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 8rem;
 }
 
 .photographerImg {
