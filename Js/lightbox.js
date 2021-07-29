@@ -1,85 +1,69 @@
-// import data from "./../data.js";
-// import {getPhotographsByPhotographersId} from "./Media.js";
-
 
 /**
  * Display the photos and videos of according to each photographers Id into the lightbox.
  * @return {innerHTML}
  */
-
-
-displayPhotographsInLightbox("#lightBox");
-
-function displayPhotographsInLightbox(container) {
-  var theLightBoxSection = document.querySelector(container);
-  theLightBoxSection.innerHTML = 
-   `<div class="previewBox">
-  <div class="closing">
-    <span class="lightboxClosingBtn"><i class="fas fa-times"></i></span>
-  </div>
-  <div class="photographBox">
-    <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-    <div class="slide next"><i class="fas fa-angle-right"></i></div>
-    <span class="lightBoxPhotograph> </span>
-  <span class="lightBoxPhotographTitle"></span>
-  </div>
-  </div>
-<div class="shadow"></div>`;
-}
-
-const thePhotograph = document.querySelectorAll(".thePhotograph");
-let lightBoxPhotographs = document.querySelector(".lightBoxPhotograph");
+const photographs = document.querySelectorAll(".thePhotograph");
+let lightBoxPhotograph = document.querySelector(".lightBoxPhotograph");
 const previewBox = document.querySelector(".previewBox");
 const shadow = document.querySelector(".shadow");
 const closingBtn = document.querySelector(".lightboxClosingBtn");
 const prevBtn = document.querySelector(".slide.prev");
 const nextBtn = document.querySelector(".slide.next");
-const lightBoxPhotographTitle = document.querySelector(
-  ".lightBoxPhotographTitle"
-);
+const lightBoxPhotographTitle = document.querySelector(".lightBoxPhotographTitle");
 
-closingBtn.addEventListener("click", () => {
-  previewBox.classList.remove("show");
-  shadow.style.display = "none";
-});
 
+
+displayPhotographsInLightbox("#lightBox");
+
+function displayPhotographsInLightbox(container) {
+  let LightBoxSection = document.querySelector(container);
+  LightBoxSection.innerHTML = 
+      `<div class="previewBox">
+        <div class="closing">
+          <span class="lightboxClosingBtn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="photographBox">
+          <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+          <div class="slide next"><i class="fas fa-angle-right"></i></div>
+        <span  class="lightBoxPhotograph></span>    // add a data-lightbox
+        <span class="lightBoxPhotographTitle"></span>
+        </div>
+        </div>
+      <div class="shadow"></div>`;
+}
+
+
+  
 window.addEventListener("load", () => {
-  for (let i = 0; i < thePhotograph.length; i++) {
-    // console.log(thePhotograph[I].nodeName == "IMG");
-
+  for (let i = 0; i < photographs.length; i++) {
     let newIndex = i;
 
-    // console.log(thePhotograph[i]);
-    thePhotograph[i].addEventListener("click", () => {
+    photographs[i].addEventListener("click", () => {
       previewBox.classList.add("show");
       shadow.style.display = "block";
-
+  
       function getSelectedPhg() {
-        let currentPhotograph = thePhotograph[newIndex];
+        let currentPhotograph = photographs[newIndex];
         console.log(currentPhotograph);
-        let PhotographTitle = thePhotograph[newIndex].alt;
-        console.log(PhotographTitle);
+        let PhotographTitle = photographs[newIndex].alt;
+        console.log(lightBoxPhotograph.innerHTML);
 
-        lightBoxPhotographs.innerHTML = currentPhotograph;
+        lightBoxPhotograph.innerHTML = currentPhotograph;
         // console.log(lightBoxPhotographs);
         lightBoxPhotographTitle.innerHTML = PhotographTitle;
       }
       getSelectedPhg();
-
+  
       if (newIndex == 0) {
         prevBtn.style.display = "none";
       }
-      if (newIndex >= thePhotograph.length - 1) {
+
+      if (newIndex >= photographs.length - 1) {
         nextBtn.style.display = "none";
       }
-      prevBtn.addEventListener("click", incrementLightBox, false);
-      // prevBtn.addEventListener("keydown", function (event) {
-      //   if (event.keyCode == 37) {
-      //     console.log("hey");
-      //   }
-      // });
 
-      function incrementLightBox() {
+      prevBtn.addEventListener("click", () => {
         newIndex--;
         if (newIndex == 0) {
           getSelectedPhg();
@@ -88,10 +72,11 @@ window.addEventListener("load", () => {
           getSelectedPhg();
           nextBtn.style.display = "block";
         }
-      }
+      });
+
       nextBtn.addEventListener("click", () => {
         newIndex++;
-        if (newIndex >= thePhotograph.length - 1) {
+        if (newIndex >= photographs.length - 1) {
           getSelectedPhg();
           nextBtn.style.display = "none";
         } else {
@@ -99,35 +84,29 @@ window.addEventListener("load", () => {
           prevBtn.style.display = "block";
         }
       });
+
+      closingBtn.addEventListener("click", () => {
+        previewBox.classList.remove("show");
+        shadow.style.display = "none";
+      });
     });
   }
 });
 
 
 
-
-
-
-
-
-
-
-// function getCurrentId() {
-//   const params = new URLSearchParams(window.location.search);
-//   const phgId = parseInt(params.get("id"));
-//   return phgId;
-// }
-
-// getPhotographsById(data.media);
-
-
-
-// function getPhotographsById(media){
-//   let mediaFiltered =  media.filter((x) => x.photographerId === getCurrentId());
-//   console.log(mediaFiltered);
-//   return mediaFiltered;
-// }
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 // function getPhgType(media) {
 //   console.log(media);
 //   if (media.image !== undefined) {
@@ -135,8 +114,29 @@ window.addEventListener("load", () => {
 //     return `<img src="")>`;
 //   } else if (media.video !== undefined) {
 //     // console.log("video", lightBoxinfo.video);
-
+  
 //     return `<video src=""
 //     type="video/mp4" controls="controls"></video>`;
 //   }
+// }
+
+// prevBtn.addEventListener("keydown", function (event) {
+//   if (event.keyCode == 37) {
+//     console.log("hey");
+//   }
+// });
+
+ 
+// function getPhotographType() {
+//   photographs.forEach((photograph) => {
+//     photograph.addEventListener("click", ()=>{
+//       if (photograph.classList.contains("image")) {
+//         console.log("image");
+//         return `<img src="${photograph}" class="lightBoxPhotograph">`;
+//       } else if (photograph.classList.contains("video")) {
+//         console.log("video");
+//         return `<video src="${photograph}" type="video/mp4" controls="controls" class="lightBoxPhotograph></video>`;
+//       }
+//     });
+//   });
 // }

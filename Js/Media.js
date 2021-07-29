@@ -108,7 +108,7 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
             alt="${photographerinfo.title}" title="clicker pour voir la photo"
-            class="thePhotograph image" id= "${photographerinfo.id}">
+            class="thePhotograph" id= "${photographerinfo.id}">
       <figcaption class="photographDescr">
       <div class="photographDetails">
         <h2>${photographerinfo.title}</h2>
