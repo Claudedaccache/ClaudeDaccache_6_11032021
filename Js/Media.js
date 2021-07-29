@@ -1,6 +1,7 @@
 
 import data from "./../data.js";
 
+
 /**
  * Display the thePricingSec of each photographer according to each their Id.
  * @return {innerHTML}
@@ -94,7 +95,7 @@ function getPhotographerInfo(container, photographer) {
  */
 getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-export function getPhotographsByPhotographersId(container, photographerinfo) {
+function getPhotographsByPhotographersId(container, photographerinfo) {
   var thePhotographsSection = document.querySelector(container);
   thePhotographsSection.innerHTML = `${photographerinfo
     .filter((x) => x.photographerId === getCurrentId())
@@ -107,7 +108,7 @@ export function getPhotographsByPhotographersId(container, photographerinfo) {
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
             alt="${photographerinfo.title}" title="clicker pour voir la photo"
-            class="thePhotograph" >
+            class="thePhotograph image" id= "${photographerinfo.id}">
       <figcaption class="photographDescr">
       <div class="photographDetails">
         <h2>${photographerinfo.title}</h2>
@@ -132,7 +133,7 @@ export function getPhotographsByPhotographersId(container, photographerinfo) {
   <video src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph"></video>
+  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" id= "${photographerinfo.id}"></video>
   <figcaption class="photographDescr">
     <div class="photographDetails">
       <h2>${photographerinfo.title}</h2>
@@ -214,7 +215,7 @@ function launchFilter() {
 const popular = document.querySelector("#Popular");
 const date = document.querySelector("#Date");
 const title = document.querySelector("#Title");
-const mediaFilteredByPhgId = data["media"].filter(
+export const mediaFilteredByPhgId = data["media"].filter(
   (x) => x.photographerId === getCurrentId()
 );
 
