@@ -1149,7 +1149,7 @@ textarea::placeholder {
   max-height: 100%;
   width: 100%;
   z-index: 10000;
-  opacity: 1;
+  opacity: 0;
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -1262,7 +1262,7 @@ textarea::placeholder {
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: block;
+  display: none;
   background: white;
   opacity: 0.98;
 }
