@@ -1,3 +1,5 @@
+
+
 .previewBox {
   position: fixed;
   top: 50%;
@@ -8,7 +10,7 @@
   max-height: 100%;
   width: 100%;
   z-index: 10000;
-  opacity: 0;
+  opacity: 1;
   border-radius: 3px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -27,7 +29,7 @@
   right: 0.5rem;
   z-index: 10001;
   color: $secondaryColor;
-  font-size: 25px;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -44,7 +46,9 @@
   justify-content: center;
   position: relative;
   max-height: 600px;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  padding: 2rem 0 ;
   border-radius: 0 0 3px 3px;
 }
 
@@ -69,7 +73,7 @@
   line-height: 50px;
   text-align: center;
   border-radius: 3px;
-  font-size: 2rem;
+  font-size: 3rem;
   z-index: 10001;
 
 }
@@ -91,6 +95,7 @@
   left: 2.8rem;
   color: $secondaryColor;
   font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 .shadow {
   position: fixed;
@@ -99,7 +104,7 @@
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: none;
+  display: block;
   background: rgb(255, 255, 255);
   opacity: 0.98;
 }

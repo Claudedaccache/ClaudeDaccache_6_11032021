@@ -19,10 +19,14 @@ window.addEventListener("load", () => {
   for (let i = 0; i < photographs.length; i++) {
     let newIndex = i;
 
-    photographs[i].addEventListener("click", () => {
+    photographs[i].addEventListener("click", (e) => {
+      e.preventDefault();
       previewBox.classList.add("show");
       shadow.style.display = "block";
-  
+
+      const currentSrc = e.currentTarget;
+      console.log(currentSrc);
+
       function getSelectedPhg() {
         let currentPhotograph = photographs[newIndex];
         console.log(currentPhotograph);

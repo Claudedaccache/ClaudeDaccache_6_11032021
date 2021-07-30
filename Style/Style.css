@@ -1149,7 +1149,7 @@ textarea::placeholder {
   max-height: 100%;
   width: 100%;
   z-index: 10000;
-  opacity: 0;
+  opacity: 1;
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -1173,7 +1173,7 @@ textarea::placeholder {
   right: 0.5rem;
   z-index: 10001;
   color: #d3573c;
-  font-size: 25px;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -1198,7 +1198,9 @@ textarea::placeholder {
           justify-content: center;
   position: relative;
   max-height: 600px;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  padding: 2rem 0;
   border-radius: 0 0 3px 3px;
 }
 
@@ -1230,7 +1232,7 @@ textarea::placeholder {
   line-height: 50px;
   text-align: center;
   border-radius: 3px;
-  font-size: 2rem;
+  font-size: 3rem;
   z-index: 10001;
 }
 
@@ -1253,6 +1255,7 @@ textarea::placeholder {
   left: 2.8rem;
   color: #d3573c;
   font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 .shadow {
@@ -1262,7 +1265,7 @@ textarea::placeholder {
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: none;
+  display: block;
   background: white;
   opacity: 0.98;
 }
