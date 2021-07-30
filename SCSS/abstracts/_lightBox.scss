@@ -4,12 +4,11 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   background: $quaternaryColor;
-  max-width: 80%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
   width: 100%;
   z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
   border-radius: 3px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -23,27 +22,39 @@
 }
 .lightboxClosingBtn {
   color: $secondaryColor;
-  position: absolute;
+  position: fixed;
   top: 0.5rem;
   right: 0.5rem;
   z-index: 10001;
-}
-
-.lightboxClosingBtn {
   color: $secondaryColor;
   font-size: 25px;
   cursor: pointer;
 }
-.lightBoxPhotograph {
+
+.lightBoxPhotograph{
+  width: 100%;
+}
+
+.lightBoxPhotograph img{
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   max-height: 600px;
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+
+}
+
+.photographBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .slide {
-  position: absolute;
+  position: fixed;
   top: 50%;
   padding: 2rem 0;
   overflow: hidden;
@@ -57,6 +68,8 @@
   text-align: center;
   border-radius: 3px;
   font-size: 2rem;
+  z-index: 10001;
+
 }
 .slide.prev {
   left: -1rem;
@@ -68,10 +81,6 @@
 .lightboxClosingBtn:hover,
 .slide:hover {
   color: $primaryColor;
-}
-.lightBoxPhotograph {
-  width: 100%;
-  border-radius: 0 0 3px 3px;
 }
 
 .lightBoxPhotographTitle {
@@ -88,7 +97,7 @@
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: none;
+  display: block;
   background: rgb(255, 255, 255);
-  opacity: 0.95;
+  opacity: 0.98;
 }

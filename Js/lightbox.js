@@ -26,7 +26,7 @@ function displayPhotographsInLightbox(container) {
         <div class="photographBox">
           <div class="slide prev"><i class="fas fa-angle-left"></i></div>
           <div class="slide next"><i class="fas fa-angle-right"></i></div>
-        <span  class="lightBoxPhotograph></span>    // add a data-lightbox
+        <div class="lightBoxPhotograph></div>    // add a data-lightbox
         <span class="lightBoxPhotographTitle"></span>
         </div>
         </div>
