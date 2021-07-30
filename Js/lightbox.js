@@ -14,8 +14,6 @@ const lightBoxPhotographTitle = document.querySelector(".lightBoxPhotographTitle
 
 
 
-
-
   
 window.addEventListener("load", () => {
   for (let i = 0; i < photographs.length; i++) {
