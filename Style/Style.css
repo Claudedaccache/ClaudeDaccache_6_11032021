@@ -1178,10 +1178,15 @@ textarea::placeholder {
 }
 
 .lightBoxPhotograph {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   width: 100%;
 }
 
-.lightBoxPhotograph img {
+.lightBoxPhotograph img,
+.lightBoxPhotograph video {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

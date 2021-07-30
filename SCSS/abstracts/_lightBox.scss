@@ -32,10 +32,13 @@
 }
 
 .lightBoxPhotograph{
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
-.lightBoxPhotograph img{
+.lightBoxPhotograph img,
+.lightBoxPhotograph video{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +46,6 @@
   max-height: 600px;
   width: 100%;
   border-radius: 0 0 3px 3px;
-
 }
 
 .photographBox{
