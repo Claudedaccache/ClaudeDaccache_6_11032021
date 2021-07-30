@@ -108,7 +108,7 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
             alt="${photographerinfo.title}" title="clicker pour voir la photo"
-            class="thePhotograph" id= "${photographerinfo.id}">
+            class="thePhotograph">
       <figcaption class="photographDescr">
       <div class="photographDetails">
         <h2>${photographerinfo.title}</h2>
@@ -133,7 +133,7 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
   <video src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" id= "${photographerinfo.id}"></video>
+  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video"></video>
   <figcaption class="photographDescr">
     <div class="photographDetails">
       <h2>${photographerinfo.title}</h2>
