@@ -107,7 +107,7 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
       <img src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
-            alt="${photographerinfo.title}" title="clicker pour voir la photo"
+            alt="${photographerinfo.description}" title="clicker pour voir la photo"
             class="thePhotograph">
       <figcaption class="photographDescr">
       <div class="photographDetails">
@@ -133,7 +133,7 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
   <video src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video"></video>
+  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" alt="${photographerinfo.description}" track default src="${photographerinfo.description}"></video>
   <figcaption class="photographDescr">
     <div class="photographDetails">
       <h2>${photographerinfo.title}</h2>
