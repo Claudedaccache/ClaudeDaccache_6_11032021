@@ -1149,7 +1149,7 @@ textarea::placeholder {
   max-height: 100%;
   width: 100%;
   z-index: 10000;
-  opacity: 1;
+  opacity: 0;
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -1198,7 +1198,7 @@ textarea::placeholder {
           justify-content: center;
   position: relative;
   max-height: 600px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 0;
   border-radius: 0 0 3px 3px;
@@ -1214,7 +1214,8 @@ textarea::placeholder {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .slide {
@@ -1265,7 +1266,7 @@ textarea::placeholder {
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: block;
+  display: none;
   background: white;
   opacity: 0.98;
 }

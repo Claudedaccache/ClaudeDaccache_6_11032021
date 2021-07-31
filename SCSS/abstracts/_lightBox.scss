@@ -9,8 +9,9 @@
   max-width: 100%;
   max-height: 100%;
   width: 100%;
+  // height: 100vh;
   z-index: 10000;
-  opacity: 1;
+  opacity: 0;
   border-radius: 3px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -46,7 +47,7 @@
   justify-content: center;
   position: relative;
   max-height: 600px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 0 ;
   border-radius: 0 0 3px 3px;
@@ -56,7 +57,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+
 }
 
 .slide {
@@ -104,7 +107,7 @@
   height: 100%;
   width: 100%;
   z-index: 1000;
-  display: block;
+  display: none;
   background: rgb(255, 255, 255);
   opacity: 0.98;
 }
