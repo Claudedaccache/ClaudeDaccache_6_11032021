@@ -104,11 +104,13 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
         const imageAsHtml = `<figure class="photographerPhotos ${
           photographerinfo.tags
         }">
-      <img src="./SamplePhotos/${
+      <a href="./SamplePhotos/${
+  data["photographers"].find((x) => x.id === getCurrentId()).name
+}/${photographerinfo.image}"><img src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.image}"
             alt="${photographerinfo.description}" title="clicker pour voir la photo"
-            class="thePhotograph">
+            class="thePhotograph image"></a>
       <figcaption class="photographDescr">
       <div class="photographDetails">
         <h2>${photographerinfo.title}</h2>
@@ -130,10 +132,13 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
       } else if (photographerinfo.video) {
         const videoAsHtml = `
   <figure class="photographerPhotos ${photographerinfo.tags}" >
-  <video src="./SamplePhotos/${
+  <a href="./SamplePhotos/${
+  data["photographers"].find((x) => x.id === getCurrentId()).name
+}/${photographerinfo.video}"><video src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" alt="${photographerinfo.description}" track default src="${photographerinfo.description}"></video>
+  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" alt="${photographerinfo.description}" track src="${photographerinfo.description}" kind="subtitles" srclang="fr" label="french">
+  </video></a>
   <figcaption class="photographDescr">
     <div class="photographDetails">
       <h2>${photographerinfo.title}</h2>

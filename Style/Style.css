@@ -1138,136 +1138,117 @@ textarea::placeholder {
   }
 }
 
-.previewBox {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0.9);
-          transform: translate(-50%, -50%) scale(0.9);
-  background: #fafafa;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  z-index: 10000;
-  opacity: 0;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-
-.previewBox.show {
-  opacity: 1;
-  padding: 1.8rem 2rem;
-  pointer-events: auto;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.lightboxClosingBtn {
-  color: #d3573c;
-  position: fixed;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 10001;
-  color: #d3573c;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.lightBoxPhotograph {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  width: 100%;
-}
-
-.lightBoxPhotograph img,
-.lightBoxPhotograph video {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  max-height: 600px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem 0;
-  border-radius: 0 0 3px 3px;
-}
-
-.photographBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 95%;
-  margin: 0 auto;
-}
-
-.slide {
-  position: fixed;
-  top: 50%;
-  padding: 2rem 0;
-  overflow: hidden;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  color: #d3573c;
-  font-size: 30px;
-  cursor: pointer;
-  height: 50px;
-  width: 60px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 3px;
-  font-size: 3rem;
-  z-index: 10001;
-}
-
-.slide.prev {
-  left: -1rem;
-}
-
-.slide.next {
-  right: -1rem;
-}
-
-.lightboxClosingBtn:hover,
-.slide:hover {
-  color: #901c1c;
-}
-
-.lightBoxPhotographTitle {
-  position: absolute;
-  bottom: 0.4rem;
-  left: 2.8rem;
-  color: #d3573c;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-}
-
-.shadow {
+.lightbox {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  z-index: 1000;
-  display: none;
-  background: white;
-  opacity: 0.98;
+  height: 100%;
+  background-color: white;
+  z-index: 10000;
+  overflow: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+
+.lightboxNext,
+.lightboxPrev {
+  border: none;
+  background: url(../../SamplePhotos/arrow.svg) center center/16px 28px no-repeat;
+  width: 60%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: -14px;
+  z-index: 11;
+}
+
+.lightboxPrev {
+  right: auto;
+  left: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightboxClose {
+  width: 30px;
+  height: 30px;
+  border: none;
+  position: fixed;
+  top: 40px;
+  right: 28.5%;
+  z-index: 12;
+}
+
+.lightbox button {
+  opacity: 0.5;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  text-indent: -3000px;
+}
+
+.lightbox button:hover, .lightbox button:focus {
+  background-color: none;
+  outline: none;
+  opacity: 1;
+}
+
+.lightboxcontainer img {
+  width: 35%;
+  height: auto;
+  -webkit-animation: lightboxIn 0.5s;
+          animation: lightboxIn 0.5s;
+}
+
+.lightboxcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-height: 100vh;
+}
+
+.lightboxLoader {
+  width: 38px;
+  height: 38px;
+  opacity: 0.5;
+  background: url(../../SamplePhotos/loader.svg) center center no-repeat;
+}
+
+@-webkit-keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=Style.css.map */
