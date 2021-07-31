@@ -3,11 +3,11 @@ class Lightbox {
     const links = Array.from(
       document.querySelectorAll("a[href$=\".jpg\"],a[href$=\".mp4\"]")
     );
+  
     
     const gallery = links.map((link) => link.getAttribute("href"));
     const galleryOfAlts = links.map((link) => link.children[0].alt);
     const srcOfVideo = document.querySelector("track").src;
-    console.log(srcOfVideo);
 
     /* the alt of the video will return undefined so we remplace the value of the alt with the srv of the video */
     for (let i = 0; i < galleryOfAlts.length; i++) {
@@ -19,7 +19,7 @@ class Lightbox {
     links.forEach((link) =>
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        //console.log(e.currentTarget);
+        console.log(e.currentTarget);
         new Lightbox(
           e.currentTarget.getAttribute("href"),
           e.currentTarget.children[0].alt,
@@ -203,8 +203,8 @@ class Lightbox {
     const dom = document.querySelector("#lightBox");
     dom.innerHTML = `
     <span class="lightboxClose" aria-label="Close lightBox"><i class="fa-solid fa-xmark"></i></span>
-    <button class="lightboxPrev" aria-label="Previous image">Précédent</button>
-    <button class="lightboxNext" aria-label="Next image">Suivant</button>
+    <span class="lightboxPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-right"></i></span>
+    <span class="lightboxNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></span>
     <div class="lightboxContainer"></div>
     `;
     dom

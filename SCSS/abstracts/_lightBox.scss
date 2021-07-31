@@ -1,33 +1,32 @@
 @import "../abstracts/keyframes";
 @import "../abstracts/variables";
 
-.lightbox {
+#lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: white;
-  z-index: 10001;
+  z-index: 100000;
   overflow: auto;
   animation: lightboxIn 0.5s;
-  transition: opacity 0.3s;
 }
+
 .lightbox.fadeOut {
   opacity: 0;
 }
 .lightboxNext,
 .lightboxPrev {
-  border: none;
-  background: url(../../SamplePhotos/arrow.svg) center center / 16px 28px no-repeat;
-  width: 60%;
-  height: 100%;
+  font-size: 2.5rem;
   position: fixed;
   top: 0;
   right: 0;
   margin-top: -14px;
-  z-index: 11;
+  z-index: 100001;
   color: $secondaryColor;
+  opacity: 0.5;
+  cursor: pointer;
 
 }
 .lightboxPrev {
@@ -36,12 +35,9 @@
   transform: rotate(180deg);
 }
 .lightboxClose {
-  // width: 30px;
-  // height: 30px;
-  // border: none;
   position: fixed;
   top: 40px;
-  right: 28.5%;
+  right: 28.5px;
   z-index: 10001;
   opacity: 1;
   color: $secondaryColor;
@@ -49,21 +45,18 @@
   cursor: pointer;
 
 }
-.lightbox button {
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  text-indent: -100000px;
 
-}
-.lightbox button:hover, .lightbox button:focus {
-  background-color: none;
-  outline: none;
+.lightboxPrev:hover,.lightboxPrev:focus
+.lightboxClose:hover, 
+.lightboxNext:hover,.lightboxNext:focus {
+  color: $primaryColor;
   opacity: 1;
 }
 .lightboxcontainer img {
-  width: 35%;
-  height: auto;
+  width: 600px;
+  height: 600px;
+  // width: 35%;
+  // height: auto;
   animation: lightboxIn 0.5s;
 }
 .lightboxcontainer {
@@ -74,12 +67,6 @@
   margin-left: 50px;
   margin-right: 50px;
   min-height: 100vh;
-}
-.lightboxLoader {
-  width: 38px;
-  height: 38px;
-  opacity: 0.5;
-  background: url(../../SamplePhotos/loader.svg) center center no-repeat;
 }
 
 @keyframes lightboxIn {
