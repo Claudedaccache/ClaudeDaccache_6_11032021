@@ -134,10 +134,11 @@ function getPhotographsByPhotographersId(container, photographerinfo) {
   <figure class="photographerPhotos ${photographerinfo.tags}" >
   <a href="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
-}/${photographerinfo.video}"><video src="./SamplePhotos/${
+}/${photographerinfo.video}"><video class="thePhotograph video" controls>
+<source src="./SamplePhotos/${
   data["photographers"].find((x) => x.id === getCurrentId()).name
 }/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" class="thePhotograph video" alt="${photographerinfo.description}" track src="${photographerinfo.description}" kind="subtitles" srclang="fr" label="french">
+  type="video/mp4" controls="controls" title="clicker pour voir la video" alt="${photographerinfo.description}"> <track src="${photographerinfo.description}" kind="subtitles" srclang="fr" label="english">
   </video></a>
   <figcaption class="photographDescr">
     <div class="photographDetails">

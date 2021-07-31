@@ -6,7 +6,7 @@ class Lightbox {
     
     const gallery = links.map((link) => link.getAttribute("href"));
     const galleryOfAlts = links.map((link) => link.children[0].alt);
-    const srcOfVideo = document.querySelector("video").src;
+    const srcOfVideo = document.querySelector("track").src;
     console.log(srcOfVideo);
 
     /* the alt of the video will return undefined so we remplace the value of the alt with the srv of the video */
@@ -31,26 +31,26 @@ class Lightbox {
   }
 
   /**
-   * @param {string} url URL de l'image
-   * @param {string[]} alt Attribut ALT de l'image
-   * @param {string[]} images Chemins des images/vidéos de la lightbox
-   * @param {string[]} alts Chemins des attributs alt pour les images de la lightbox
+   * @param {string} url URL of the image
+   * @param {string[]} alt Attribut alt of the image
+   * @param {string[]} images images/vidéos in the lightbox
+   * @param {string[]} alts attributs alt for the images in the lightbox
    */
   constructor(url, alt, images, alts) {
+    const Box = document.querySelector("#Box");
     this.element = this.buildDOM(url);
     this.alt = alt;
     this.images = images;
     this.alts = alts;
     this.loadImage(url, alt);
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.body.appendChild(this.element);
+    document.body.insertBefore(this.element, Box);
     document.addEventListener("keyup", this.onKeyUp);
-    const header = document.querySelector("header");
-    const main = document.querySelector("main");
+
   }
 
   /**
-   * @param {string} url URL de l'image
+   * @param {string} url URL of the image
    */
   loadImage(url, alt) {
     this.url = null;
@@ -101,7 +101,7 @@ class Lightbox {
   }
 
   /**
-   * @param {KeyboardEvent} e
+   * @param {KeyboardEvent} event
    */
   onKeyUp(e) {
     if (e.key === "Escape") {
@@ -117,15 +117,12 @@ class Lightbox {
   }
 
   /**
-   * Ferme la ligthbox
-   * @param {MouseEvent|KeyboardEvent} e
+   * closing the ligthbox
+   * @param {MouseEvent|KeyboardEvent} event
    */
   close(e) {
     e.preventDefault();
-    header.setAttribute("aria-hidden", "false");
-    main.setAttribute("aria-hidden", "false");
     this.element.classList.add("fadeOut");
-    this.element.setAttribute("aria-hidden", "true");
     window.setTimeout(() => {
       this.element.parentElement.removeChild(this.element);
     }, 500);
@@ -133,7 +130,7 @@ class Lightbox {
   }
 
   /**
-   * @param {MouseEvent|KeyboardEvent} e
+   * @param {MouseEvent|KeyboardEvent} event
    */
   next(e) {
     e.preventDefault();
@@ -149,7 +146,7 @@ class Lightbox {
   }
 
   /**
-   * @param {MouseEvent|KeyboardEvent} e
+   * @param {MouseEvent|KeyboardEvent} event
    */
   prev(e) {
     e.preventDefault();
@@ -199,17 +196,13 @@ class Lightbox {
   }
 
   /**
-   * @param {string} url URL de l'image
+   * @param {string} url URL of the image
    * @return {HTMLElement}
    */
-  buildDOM(url, header, main) {
-    header.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "true");
-    const dom = document.querySelector("#lightbox");
-    dom.setAttribute("aria-hidden", "false");
-    dom.setAttribute("aria-label", "image close up view");
+  buildDOM(url) {
+    const dom = document.querySelector("#lightBox");
     dom.innerHTML = `
-    <button class="lightboxClose" aria-label="Close dialog">Fermer</button>
+    <span class="lightboxClose" aria-label="Close lightBox"><i class="fa-solid fa-xmark"></i></span>
     <button class="lightboxPrev" aria-label="Previous image">Précédent</button>
     <button class="lightboxNext" aria-label="Next image">Suivant</button>
     <div class="lightboxContainer"></div>
