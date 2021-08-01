@@ -1048,8 +1048,8 @@ textarea::placeholder {
 
 .lightboxClose {
   position: absolute;
-  top: 5rem;
-  right: 1rem;
+  top: 2rem;
+  right: 2rem;
   z-index: 100002;
   opacity: 1;
   color: #d3573c;
@@ -1057,9 +1057,9 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.lightboxPrev:hover, .lightboxPrev:focus,
+.lightboxPrev:hover,
 .lightboxClose:hover,
-.lightboxNext:hover, .lightboxNext:focus {
+.lightboxNext:hover {
   color: #901c1c;
   opacity: 1;
 }
@@ -1078,16 +1078,15 @@ textarea::placeholder {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
   min-height: 100vh;
   z-index: 100001;
 }
 
 .lightboxContainer img,
 .lightboxContainer video {
-  position: relative;
-  width: 34%;
+  max-width: 60%;
   height: auto;
   -webkit-animation: lightboxOpen 0.5s;
           animation: lightboxOpen 0.5s;
@@ -1159,16 +1158,6 @@ textarea::placeholder {
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
-  .lightboxClose {
-    top: 4rem;
-    right: 1rem;
-  }
-  .lightboxContainer img,
-  .lightboxContainer video {
-    width: 300px;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-  }
 }
 
 @media screen and (min-width: 500px) {
@@ -1185,25 +1174,6 @@ textarea::placeholder {
   }
   .photographerDescriptionHashtags a {
     font-size: 1.1rem;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-  }
-  .lightboxNext,
-  .lightboxPrev {
-    top: 18rem;
-    right: 2rem;
-  }
-  .lightboxPrev {
-    right: auto;
-    left: 2rem;
-  }
-  .lightboxClose {
-    top: 0.5rem;
-    right: 3rem;
-  }
-  .lightboxContainer img,
-  .lightboxContainer video {
-    width: 400px;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
@@ -1224,25 +1194,6 @@ textarea::placeholder {
   }
   .formTitle {
     font-size: 2.8rem;
-  }
-  .lightboxNext,
-  .lightboxPrev {
-    top: 18rem;
-    right: 2rem;
-  }
-  .lightboxPrev {
-    right: auto;
-    left: 2rem;
-  }
-  .lightboxClose {
-    top: 0.5rem;
-    right: 3rem;
-  }
-  .lightboxContainer img,
-  .lightboxContainer video {
-    width: 500px;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
   }
 }
 

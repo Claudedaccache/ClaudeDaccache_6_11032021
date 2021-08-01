@@ -175,7 +175,7 @@ class Lightbox {
       focusableContent[focusableContent.length - 1];
 
     lightbox.addEventListener("keydown", function (e) {
-      let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+      let isTabPressed = e.key === "Tab" || e.key === 9;
 
       if (!isTabPressed) {
         return;
