@@ -58,7 +58,7 @@
   }
 }
 
-@-webkit-keyframes lightboxIn {
+@-webkit-keyframes lightboxOpen {
   from {
     opacity: 0;
   }
@@ -67,7 +67,7 @@
   }
 }
 
-@keyframes lightboxIn {
+@keyframes lightboxOpen {
   from {
     opacity: 0;
   }
@@ -224,7 +224,7 @@ header {
   }
 }
 
-@keyframes lightboxIn {
+@keyframes lightboxOpen {
   from {
     opacity: 0;
   }
@@ -970,6 +970,134 @@ textarea::placeholder {
   cursor: pointer;
 }
 
+@keyframes likeicon {
+  100% {
+    color: #901c1c;
+  }
+}
+
+@keyframes formopen {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes photographPrice {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 100000;
+  overflow: auto;
+  -webkit-animation: lightboxOpen 0.5s;
+          animation: lightboxOpen 0.5s;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+
+.lightboxNext,
+.lightboxPrev {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 18rem;
+  right: 0.5rem;
+  margin-top: -14px;
+  z-index: 100001;
+  color: #d3573c;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.lightboxPrev {
+  right: auto;
+  left: 0.5rem;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 5rem;
+  right: 1rem;
+  z-index: 100002;
+  opacity: 1;
+  color: #d3573c;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightboxPrev:hover, .lightboxPrev:focus,
+.lightboxClose:hover,
+.lightboxNext:hover, .lightboxNext:focus {
+  color: #901c1c;
+  opacity: 1;
+}
+
+.lightboxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-height: 100vh;
+  z-index: 100001;
+}
+
+.lightboxContainer img,
+.lightboxContainer video {
+  position: relative;
+  width: 34%;
+  height: auto;
+  -webkit-animation: lightboxOpen 0.5s;
+          animation: lightboxOpen 0.5s;
+}
+
+.lightboxContainer p {
+  color: #d3573c;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 370px) {
   .photographsListTitle {
     padding-left: 1rem;
@@ -1031,6 +1159,16 @@ textarea::placeholder {
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
+  .lightboxClose {
+    top: 4rem;
+    right: 1rem;
+  }
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 300px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -1047,6 +1185,25 @@ textarea::placeholder {
   }
   .photographerDescriptionHashtags a {
     font-size: 1.1rem;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .lightboxNext,
+  .lightboxPrev {
+    top: 18rem;
+    right: 2rem;
+  }
+  .lightboxPrev {
+    right: auto;
+    left: 2rem;
+  }
+  .lightboxClose {
+    top: 0.5rem;
+    right: 3rem;
+  }
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 400px;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
@@ -1067,6 +1224,25 @@ textarea::placeholder {
   }
   .formTitle {
     font-size: 2.8rem;
+  }
+  .lightboxNext,
+  .lightboxPrev {
+    top: 18rem;
+    right: 2rem;
+  }
+  .lightboxPrev {
+    right: auto;
+    left: 2rem;
+  }
+  .lightboxClose {
+    top: 0.5rem;
+    right: 3rem;
+  }
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 500px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -1162,135 +1338,6 @@ textarea::placeholder {
             justify-content: center;
     position: absolute;
     top: 1rem;
-  }
-}
-
-@keyframes likeicon {
-  100% {
-    color: #901c1c;
-  }
-}
-
-@keyframes formopen {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-150px);
-            transform: translateY(-150px);
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes photographPrice {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-250%);
-            transform: translateY(-250%);
-  }
-  100% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  z-index: 100000;
-  overflow: auto;
-  -webkit-animation: lightboxIn 0.5s;
-          animation: lightboxIn 0.5s;
-}
-
-.lightbox.fadeOut {
-  opacity: 0;
-}
-
-.lightboxNext,
-.lightboxPrev {
-  font-size: 2.5rem;
-  position: fixed;
-  top: 0;
-  right: 0;
-  margin-top: -14px;
-  z-index: 100001;
-  color: #d3573c;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.lightboxPrev {
-  right: auto;
-  left: 0;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.lightboxClose {
-  position: fixed;
-  top: 40px;
-  right: 28.5px;
-  z-index: 10001;
-  opacity: 1;
-  color: #d3573c;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.lightboxPrev:hover, .lightboxPrev:focus
-.lightboxClose:hover,
-.lightboxNext:hover, .lightboxNext:focus {
-  color: #901c1c;
-  opacity: 1;
-}
-
-.lightboxcontainer img {
-  width: 600px;
-  height: 600px;
-  -webkit-animation: lightboxIn 0.5s;
-          animation: lightboxIn 0.5s;
-}
-
-.lightboxcontainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-left: 50px;
-  margin-right: 50px;
-  min-height: 100vh;
-}
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 /*# sourceMappingURL=Style.css.map */

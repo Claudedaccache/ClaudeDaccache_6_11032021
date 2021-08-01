@@ -1,7 +1,7 @@
 @import "../abstracts/keyframes";
 @import "../abstracts/variables";
 
-#lightbox {
+.lightBox {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   background-color: white;
   z-index: 100000;
   overflow: auto;
-  animation: lightboxIn 0.5s;
+  animation: lightboxOpen 0.5s;
 }
 
 .lightbox.fadeOut {
@@ -19,9 +19,9 @@
 .lightboxNext,
 .lightboxPrev {
   font-size: 2.5rem;
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: absolute;
+  top: 18rem;
+  right: 0.5rem;
   margin-top: -14px;
   z-index: 100001;
   color: $secondaryColor;
@@ -31,35 +31,28 @@
 }
 .lightboxPrev {
   right: auto;
-  left: 0;
+  left: 0.5rem;
   transform: rotate(180deg);
 }
 .lightboxClose {
-  position: fixed;
-  top: 40px;
-  right: 28.5px;
-  z-index: 10001;
+  position: absolute;
+  top: 5rem;
+  right: 1rem;
+  z-index: 100002;
   opacity: 1;
   color: $secondaryColor;
   font-size: 2rem;
   cursor: pointer;
-
 }
 
-.lightboxPrev:hover,.lightboxPrev:focus
+.lightboxPrev:hover,.lightboxPrev:focus,
 .lightboxClose:hover, 
 .lightboxNext:hover,.lightboxNext:focus {
   color: $primaryColor;
   opacity: 1;
 }
-.lightboxcontainer img {
-  width: 600px;
-  height: 600px;
-  // width: 35%;
-  // height: auto;
-  animation: lightboxIn 0.5s;
-}
-.lightboxcontainer {
+
+.lightboxContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,16 +60,25 @@
   margin-left: 50px;
   margin-right: 50px;
   min-height: 100vh;
+  z-index: 100001;
+
 }
 
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.lightboxContainer img,
+.lightboxContainer video {
+  position: relative;
+  width: 34%;
+  height: auto;
+  animation: lightboxOpen 0.5s;
 }
+
+.lightboxContainer p{
+  color: $secondaryColor;
+  font-weight: bold;
+}
+
+
+
 
 
 

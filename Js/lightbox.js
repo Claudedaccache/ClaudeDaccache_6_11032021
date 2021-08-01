@@ -200,11 +200,12 @@ class Lightbox {
    * @return {HTMLElement}
    */
   buildDOM(url) {
-    const dom = document.querySelector("#lightBox");
+    const dom = document.createElement("section");
+    dom.classList.add("lightBox");
     dom.innerHTML = `
-    <span class="lightboxClose" aria-label="Close lightBox"><i class="fa-solid fa-xmark"></i></span>
-    <span class="lightboxPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-right"></i></span>
-    <span class="lightboxNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></span>
+    <span class="lightboxClose" aria-label="Close lightBox"><i class="icon fas fa-times"></i></span>
+    <span class="lightboxPrev" aria-label="Previous image"><i class="fas fa-angle-right"></i></span>
+    <span class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></i></span>
     <div class="lightboxContainer"></div>
     `;
     dom

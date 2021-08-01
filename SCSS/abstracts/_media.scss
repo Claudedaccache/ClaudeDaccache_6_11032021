@@ -6,7 +6,6 @@
   }
   .logo_Fisheye {
     width: 12rem;
-    // height: 5rem;
     transition: all 0.5s ease-in-out;
   }
   #header_nav ul li a {
@@ -64,7 +63,17 @@
     width: 6rem;
     height: 6rem;
     transition: all 0.5s ease-in-out;
-    // margin-right: 2rem;
+  }
+
+  .lightboxClose {
+    top: 4rem;
+    right: 1rem;
+  }
+
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 300px;
+    transition: all 0.5s ease-in-out;
   }
 }
 
@@ -78,13 +87,35 @@
     width: 8rem;
     height: 8rem;
     transition: all 0.5s ease-in-out;
-    // margin-right: 2rem;
   }
 
   .photographerDescriptionHashtags a {
     font-size: 1.1rem;
     transition: all 0.5s ease-in-out;
   }
+
+  .lightboxNext,
+  .lightboxPrev {
+    top: 18rem;
+    right: 2rem;
+  }
+
+  .lightboxPrev {
+    right: auto;
+    left: 2rem;
+  }
+
+  .lightboxClose {
+    top: 0.5rem;
+    right: 3rem;
+  }
+
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 400px;
+    transition: all 0.5s ease-in-out;
+  }
+
 }
 
 @media screen and (min-width: 600px) {
@@ -100,6 +131,31 @@
   .formTitle {
     font-size: 2.8rem;
   }
+
+  .lightboxNext,
+  .lightboxPrev {
+    top: 18rem;
+    right: 2rem;
+  }
+
+  .lightboxPrev {
+    right: auto;
+    left: 2rem;
+  }
+
+  .lightboxClose {
+    top: 0.5rem;
+    right: 3rem;
+  }
+
+  .lightboxContainer img,
+  .lightboxContainer video {
+    width: 500px;
+    transition: all 0.5s ease-in-out;
+  }
+
+
+
 }
 
 @media screen and (min-width: 755px) {
@@ -169,7 +225,6 @@
 
   .thePhotograph {
     width: 24rem;
-    // transition: 0.5 ease-in-out;
   }
   #scrollMainPage {
     left: 45%;
@@ -185,9 +240,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    // align-items: center;
     position: absolute;
     top: 1rem;
-    // transition: 0.5s ease-in-out;
   }
 }
