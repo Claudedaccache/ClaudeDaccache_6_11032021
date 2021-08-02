@@ -1,5 +1,6 @@
 
 import data from "./../data.js";
+import {displayMediaList} from "./MediaFactory.js";
 
 
 /**
@@ -95,74 +96,18 @@ function getPhotographerInfo(container, photographer) {
  */
 getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-function getPhotographsByPhotographersId(container, photographerinfo) {
+function getPhotographsByPhotographersId(container, photographerMedia) {
   var thePhotographsSection = document.querySelector(container);
-  thePhotographsSection.innerHTML = `${photographerinfo
+  thePhotographsSection.innerHTML = `${photographerMedia
     .filter((x) => x.photographerId === getCurrentId())
-    .map((photographerinfo) => {
-      if (photographerinfo.image) {
-        const imageAsHtml = `<figure class="photographerPhotos ${
-          photographerinfo.tags
-        }">
-      <a href="./SamplePhotos/${
-  data["photographers"].find((x) => x.id === getCurrentId()).name
-}/${photographerinfo.image}"><img src="./SamplePhotos/${
-  data["photographers"].find((x) => x.id === getCurrentId()).name
-}/${photographerinfo.image}"
-            alt="${photographerinfo.description}" title="clicker pour voir la photo"
-            class="thePhotograph image"></a>
-      <figcaption class="photographDescr">
-      <div class="photographDetails">
-        <h2>${photographerinfo.title}</h2>
-        <div class="photographPriceDate">
+    .map((photographerMedia) => {
+      const photographerName =  data["photographers"].find((x) => x.id === getCurrentId()).name;
+      let mediaList =  displayMediaList(photographerMedia, photographerName);
+      return mediaList.displayImageList();
 
-        <p>${photographerinfo.date}</p>
-        <p class="photographPrice">${photographerinfo.price}€</p>
-        </div>
-        </div> 
-        <div class="LikesSection">
-          <span class="likesNumber" >${photographerinfo.likes}</span>
-          <div class="LikesIcon">
-            <i class="fa fa-heart" data-id="${photographerinfo.id}"></i> 
-        </div>
-      </div>
-      </figcaption>
-    </figure>`;
-        return imageAsHtml;
-      } else if (photographerinfo.video) {
-        const videoAsHtml = `
-  <figure class="photographerPhotos ${photographerinfo.tags}" >
-  <a href="./SamplePhotos/${
-  data["photographers"].find((x) => x.id === getCurrentId()).name
-}/${photographerinfo.video}"><video class="thePhotograph video" controls>
-<source src="./SamplePhotos/${
-  data["photographers"].find((x) => x.id === getCurrentId()).name
-}/${photographerinfo.video}"  
-  type="video/mp4" controls="controls" title="clicker pour voir la video" alt="${photographerinfo.description}"> <track src="${photographerinfo.description}" kind="subtitles" srclang="fr" label="english">
-  </video></a>
-  <figcaption class="photographDescr">
-    <div class="photographDetails">
-      <h2>${photographerinfo.title}</h2>
-      <div class="photographPriceDate">
-
-      <p>${photographerinfo.date}</p>
-      <p class="photographPrice">${photographerinfo.price}€</p>
-      </div>
-     </div> 
-      <div class="LikesSection">
-        <span class="likesNumber" >${photographerinfo.likes}</span>
-          <div class="LikesIcon">
-              <i class="fa fa-heart" data-id="${photographerinfo.id}"></i> 
-          </div>
-      </div>
-  </figcaption>
-</figure>`;
-        return videoAsHtml;
-      }
     })
     .join("")}`;
 }
-
 
 
 
