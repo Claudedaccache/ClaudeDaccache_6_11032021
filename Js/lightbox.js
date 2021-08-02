@@ -166,34 +166,6 @@ class Lightbox {
     this.element.querySelector("video").focus();
   }
 
-  keepFocusInLightbox() {
-    let lightbox = this.element;
-    let focusableElements = "button, video";
-    let focusableContent = lightbox.querySelectorAll(focusableElements);
-    let firstFocusableElement = focusableContent[0];
-    let lastFocusableElement =
-      focusableContent[focusableContent.length - 1];
-
-    lightbox.addEventListener("keydown", function (e) {
-      let isTabPressed = e.key === "Tab" || e.key === 9;
-
-      if (!isTabPressed) {
-        return;
-      }
-      if (e.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-          lastFocusableElement.focus();
-          e.preventDefault();
-        }
-      } else {
-        if (document.activeElement === lastFocusableElement) {
-          firstFocusableElement.focus();
-          e.preventDefault();
-        }
-      }
-    });
-    firstFocusableElement.focus();
-  }
 
   /**
    * @param {string} url URL of the image
@@ -208,9 +180,7 @@ class Lightbox {
     <span class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></i></span>
     <div class="lightboxContainer"></div>
     `;
-    dom
-      .querySelector(".lightboxContainer")
-      .addEventListener("mouseover", this.keepFocusInLightbox.bind(this));
+   
     dom
       .querySelector(".lightboxClose")
       .addEventListener("click", this.close.bind(this));
