@@ -96,15 +96,15 @@ function getPhotographerInfo(container, photographer) {
  */
 getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-function getPhotographsByPhotographersId(container, photographerMedia) {
+function getPhotographsByPhotographersId(container, photographerInfo) {
   var thePhotographsSection = document.querySelector(container);
-  thePhotographsSection.innerHTML = `${photographerMedia
+  const photographerName =  data["photographers"].find((x) => x.id === getCurrentId()).name;
+  thePhotographsSection.innerHTML = `${photographerInfo
     .filter((x) => x.photographerId === getCurrentId())
-    .map((photographerMedia) => {
-      const photographerName =  data["photographers"].find((x) => x.id === getCurrentId()).name;
-      let mediaList =  displayMediaList(photographerMedia, photographerName);
-      return mediaList.displayImageList();
-
+    .map((photographerInfo) => {
+      let mediaList = displayMediaList(photographerInfo, photographerName);
+      console.log(mediaList);
+      return mediaList;
     })
     .join("")}`;
 }

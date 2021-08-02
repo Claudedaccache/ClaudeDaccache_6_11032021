@@ -19,11 +19,6 @@ export default class Video {
     return `<figure class="photographerPhotos ${
       this.tags}">
   <a href=${this.src}>
-  
-  
-  <img src=${this.src}
-        alt="${this.description}" title="clicker pour voir la photo"
-        class="thePhotograph video">
         <video class="thePhotograph video" controls>
 <source src="${this.src}" type="video/mp4" controls="controls" title="clicker pour voir la video"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
   </video></a>
@@ -31,7 +26,6 @@ export default class Video {
   <div class="photographDetails">
     <h2>${this.title}</h2>
     <div class="photographPriceDate">
-
     <p>${this.date}</p>
     <p class="photographPrice">${this.price}€</p>
     </div>
