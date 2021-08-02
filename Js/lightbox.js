@@ -61,7 +61,7 @@ class Lightbox {
       const video = document.createElement("video");
       const subtitles = document.createElement("track");
       let legend = document.createElement("p");
-      const container = this.element.querySelector(".lightboxContainer");
+      const container = this.element.querySelector(".innerLightboxContainer");
       container.innerHTML = "";
       container.appendChild(video);
       container.appendChild(legend);
@@ -79,7 +79,7 @@ class Lightbox {
       this.alt = alt;
       const image = new Image();
       let legend = document.createElement("p");
-      const container = this.element.querySelector(".lightboxContainer");
+      const container = this.element.querySelector(".innerLightboxContainer");
       container.innerHTML = "";
       container.appendChild(image);
       container.appendChild(legend);
@@ -171,15 +171,15 @@ class Lightbox {
    * @param {string} url URL of the image
    * @return {HTMLElement}
    */
-  buildDOM(url) {
+  buildDOM() {
     const dom = document.createElement("section");
     dom.classList.add("lightBox");
     dom.innerHTML = `
     <span class="lightboxClose" aria-label="Close lightBox"><i class="icon fas fa-times"></i></span>
     <span class="lightboxPrev" aria-label="Previous image"><i class="fas fa-angle-right"></i></span>
     <span class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></i></span>
-    <div class="lightboxContainer"></div>
-    `;
+    <div class="lightboxContainer">
+    <div class="innerLightboxContainer"></div></div>`;
    
     dom
       .querySelector(".lightboxClose")

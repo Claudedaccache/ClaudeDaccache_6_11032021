@@ -1030,13 +1030,14 @@ textarea::placeholder {
 .lightboxPrev {
   font-size: 2.5rem;
   position: absolute;
-  top: 18rem;
+  top: calc(50% - 32px);
   right: 0.5rem;
   margin-top: -14px;
   z-index: 100001;
   color: #d3573c;
   opacity: 0.5;
   cursor: pointer;
+  padding: 1rem;
 }
 
 .lightboxPrev {
@@ -1080,16 +1081,29 @@ textarea::placeholder {
           justify-content: center;
   margin-left: 40px;
   margin-right: 40px;
-  min-height: 100vh;
+  height: 100vh;
   z-index: 100001;
+}
+
+.innerLightboxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 90%;
+  height: auto;
+  -webkit-animation: lightboxOpen 0.5s;
+          animation: lightboxOpen 0.5s;
+  max-height: 95vh;
 }
 
 .lightboxContainer img,
 .lightboxContainer video {
-  max-width: 60%;
-  height: auto;
-  -webkit-animation: lightboxOpen 0.5s;
-          animation: lightboxOpen 0.5s;
+  max-height: 90vh;
+  width: 100%;
 }
 
 .lightboxContainer p {
