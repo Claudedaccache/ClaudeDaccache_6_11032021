@@ -3,6 +3,8 @@ import {Videolightbox} from "./video.lightbox.js";
 
 
 export function displayLightboxMediaList(url, alt){
-  return (url.endsWith(".mp4")) ? new Imagelightbox(url, alt) : new Videolightbox (url, alt);
+  let lightboxImage = new Imagelightbox(url, alt);
+  let lightboxVideo = new Videolightbox (url, alt);
+  return (url.endsWith(".mp4")) ? lightboxImage.displayLightboxImage() : lightboxVideo.displayLightboxVideo();
 
 }

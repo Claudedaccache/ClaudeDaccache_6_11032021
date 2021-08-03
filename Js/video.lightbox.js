@@ -6,7 +6,7 @@ export default class Videolightbox {
   }
 
 
-  displayVideoList(){
+  displayLightboxVideo(){
     return `<video width="40%" controls>
     <source src="${this.url}" type="video/mp4" controls="controls"> <track src="${this.alt}" kind="subtitles" srclang="fr" label="english">
       </video>

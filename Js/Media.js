@@ -1,6 +1,7 @@
 
 import data from "./../data.js";
 import {displayMediaList} from "./MediaFactory.js";
+import {PhotographerHeader} from "./photographer.header.js";
 
 
 /**
@@ -41,48 +42,14 @@ function getPhotographerPrice(container, photographer) {
  */
 getPhotographerInfo(".photographerInfo", data.photographers);
 
-function GetPhgtags(tags) {
-  return `
-  <div class="photographerHashtags">
-  ${tags
-    .map(function (tag) {
-      return `
-      <a href="#" class="btnTag" data-filter="${tag}">#${tag}</a>`;
-    })
-    .join("")}
-  </div>
-  `;
-}
-
 function getPhotographerInfo(container, photographer) {
   let photographerInfo = document.querySelector(container);
   photographerInfo.innerHTML = `${photographer
     .filter((x) => x.id === getCurrentId())
     .map((photographer) =>{
-      return `
-  <div class="photographerDescription">
-  <div class="photographerDescriptionId">
-    <h1 class="photographerFullName">${photographer.name}</h1>
-    <div class="photographerDescriptionText">
-      <p class="photographerDescriptionLocation">${photographer.city}, ${
-  photographer.country
-}</p>
-      <p class="photographerDescriptionQuote">
-      ${photographer.tagline}
-      </p>
-    </div>
-    <div class="photographerDescriptionHashtags">
-      ${GetPhgtags(photographer.tags)}
-    </div>
-  </div>
-  <button class="photographerContact">Contactez-moi</button>
-</div>
-<img
-  src="./SamplePhotos/PhotographersIDPhotos/${photographer.portrait}"
-  alt="image de ${photographer.name}"
-  class="photographerInfoPic"
-/>
-`;})
+      return new PhotographerHeader(photographer).displayPhotographerHeader();
+      
+    })
     .join("")}`;
 }
 
@@ -103,7 +70,6 @@ function getPhotographsByPhotographersId(container, photographerInfo) {
     .filter((x) => x.photographerId === getCurrentId())
     .map((photographerInfo) => {
       let mediaList = displayMediaList(photographerInfo, photographerName);
-      console.log(mediaList);
       return mediaList;
     })
     .join("")}`;

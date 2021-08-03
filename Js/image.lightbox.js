@@ -6,7 +6,7 @@ export default class Imagelightbox {
   }
 
 
-  displayImageList(){
+  displayLightboxImage(){
     return `<img src="${this.url }"
         alt="${this.alt}">
   <p class="legend"></p>`;}
