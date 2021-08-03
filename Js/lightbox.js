@@ -1,13 +1,15 @@
-import {displayLightboxMediaList} from "./lightboxMediaFactory.js";
+// import {displayLightboxMediaList} from "./lightboxMediaFactory.js";
 
 class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll("a[href$=\".jpg\"],a[href$=\".mp4\"]")
     );
+    
   
     
     const gallery = links.map((link) => link.getAttribute("href"));
+    console.log(gallery);
     const galleryOfAlts = links.map((link) => link.children[0].alt);
     const srcOfVideo = document.querySelector("track").src;
 
@@ -54,15 +56,53 @@ class Lightbox {
   /**
    * @param {string} url URL of the image
    */
+  // loadImage(url, alt) {
+  //   this.url = null;
+  //   this.alt = null;
+  //   const container = this.element.querySelector(".innerLightboxContainer");
+  //   let legend = document.querySelector(".legend");
+  //   container.innerHTML = "";
+  //   container.appendChild(displayLightboxMediaList(url, alt));
+  //   let realLegend = this.createLegend(this.url);
+  //   legend.innerText = realLegend;
+  // }
+
   loadImage(url, alt) {
     this.url = null;
     this.alt = null;
-    const container = this.element.querySelector(".innerLightboxContainer");
-    let legend = document.querySelector(".legend");
-    container.innerHTML = "";
-    container.appendChild(displayLightboxMediaList(url, alt));
-    let realLegend = this.createLegend(this.url);
-    legend.innerText = realLegend;
+    if (url.endsWith(".mp4")) {
+      this.url = url;
+      this.alt = alt;
+      const video = document.createElement("video");
+      const subtitles = document.createElement("track");
+      let legend = document.createElement("p");
+      const container = this.element.querySelector(".innerLightboxContainer");
+      container.innerHTML = "";
+      container.appendChild(video);
+      container.appendChild(legend);
+      video.appendChild(subtitles);
+      video.setAttribute("width", "40%");
+      video.setAttribute("controls", "");
+      video.src = url;
+      subtitles.setAttribute("kind", "subtitles");
+      subtitles.setAttribute("srclang", "fr");
+      subtitles.setAttribute("src", this.alt);
+      let realLegend = this.createLegend(this.url);
+      legend.innerText = realLegend;
+    } else {
+      this.url = url;
+      this.alt = alt;
+      const image = new Image();
+      let legend = document.createElement("p");
+      const container = this.element.querySelector(".innerLightboxContainer");
+      container.innerHTML = "";
+      container.appendChild(image);
+      container.appendChild(legend);
+      image.src = url;
+      image.setAttribute("alt", this.alt);
+      let realLegend = this.createLegend(this.url);
+      legend.innerText = realLegend;
+    }
   }
 
   createLegend(url) {
