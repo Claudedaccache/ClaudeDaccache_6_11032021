@@ -132,7 +132,7 @@ function launchFilter() {
 const popular = document.querySelector("#Popular");
 const date = document.querySelector("#Date");
 const title = document.querySelector("#Title");
-export const mediaFilteredByPhgId = data["media"].filter(
+const mediaFilteredByPhgId = data["media"].filter(
   (x) => x.photographerId === getCurrentId()
 );
 
@@ -213,5 +213,6 @@ function getTotalLikes(container, photographs) {
   }, 0);
 
   totalLikes.innerHTML = sum;
+  totalLikes.setAttribute("aria-label",`${sum}total likes`);
 }
 

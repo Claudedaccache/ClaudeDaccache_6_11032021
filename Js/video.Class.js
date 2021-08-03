@@ -20,7 +20,7 @@ export default class Video {
       this.tags}">
   <a href=${this.src}>
         <video class="thePhotograph video" controls>
-<source src="${this.src}" type="video/mp4" controls="controls" title="clicker pour voir la video"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
+<source src="${this.src}" type="video/mp4" controls="controls" title="clicker pour voir la video" aria-label="${this.description}"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
   </video></a>
   <figcaption class="photographDescr">
   <div class="photographDetails">
@@ -31,9 +31,9 @@ export default class Video {
     </div>
     </div> 
     <div class="LikesSection">
-      <span class="likesNumber" >${this.likes}</span>
+      <span class="likesNumber"aria-label='${this.likes} likes' >${this.likes}</span>
       <div class="LikesIcon">
-        <i class="fa fa-heart" data-id="${this.id}"></i> 
+        <i class="fa fa-heart" aria-label="click to like the image" data-id="${this.id}"></i> 
     </div>
   </div>
   </figcaption>

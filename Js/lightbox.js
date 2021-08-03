@@ -60,7 +60,7 @@ class Lightbox {
     const container = this.element.querySelector(".innerLightboxContainer");
     let legend = document.querySelector(".legend");
     container.innerHTML = "";
-    container.innerHTML = displayLightboxMediaList(url, alt);
+    container.appendChild(displayLightboxMediaList(url, alt));
     let realLegend = this.createLegend(this.url);
     legend.innerText = realLegend;
   }

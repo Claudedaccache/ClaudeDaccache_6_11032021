@@ -20,7 +20,7 @@ export default class Image {
       this.tags}">
   <a href="${this.src}"><img src="${this.src}"
         alt="${this.description}" title="clicker pour voir la photo"
-        class="thePhotograph image"></a>
+        class="thePhotograph image" aria-label = ${this.description}></a>
   <figcaption class="photographDescr">
   <div class="photographDetails">
     <h2>${this.title}</h2>
@@ -31,9 +31,9 @@ export default class Image {
     </div>
     </div> 
     <div class="LikesSection">
-      <span class="likesNumber">${this.likes}</span>
+      <span class="likesNumber" aria-label='${this.likes} likes'>${this.likes}</span>
       <div class="LikesIcon">
-        <i class="fa fa-heart" data-id="${this.id}"></i> 
+        <i class="fa fa-heart" aria-label="click to like the image" data-id="${this.id}"></i> 
     </div>
   </div>
   </figcaption>

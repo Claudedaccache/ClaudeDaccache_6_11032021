@@ -11,3 +11,6 @@ export default class Imagelightbox {
         alt="${this.alt}">
   <p class="legend"></p>`;}
 }
+
+
+
