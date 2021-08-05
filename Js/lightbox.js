@@ -1,13 +1,11 @@
-// import {displayLightboxMediaList} from "./lightboxMediaFactory.js";
+// import { displayLightboxMediaList } from "./lightboxMediaFactory.js";
 
 class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll("a[href$=\".jpg\"],a[href$=\".mp4\"]")
     );
-    
-  
-    
+
     const gallery = links.map((link) => link.getAttribute("href"));
     console.log(gallery);
     const galleryOfAlts = links.map((link) => link.children[0].alt);
@@ -50,7 +48,6 @@ class Lightbox {
     this.onKeyUp = this.onKeyUp.bind(this);
     document.body.insertBefore(this.element, Box);
     document.addEventListener("keyup", this.onKeyUp);
-
   }
 
   /**
@@ -62,7 +59,7 @@ class Lightbox {
   //   const container = this.element.querySelector(".innerLightboxContainer");
   //   let legend = document.querySelector(".legend");
   //   container.innerHTML = "";
-  //   container.appendChild(displayLightboxMediaList(url, alt));
+  //   container.innerHTML = displayLightboxMediaList(url, alt);
   //   let realLegend = this.createLegend(this.url);
   //   legend.innerText = realLegend;
   // }
@@ -181,7 +178,6 @@ class Lightbox {
     this.element.querySelector("video").focus();
   }
 
-
   /**
    * @param {string} url URL of the image
    * @return {HTMLElement}
@@ -195,7 +191,7 @@ class Lightbox {
     <span class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></i></span>
     <div class="lightboxContainer">
     <div class="innerLightboxContainer"></div></div>`;
-   
+
     dom
       .querySelector(".lightboxClose")
       .addEventListener("click", this.close.bind(this));

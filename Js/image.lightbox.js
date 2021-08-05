@@ -1,15 +1,12 @@
 // export default class Imagelightbox {
-
-//   constructor (url, alt){
+//   constructor(url, alt) {
 //     this.url = url;
 //     this.alt = alt;
 //   }
 
-
-//   displayLightboxImage(){
-//     return `<img src="${this.url }"
+//   displayLightboxImage() {
+//     return `<img src="${this.url}"
 //         alt="${this.alt}">
-//   <p class="legend"></p>`;}
+//   <p class="legend"></p>`;
+//   }
 // }
-
-
