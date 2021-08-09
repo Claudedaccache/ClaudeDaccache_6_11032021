@@ -3,7 +3,7 @@
 .bground {
   display: none;
   position: fixed;
-  z-index: 100000;
+  z-index: 1000000;
   left: 0;
   top: 0;
   height: 100%;
@@ -95,4 +95,11 @@ textarea::placeholder {
   font-weight: normal;
   opacity: 1;
   cursor: pointer;
+  background: none;
+  border: none;
 }
+
+#submitBtn{
+  background: none;
+  border: none;
+  }

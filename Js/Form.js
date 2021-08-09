@@ -93,6 +93,7 @@ email.addEventListener("input", emailValidation);
 closeBtn.addEventListener("click", closing);
 
 
+
 //form validation:
 function formValidation(e) {
   e.preventDefault();

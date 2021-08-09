@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+.LikesIcon {
+  border: none;
+}
+
 .LikesIcon i {
   color: rgb(197, 196, 196);
   font-size: 1.2rem;
@@ -12,7 +16,7 @@
   color: $primaryColor;
 }
 
-.btn-submit {
+.btnSubmit {
   background-color: $secondaryColor;
   display: block;
   border-radius: 0.4rem;
@@ -23,7 +27,7 @@
   border: 0;
 }
 
-.btn-submit:hover {
+.btnSubmit:hover {
   background-color: $primaryColor;
   color: $quaternaryColor;
 }
@@ -88,3 +92,6 @@
   background-color: $primaryColor;
   color: $quaternaryColor;
 }
+
+
+

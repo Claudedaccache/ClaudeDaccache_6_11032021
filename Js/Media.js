@@ -116,16 +116,16 @@ var FilterIcon = document.querySelector("#filterIcon");
 var FilterNotActive = document.querySelectorAll(".notActive");
 
 FilterIcon.addEventListener("click", launchFilter);
-FilterIcon.addEventListener("keydown", openFilterOnKeyUp);
+FilterIcon.addEventListener("keydown", openFilterOnKeyDown);
 
 
 function launchFilter() {
   FilterNotActive.forEach((btn) => btn.classList.toggle("responsive"));
 }
 
-function openFilterOnKeyUp(e) {
-  if (e.key === "Enter") {
-    launchFilter(e);
+function openFilterOnKeyDown(e) {
+  if (e.key === 13) {
+    launchFilter();
   } 
 }
 
@@ -196,9 +196,6 @@ icons.forEach((icon) =>
     getTotalLikes("#totalLikes", mediaFilteredByPhgId);
   })
 );
-
-
-
 
 
 /**

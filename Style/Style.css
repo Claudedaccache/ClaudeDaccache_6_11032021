@@ -541,7 +541,12 @@ header {
 
 .filterList {
   background-color: #901c1c;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.8rem 1.7rem 0.8rem 1rem;
@@ -550,6 +555,8 @@ header {
   position: relative;
   z-index: 999;
   overflow: visible;
+  border: none;
+  width: 100%;
 }
 
 #filterIcon {
@@ -564,11 +571,16 @@ header {
   padding: 6px;
   margin-right: 0.2rem;
   z-index: 1005;
+  background: none;
+  border: none;
 }
 
 .notActive {
   visibility: hidden;
   opacity: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -576,7 +588,7 @@ header {
 .notActive.responsive {
   opacity: 1;
   visibility: visible;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .notActive::after {
@@ -752,6 +764,10 @@ header {
   cursor: pointer;
 }
 
+.LikesIcon {
+  border: none;
+}
+
 .LikesIcon i {
   color: #c5c4c4;
   font-size: 1.2rem;
@@ -761,7 +777,7 @@ header {
   color: #901c1c;
 }
 
-.btn-submit {
+.btnSubmit {
   background-color: #d3573c;
   display: block;
   border-radius: 0.4rem;
@@ -772,7 +788,7 @@ header {
   border: 0;
 }
 
-.btn-submit:hover {
+.btnSubmit:hover {
   background-color: #901c1c;
   color: #fafafa;
 }
@@ -840,7 +856,7 @@ header {
 .bground {
   display: none;
   position: fixed;
-  z-index: 100000;
+  z-index: 1000000;
   left: 0;
   top: 0;
   height: 100%;
@@ -968,6 +984,13 @@ textarea::placeholder {
   font-weight: normal;
   opacity: 1;
   cursor: pointer;
+  background: none;
+  border: none;
+}
+
+#submitBtn {
+  background: none;
+  border: none;
 }
 
 @keyframes likeicon {

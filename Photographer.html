@@ -42,7 +42,7 @@
 
       <section class="bground">
         <div class="content">
-          <span class="close"><i class="fas fa-times"></i></span>
+          <button class="close"><i class="fas fa-times"></i></button>
           <div class="modal-body">
             <form
               id="myForm"
@@ -98,29 +98,29 @@
                 <span id="messageErrorMessage"></span>
               </div>
               <br />
-              <input class="btn-submit" type="submit" value="Envoyer" aria-label="form sent"/>
+              <button class="btnSubmit" type="submit" aria-label="submit form ">Envoyer</button>
             </form>
           </div>
-          <span id="formValidationMessage"
-            >Votre message a bien été envoyé <br /><br /><br />
+          <span id="formValidationMessage">Votre message a bien été envoyé <br /><br /><br />
             Merci et à bientôt!</span
           >
-          <input class="btnClose" type="button" value="close" aria-label="close form" />
+          <button class="btnClose" type="button" value="close" aria-label="close form">close</button>
         </div>
       </section>
 
       <section>
         <div class="filterSection">
           <p>Trier par</p>
-          <ul>
-            <li class="filterList active" id="Popular" aria-label="Popular">
-              Popularité&nbsp;&nbsp;&nbsp;&nbsp;
+          <ul >
+            <li>
+              <button class="filterList active" id="Popular" aria-label="Popular">Popularité&nbsp;&nbsp;&nbsp;&nbsp;
+              </button>
             </li>
-            <li id="filterIcon" aria-expanded="false">
-              <i class="fas fa-chevron-up"></i>
+            <li>
+             <button id="filterIcon" role="button" aria-expanded="false"><i class="fas fa-chevron-up"></i></button> 
             </li>
-            <li class="filterList notActive" id="Date" aria-label="Date">Date</li>
-            <li class="filterList notActive" id="Title" aria-label="Title">Titre</li>
+            <li><button class="filterList notActive" id="Date" aria-label="Date">Date</button></li>
+            <li><button class="filterList notActive" id="Title" aria-label="Title">Titre</button></li>
           </ul>
         </div>
       </section>

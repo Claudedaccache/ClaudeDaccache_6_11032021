@@ -32,9 +32,9 @@ export default class Image {
     </div> 
     <div class="LikesSection">
       <span class="likesNumber" aria-label='${this.likes} likes'>${this.likes}</span>
-      <div class="LikesIcon">
+      <button class="LikesIcon">
         <i class="fa fa-heart" aria-label="click to like the image" data-id="${this.id}"></i> 
-    </div>
+    </button>
   </div>
   </figcaption>
 </figure>`;}

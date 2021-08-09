@@ -1,4 +1,3 @@
-// import { displayLightboxMediaList } from "./lightboxMediaFactory.js";
 
 class Lightbox {
   static init() {
@@ -52,53 +51,49 @@ class Lightbox {
   /**
    * @param {string} url URL of the image
    */
-  // loadImage(url, alt) {
-  //   this.url = null;
-  //   this.alt = null;
-  //   const container = this.element.querySelector(".innerLightboxContainer");
-  //   let legend = document.querySelector(".legend");
-  //   container.innerHTML = "";
-  //   container.innerHTML = displayLightboxMediaList(url, alt);
-  //   let realLegend = this.createLegend(this.url);
-  //   legend.innerText = realLegend;
-  // }
-
   loadImage(url, alt) {
-    this.url = null;
-    this.alt = null;
+    this.url = url;
+    this.alt = alt;
     if (url.endsWith(".mp4")) {
-      this.url = url;
-      this.alt = alt;
-      const video = document.createElement("video");
-      const subtitles = document.createElement("track");
-      let legend = document.createElement("p");
-      const container = this.element.querySelector(".innerLightboxContainer");
-      container.innerHTML = "";
-      container.appendChild(video);
-      container.appendChild(legend);
-      video.appendChild(subtitles);
-      video.setAttribute("width", "40%");
-      video.setAttribute("controls", "");
-      video.src = url;
-      subtitles.setAttribute("kind", "subtitles");
-      subtitles.setAttribute("srclang", "fr");
-      subtitles.setAttribute("src", this.alt);
-      let realLegend = this.createLegend(this.url);
-      legend.innerText = realLegend;
+      this.displayVideo();
     } else {
-      this.url = url;
-      this.alt = alt;
-      const image = new Image();
-      let legend = document.createElement("p");
-      const container = this.element.querySelector(".innerLightboxContainer");
-      container.innerHTML = "";
-      container.appendChild(image);
-      container.appendChild(legend);
-      image.src = url;
-      image.setAttribute("alt", this.alt);
-      let realLegend = this.createLegend(this.url);
-      legend.innerText = realLegend;
+      this.displayImage();
     }
+  }
+
+  displayVideo(){
+    const video = document.createElement("video");
+    const subtitles = document.createElement("track");
+    let legend = document.createElement("p");
+    const container = this.element.querySelector(".innerLightboxContainer");
+    container.innerHTML = "";
+    container.appendChild(video);
+    container.appendChild(legend);
+    video.appendChild(subtitles);
+    video.setAttribute("width", "40%");
+    video.setAttribute("controls", "");
+    video.src = this.url;
+    subtitles.setAttribute("kind", "subtitles");
+    subtitles.setAttribute("srclang", "fr");
+    subtitles.setAttribute("src", this.alt);
+    let realLegend = this.createLegend(this.url);
+    legend.innerText = realLegend;
+  }
+
+
+  displayImage(){
+    const image = new Image();
+    let legend = document.createElement("p");
+    const container = this.element.querySelector(".innerLightboxContainer");
+    container.innerHTML = "";
+    container.appendChild(image);
+    container.appendChild(legend);
+    image.src = this.url;
+    image.setAttribute("alt", this.alt);
+    let realLegend = this.createLegend(this.url);
+    legend.innerText = realLegend;
+
+
   }
 
   createLegend(url) {

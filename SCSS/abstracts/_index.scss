@@ -219,11 +219,13 @@
   list-style-type: none;
   border-radius: 0.8rem;
   position: relative;
-}
+  }
 
-.filterList {
+ .filterList {
   background-color: $primaryColor;
-  display: inline-block;
+  // display: inline-block;
+  display: flex;
+  justify-content: left;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.8rem 1.7rem 0.8rem 1rem;
@@ -232,6 +234,8 @@
   position: relative;
   z-index: 999;
   overflow: visible;
+  border: none;
+  width: 100%;
 }
 
 #filterIcon {
@@ -246,18 +250,21 @@
   padding: 6px;
   margin-right: 0.2rem;
   z-index: 1005;
+  background: none;
+  border:none
 }
 
 .notActive {
   visibility: hidden;
   opacity: 0;
+  justify-content: flex-start;
   transition: all 0.5s ease-in-out;
 }
 
 .notActive.responsive {
   opacity: 1;
   visibility: visible;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .notActive::after {

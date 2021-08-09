@@ -57,7 +57,7 @@ function displayPhotographers(container, photographers){
     	alt="photo de ${phg.name}" title="clicker pour voir ce photographe"
     	class="photographerImg"></a>
     	<figcaption class="photographerComment">
-    		<a href="./Photographer.html"><h2 class="photographerName">${
+    		<a href="./Photographer.html?id=${phg.id}"><h2 class="photographerName">${
   phg.name
 }</h2></a>
     	<div class="photographerCommentText">
