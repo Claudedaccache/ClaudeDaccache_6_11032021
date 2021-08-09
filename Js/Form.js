@@ -63,13 +63,11 @@ function launchForm() {
 
 // closing modal form
 close.forEach((cls) => cls.addEventListener("click", closing));
-close.forEach((cls) => cls.addEventListener("keyup", (e) => {
-  console.log(e);
-  if (e.key === "Escape") {
-    // closing();
-    console.log(closed);
+window.addEventListener("keyup", (e)=>{
+  if(e.key=== "Escape"){
+    closing();
   }
-}));
+});
 
 
 function closing() {
