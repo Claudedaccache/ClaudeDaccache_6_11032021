@@ -197,7 +197,6 @@ icons.forEach((icon) =>
   })
 );
 
-
 /**
  * [displaying the total likes for each photographer]
  */
