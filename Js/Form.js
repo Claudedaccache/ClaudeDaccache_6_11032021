@@ -63,6 +63,14 @@ function launchForm() {
 
 // closing modal form
 close.forEach((cls) => cls.addEventListener("click", closing));
+close.forEach((cls) => cls.addEventListener("keyup", (e) => {
+  console.log(e);
+  if (e.key === "Escape") {
+    // closing();
+    console.log(closed);
+  }
+}));
+
 
 function closing() {
   modalbg.style.display = "none";
@@ -77,16 +85,13 @@ function closing() {
   emailErrorMessage.innerHTML = "";
 }
 
-function closingForm() {
-  modalbg.style.display = "none";
-}
-
 //addEventListener section:
 myForm.addEventListener("submit", formValidation);
 yourName.addEventListener("input", nameValidation);
 lastName.addEventListener("input", lastNameValidation);
 email.addEventListener("input", emailValidation);
-closeBtn.addEventListener("click", closingForm);
+closeBtn.addEventListener("click", closing);
+
 
 //form validation:
 function formValidation(e) {
@@ -175,3 +180,10 @@ function emailValidation() {
     return true;
   }
 }
+
+// function closeFormOnKeyDown(e) {
+//   if (e.keyCode === "Escape") {
+//     closing();
+//   }
+  
+// }

@@ -116,12 +116,18 @@ var FilterIcon = document.querySelector("#filterIcon");
 var FilterNotActive = document.querySelectorAll(".notActive");
 
 FilterIcon.addEventListener("click", launchFilter);
+FilterIcon.addEventListener("keydown", openFilterOnKeyUp);
+
 
 function launchFilter() {
   FilterNotActive.forEach((btn) => btn.classList.toggle("responsive"));
 }
 
-
+function openFilterOnKeyUp(e) {
+  if (e.key === "Enter") {
+    launchFilter(e);
+  } 
+}
 
 
 

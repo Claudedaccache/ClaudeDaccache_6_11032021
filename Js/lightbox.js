@@ -7,7 +7,6 @@ class Lightbox {
     );
 
     const gallery = links.map((link) => link.getAttribute("href"));
-    console.log(gallery);
     const galleryOfAlts = links.map((link) => link.children[0].alt);
     const srcOfVideo = document.querySelector("track").src;
 
