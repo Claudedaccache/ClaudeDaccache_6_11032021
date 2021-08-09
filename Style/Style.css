@@ -767,6 +767,7 @@ header {
 .LikesIcon {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .LikesIcon i {
