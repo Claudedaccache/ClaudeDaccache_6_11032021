@@ -179,23 +179,43 @@ title.addEventListener("click", () => {
 
  */
 
-var icons = document.querySelectorAll(".LikesIcon i");
+var icons = document.querySelectorAll(".LikesIcon button");
 
-icons.forEach((icon) =>
+icons.forEach((icon) => {
   icon.addEventListener("click", () => {
     icon.classList.toggle("liked");
-    const pic = mediaFilteredByPhgId.find((Element) =>{
+    const pic = mediaFilteredByPhgId.find((Element) => {
       return Element.id == icon.dataset.id;
     });
-    if (icon.classList.contains("liked")){
+    if (icon.classList.contains("liked")) {
       pic.likes += 1;
     } else {
       pic.likes -= 1;
     }
-    icon.parentNode.parentNode.querySelector(".likesNumber").textContent = pic.likes;
+    icon.parentNode.parentNode.querySelector(".likesNumber").textContent =
+      pic.likes;
     getTotalLikes("#totalLikes", mediaFilteredByPhgId);
-  })
-);
+  });
+  icon.addEventListener("keydown", (e) => {
+    if (e.key === 13) {
+      icon.classList.toggle("liked");
+      const pic = mediaFilteredByPhgId.find((Element) => {
+        return Element.id == icon.dataset.id;
+      });
+      if (icon.classList.contains("liked")) {
+        pic.likes += 1;
+      } else {
+        pic.likes -= 1;
+      }
+      icon.parentNode.parentNode.querySelector(".likesNumber").textContent =
+        pic.likes;
+      getTotalLikes("#totalLikes", mediaFilteredByPhgId);
+    }
+  });
+});
+
+
+
 
 /**
  * [displaying the total likes for each photographer]

@@ -16,8 +16,7 @@ export default class Image {
 
 
   displayImageList(){
-    return `<figure class="photographerPhotos ${
-      this.tags}">
+    return `<figure class="photographerPhotos ${this.tags}">
   <a href="${this.src}"><img src="${this.src}"
         alt="${this.description}" title="clicker pour voir la photo"
         class="thePhotograph image" aria-label = ${this.description}></a>
@@ -32,9 +31,9 @@ export default class Image {
     </div> 
     <div class="LikesSection">
       <span class="likesNumber" aria-label='${this.likes} likes'>${this.likes}</span>
-      <button class="LikesIcon">
-        <i class="fa fa-heart" aria-label="click to like the image" data-id="${this.id}"></i> 
-    </button>
+      <div class="LikesIcon">
+        <button data-id="${this.id}"><i class="fa fa-heart" aria-label="click to like the image" ></i></button>
+    </div>
   </div>
   </figcaption>
 </figure>`;}

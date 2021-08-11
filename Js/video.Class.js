@@ -16,8 +16,7 @@ export default class Video {
 
 
   displayVideoList(){
-    return `<figure class="photographerPhotos ${
-      this.tags}">
+    return `<figure class="photographerPhotos ${this.tags}">
   <a href="${this.src}">
         <video class="thePhotograph video" controls>
 <source src="${this.src}" type="video/mp4" controls="controls" title="clicker pour voir la video" aria-label="${this.description}"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
@@ -33,7 +32,7 @@ export default class Video {
     <div class="LikesSection">
       <span class="likesNumber"aria-label='${this.likes} likes' >${this.likes}</span>
       <div class="LikesIcon">
-        <i class="fa fa-heart" aria-label="click to like the image" data-id="${this.id}"></i> 
+      <button data-id="${this.id}"><i class="fa fa-heart" aria-label="click to like the image"></i></button> 
     </div>
   </div>
   </figcaption>
