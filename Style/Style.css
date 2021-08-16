@@ -803,8 +803,8 @@ header {
       -ms-flex-align: center;
           align-items: center;
   height: 3rem;
-  width: 10rem;
-  font-size: 1.2rem;
+  width: 9rem;
+  font-size: 1.1rem;
   background-color: #d3573c;
   color: black;
   border: none;
@@ -1065,6 +1065,8 @@ textarea::placeholder {
   opacity: 0.5;
   cursor: pointer;
   padding: 1rem;
+  background: none;
+  border: none;
 }
 
 .lightboxPrev {
@@ -1084,6 +1086,8 @@ textarea::placeholder {
   font-size: 2rem;
   cursor: pointer;
   padding: 1rem;
+  border: none;
+  background: none;
 }
 
 .lightboxPrev:hover,
@@ -1146,7 +1150,7 @@ textarea::placeholder {
     font-size: 1.4rem;
   }
   .logo_Fisheye {
-    width: 12rem;
+    width: 9rem;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
@@ -1222,6 +1226,9 @@ textarea::placeholder {
 }
 
 @media screen and (min-width: 600px) {
+  .logo_Fisheye {
+    width: 12rem;
+  }
   .thePricingSec {
     display: -webkit-box;
     display: -ms-flexbox;

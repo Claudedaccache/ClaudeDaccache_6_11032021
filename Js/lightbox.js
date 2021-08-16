@@ -61,7 +61,7 @@ class Lightbox {
     }
   }
 
-  displayVideo(){
+  displayVideo() {
     const video = document.createElement("video");
     const subtitles = document.createElement("track");
     let legend = document.createElement("p");
@@ -80,8 +80,7 @@ class Lightbox {
     legend.innerText = realLegend;
   }
 
-
-  displayImage(){
+  displayImage() {
     const image = new Image();
     let legend = document.createElement("p");
     const container = this.element.querySelector(".innerLightboxContainer");
@@ -92,8 +91,6 @@ class Lightbox {
     image.setAttribute("alt", this.alt);
     let realLegend = this.createLegend(this.url);
     legend.innerText = realLegend;
-
-
   }
 
   createLegend(url) {
@@ -119,7 +116,39 @@ class Lightbox {
     } else if (e.keyCode == 32) {
       e.preventDefault();
       this.playVideo(e);
-    }
+    } 
+  }
+  
+
+
+  focusingOnlyOnLightbox() {
+    let lightbox = this.element;
+    let focusableElements = "button, video";
+    let focusableContent = lightbox.querySelectorAll(focusableElements);
+    let firstFocusableElement = focusableContent[0];
+    let lastFocusableElement =
+      focusableContent[focusableContent.length - 1];
+    console.log(focusableContent);
+
+    lightbox.addEventListener("keydown", function (e) {
+      let isTabPressed = e.key === "Tab" || e.key === 9;
+
+      if (!isTabPressed) {
+        return;
+      }
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusableElement) {
+          firstFocusableElement.focus();
+          e.preventDefault();
+        }
+      }
+    });
+    firstFocusableElement.focus();
   }
 
   /**
@@ -180,12 +209,14 @@ class Lightbox {
     const dom = document.createElement("section");
     dom.classList.add("lightBox");
     dom.innerHTML = `
-    <span class="lightboxClose" aria-label="Close lightBox"><i class="icon fas fa-times"></i></span>
-    <span class="lightboxPrev" aria-label="Previous image"><i class="fas fa-angle-right"></i></span>
-    <span class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></i></span>
+    <button class="lightboxClose" aria-label="Close lightBox"><i class="icon fas fa-times"></i></button>
+    <button class="lightboxPrev" aria-label="Previous image"><i class="fas fa-angle-right"></i></button>
+    <button class="lightboxNext" aria-label="Next image"><i class="fas fa-angle-right"></i></button>
     <div class="lightboxContainer">
     <div class="innerLightboxContainer"></div></div>`;
-
+    dom
+      .querySelector(".lightboxContainer")
+      .addEventListener("mouseover", this.focusingOnlyOnLightbox.bind(this));
     dom
       .querySelector(".lightboxClose")
       .addEventListener("click", this.close.bind(this));

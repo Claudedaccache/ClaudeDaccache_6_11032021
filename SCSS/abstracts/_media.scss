@@ -5,7 +5,7 @@
     font-size: 1.4rem;
   }
   .logo_Fisheye {
-    width: 12rem;
+    width: 9rem;
     transition: all 0.5s ease-in-out;
   }
   #header_nav ul li a {
@@ -85,6 +85,9 @@
 }
 
 @media screen and (min-width: 600px) {
+  .logo_Fisheye {
+    width: 12rem;
+  }
   .thePricingSec {
     display: flex;
   }

@@ -28,12 +28,14 @@
   opacity: 0.5;
   cursor: pointer;
   padding: 1rem;
-
+  background: none;
+  border: none;
 }
 .lightboxPrev {
   right: auto;
   left: 0.5rem;
   transform: rotate(180deg);
+
 }
 .lightboxClose {
   position: absolute;
@@ -45,6 +47,8 @@
   font-size: 2rem;
   cursor: pointer;
   padding: 1rem;
+  border: none;
+  background: none;
 }
 
 .lightboxPrev:hover,
