@@ -143,21 +143,21 @@ const mediaFilteredByPhgId = data["media"].filter(
 );
 
 popular.addEventListener("click", () => {
-  let sortingByPopularity = mediaFilteredByPhgId.sort(function (a, b) {
+  let sortingByPopularity = data.media.sort(function (a, b) {
     return b.likes - a.likes;
   });
   getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
 });
 
 date.addEventListener("click", () => {
-  let sortingByDate = mediaFilteredByPhgId.sort(function (a, b) {
+  let sortingByDate = data.media.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date);
   });
   getPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
 });
 
 title.addEventListener("click", () => {
-  let sortingByTitle = mediaFilteredByPhgId.sort(function (a, b) {
+  let sortingByTitle = data.media.sort(function (a, b) {
     if (a.title < b.title) {
       return -1;
     }
@@ -178,28 +178,13 @@ title.addEventListener("click", () => {
  * clicking on the heart for each photo or video will increment or decrement the likes number and modify the photographer's total likes on his page]
 
  */
-
 var icons = document.querySelectorAll(".LikesIcon button");
-
-icons.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    icon.classList.toggle("liked");
-    const pic = mediaFilteredByPhgId.find((Element) => {
-      return Element.id == icon.dataset.id;
-    });
-    if (icon.classList.contains("liked")) {
-      pic.likes += 1;
-    } else {
-      pic.likes -= 1;
-    }
-    icon.parentNode.parentNode.querySelector(".likesNumber").textContent =
-      pic.likes;
-    getTotalLikes("#totalLikes", mediaFilteredByPhgId);
-  });
-  icon.addEventListener("keydown", (e) => {
-    if (e.key === 13) {
+itemlike();
+function itemlike(){
+  icons.forEach((icon) => {
+    icon.addEventListener("click", () => {
       icon.classList.toggle("liked");
-      const pic = mediaFilteredByPhgId.find((Element) => {
+      const pic = data.media.find((Element) => {
         return Element.id == icon.dataset.id;
       });
       if (icon.classList.contains("liked")) {
@@ -208,11 +193,28 @@ icons.forEach((icon) => {
         pic.likes -= 1;
       }
       icon.parentNode.parentNode.querySelector(".likesNumber").textContent =
-        pic.likes;
+      pic.likes;
       getTotalLikes("#totalLikes", mediaFilteredByPhgId);
-    }
+    });
+
+    icon.addEventListener("keydown", (e) => {
+      if (e.key === 13) {
+        icon.classList.toggle("liked");
+        const pic = data.media.find((Element) => {
+          return Element.id == icon.dataset.id;
+        });
+        if (icon.classList.contains("liked")) {
+          pic.likes += 1;
+        } else {
+          pic.likes -= 1;
+        }
+        icon.parentNode.parentNode.querySelector(".likesNumber").textContent =
+        pic.likes;
+        getTotalLikes("#totalLikes", mediaFilteredByPhgId);
+      }
+    });
   });
-});
+}
 
 
 

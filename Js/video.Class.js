@@ -32,7 +32,7 @@ export default class Video {
     <div class="LikesSection">
       <span class="likesNumber"aria-label='${this.likes} likes' >${this.likes}</span>
       <div class="LikesIcon">
-      <button data-id="${this.id}"><i class="fa fa-heart" aria-label="click to like the image"></i></button> 
+      <button data-id="${this.id}"><i class="fa fa-heart" aria-label="click to like the image" title="click to like"></i></button> 
     </div>
   </div>
   </figcaption>
