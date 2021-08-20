@@ -8,3 +8,4 @@ export function displayMediaList(elt, photographerName){
   return elt.image ?  imageList.displayImageList() : videoList.displayVideoList();
 }
 
+

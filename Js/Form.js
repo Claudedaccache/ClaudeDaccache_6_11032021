@@ -54,7 +54,7 @@ const close = document.querySelectorAll(".close");
 const closeBtn = document.querySelector(".btnClose");
 const formValidationMessage= document.querySelector("#formValidationMessage");
 const header = document.querySelector("header");
-const main = document.querySelector("main");
+const main = document.querySelector("#allBody");
 
 // DOM Elements
 

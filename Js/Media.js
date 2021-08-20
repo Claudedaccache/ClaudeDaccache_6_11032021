@@ -4,6 +4,7 @@ import {displayMediaList} from "./MediaFactory.js";
 import {PhotographerHeader} from "./photographer.header.js";
 
 
+
 /**
  * Display the thePricingSec of each photographer according to each their Id.
  * @return {innerHTML}
@@ -37,7 +38,7 @@ function getPhotographerPrice(container, photographer) {
 
 
 /**
- * Display the photographers Info according to their Id.
+ * Display the photographers header Info according to their Id.
  * @return {innerHTML}
  */
 getPhotographerInfo(".photographerInfo", data.photographers);
@@ -61,20 +62,25 @@ function getPhotographerInfo(container, photographer) {
  * Display the photos and videos of according to the photographer's Id.
  * @return {innerHTML}
  */
-getPhotographsByPhotographersId(".thePhotographsSection", data.media);
 
-function getPhotographsByPhotographersId(container, photographerInfo) {
+displayPhotographsByPhotographersId(".thePhotographsSection", data.media);
+
+function displayPhotographsByPhotographersId(container, photographs) {
   var thePhotographsSection = document.querySelector(container);
+  thePhotographsSection.innerHTML =  getPhotographs(photographs);
+}
+
+
+function getPhotographs (photographs){
   const photographerName =  data["photographers"].find((x) => x.id === getCurrentId()).name;
-  thePhotographsSection.innerHTML = `${photographerInfo
+  return `${photographs
     .filter((x) => x.photographerId === getCurrentId())
-    .map((photographerInfo) => {
-      let mediaList = displayMediaList(photographerInfo, photographerName);
+    .map((photographs) => {
+      let mediaList = displayMediaList(photographs, photographerName);
       return mediaList;
     })
     .join("")}`;
 }
-
 
 
 
@@ -138,22 +144,20 @@ function openFilterOnKeyDown(e) {
 const popular = document.querySelector("#Popular");
 const date = document.querySelector("#Date");
 const title = document.querySelector("#Title");
-const mediaFilteredByPhgId = data["media"].filter(
-  (x) => x.photographerId === getCurrentId()
-);
+
 
 popular.addEventListener("click", () => {
   let sortingByPopularity = data.media.sort(function (a, b) {
     return b.likes - a.likes;
   });
-  getPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
+  displayPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
 });
 
 date.addEventListener("click", () => {
   let sortingByDate = data.media.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date);
   });
-  getPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
+  displayPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
 });
 
 title.addEventListener("click", () => {
@@ -166,7 +170,7 @@ title.addEventListener("click", () => {
     }
     return 0;
   });
-  getPhotographsByPhotographersId(".thePhotographsSection", sortingByTitle);
+  displayPhotographsByPhotographersId(".thePhotographsSection", sortingByTitle);
 });
 
 
@@ -222,6 +226,9 @@ function itemlike(){
 /**
  * [displaying the total likes for each photographer]
  */
+const mediaFilteredByPhgId = data["media"].filter(
+  (x) => x.photographerId === getCurrentId()
+);
 
 getTotalLikes("#totalLikes", mediaFilteredByPhgId);
 

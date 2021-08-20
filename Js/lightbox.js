@@ -1,13 +1,13 @@
 
-class Lightbox {
+export class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll("a[href$=\".jpg\"],a[href$=\".mp4\"]")
     );
-
     const gallery = links.map((link) => link.getAttribute("href"));
     const galleryOfAlts = links.map((link) => link.children[0].alt);
     const srcOfVideo = document.querySelector("track").src;
+  
 
     /* the alt of the video will return undefined so we remplace the value of the alt with the srv of the video */
     for (let i = 0; i < galleryOfAlts.length; i++) {
@@ -128,7 +128,6 @@ class Lightbox {
     let firstFocusableElement = focusableContent[0];
     let lastFocusableElement =
       focusableContent[focusableContent.length - 1];
-    console.log(focusableContent);
 
     lightbox.addEventListener("keydown", function (e) {
       let isTabPressed = e.key === "Tab" || e.key === 9;
@@ -205,9 +204,16 @@ class Lightbox {
    * @param {string} url URL of the image
    * @return {HTMLElement}
    */
+
   buildDOM() {
+    const header = document.querySelector("header");
+    const main = document.querySelector("#allBody");
+    header.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "true");
     const dom = document.createElement("section");
     dom.classList.add("lightBox");
+    dom.setAttribute("aria-hidden", "false");
+    dom.setAttribute("aria-label", "open full Image");
     dom.innerHTML = `
     <button class="lightboxClose" aria-label="Close lightBox"><i class="icon fas fa-times"></i></button>
     <button class="lightboxPrev" aria-label="Previous image"><i class="fas fa-angle-right"></i></button>
@@ -215,7 +221,6 @@ class Lightbox {
     <div class="lightboxContainer">
     <div class="innerLightboxContainer"></div></div>`;
     dom
-      .querySelector(".lightboxContainer")
       .addEventListener("mouseover", this.focusingOnlyOnLightbox.bind(this));
     dom
       .querySelector(".lightboxClose")
