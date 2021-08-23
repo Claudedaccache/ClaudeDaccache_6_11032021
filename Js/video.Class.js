@@ -18,8 +18,8 @@ export default class Video {
   displayVideoList(){
     return `<figure class="photographerPhotos ${this.tags}">
   <a href="${this.src}">
-        <video class="thePhotograph video" controls>
-<source src="${this.src}" type="video/mp4" controls="controls" title="clicker pour voir la video" aria-label="${this.description}"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
+        <video class="thePhotograph video">
+<source src="${this.src}" type="video/mp4" title="clicker pour voir la video" aria-label="${this.description}"> <track src="${this.description}" kind="subtitles" srclang="fr" label="english">
   </video></a>
   <figcaption class="photographDescr">
   <div class="photographDetails">

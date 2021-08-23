@@ -1,5 +1,5 @@
 
-export class Lightbox {
+export  default class Lightbox {
   static init() {
     const links = Array.from(
       document.querySelectorAll("a[href$=\".jpg\"],a[href$=\".mp4\"]")
@@ -157,6 +157,10 @@ export class Lightbox {
   close(e) {
     e.preventDefault();
     this.element.classList.add("fadeOut");
+    const header = document.querySelector("header");
+    const main = document.querySelector("#allBody");
+    header.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false");
     window.setTimeout(() => {
       this.element.parentElement.removeChild(this.element);
     }, 500);
@@ -234,4 +238,4 @@ export class Lightbox {
     return dom;
   }
 }
-Lightbox.init();
+// Lightbox.init();

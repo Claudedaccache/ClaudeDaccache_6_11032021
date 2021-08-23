@@ -2,6 +2,7 @@
 import data from "./../data.js";
 import {displayMediaList} from "./MediaFactory.js";
 import {PhotographerHeader} from "./photographer.header.js";
+import Lightbox from "./lightbox.js";
 
 
 
@@ -64,7 +65,7 @@ function getPhotographerInfo(container, photographer) {
  */
 
 displayPhotographsByPhotographersId(".thePhotographsSection", data.media);
-
+Lightbox.init();
 function displayPhotographsByPhotographersId(container, photographs) {
   var thePhotographsSection = document.querySelector(container);
   thePhotographsSection.innerHTML =  getPhotographs(photographs);
@@ -151,6 +152,8 @@ popular.addEventListener("click", () => {
     return b.likes - a.likes;
   });
   displayPhotographsByPhotographersId(".thePhotographsSection", sortingByPopularity);
+  itemlike();
+  Lightbox.init();
 });
 
 date.addEventListener("click", () => {
@@ -158,6 +161,8 @@ date.addEventListener("click", () => {
     return new Date(b.date) - new Date(a.date);
   });
   displayPhotographsByPhotographersId(".thePhotographsSection", sortingByDate);
+  itemlike();
+  Lightbox.init();
 });
 
 title.addEventListener("click", () => {
@@ -171,6 +176,8 @@ title.addEventListener("click", () => {
     return 0;
   });
   displayPhotographsByPhotographersId(".thePhotographsSection", sortingByTitle);
+  itemlike();
+  Lightbox.init();
 });
 
 
@@ -182,9 +189,9 @@ title.addEventListener("click", () => {
  * clicking on the heart for each photo or video will increment or decrement the likes number and modify the photographer's total likes on his page]
 
  */
-var icons = document.querySelectorAll(".LikesIcon button");
 itemlike();
 function itemlike(){
+  const icons = document.querySelectorAll(".LikesIcon button");
   icons.forEach((icon) => {
     icon.addEventListener("click", () => {
       icon.classList.toggle("liked");
