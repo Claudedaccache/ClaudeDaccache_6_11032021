@@ -37,14 +37,14 @@ export  default class Lightbox {
    * @param {string[]} alts attributs alt for the images in the lightbox
    */
   constructor(url, alt, images, alts) {
-    const Box = document.querySelector("#Box");
+    const box = document.querySelector("#Box");
     this.element = this.buildDOM(url);
     this.alt = alt;
     this.images = images;
     this.alts = alts;
     this.loadImage(url, alt);
     this.onKeyUp = this.onKeyUp.bind(this);
-    document.body.insertBefore(this.element, Box);
+    document.body.insertBefore(this.element, box);
     document.addEventListener("keyup", this.onKeyUp);
   }
 
