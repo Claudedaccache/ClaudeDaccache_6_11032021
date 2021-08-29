@@ -1,4 +1,3 @@
-
 export  default class Lightbox {
   static init() {
     const links = Array.from(
