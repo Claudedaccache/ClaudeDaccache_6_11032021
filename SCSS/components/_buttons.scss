@@ -3,19 +3,27 @@
   cursor: pointer;
 }
 
-.LikesIcon i {
-  color: rgb(197, 196, 196);
-  font-size: 1.2rem;
+.LikesIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.LikesIcon i.resp {
+.LikesIcon button {
+  cursor: pointer;
+  color: rgb(197, 196, 196);
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+}
+
+.LikesIcon button.liked {
   color: $primaryColor;
 }
 
-.btn-submit {
+.btnSubmit {
   background-color: $secondaryColor;
   display: block;
-  // margin: 0 auto;
   border-radius: 0.4rem;
   font-size: 1rem;
   padding: 0.8rem 2rem;
@@ -24,7 +32,7 @@
   border: 0;
 }
 
-.btn-submit:hover {
+.btnSubmit:hover {
   background-color: $primaryColor;
   color: $quaternaryColor;
 }
@@ -35,8 +43,8 @@
   display: none;
   align-items: center;
   height: 3rem;
-  width: 10rem;
-  font-size: 1.2rem;
+  width: 9rem;
+  font-size: 1.1rem;
   background-color: $secondaryColor;
   color: black;
   border: none;
@@ -74,7 +82,6 @@
 .btnClose {
   background-color: $secondaryColor;
   display: none;
-  // margin: 0 auto;
   border-radius: 0.4rem;
   font-size: 1rem;
   padding: 0.8rem 2rem;
@@ -90,3 +97,6 @@
   background-color: $primaryColor;
   color: $quaternaryColor;
 }
+
+
+

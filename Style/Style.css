@@ -58,6 +58,24 @@
   }
 }
 
+@-webkit-keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -99,8 +117,9 @@ header {
 
 .logo_Fisheye {
   width: 9rem;
-  height: 5rem;
   margin-right: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .photographsListTitle {
@@ -122,10 +141,14 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  top: 5.5rem;
+  top: 4rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 #header_nav {
@@ -201,6 +224,15 @@ header {
   }
 }
 
+@keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #scrollMainPage {
   display: none;
   position: absolute;
@@ -208,7 +240,7 @@ header {
   right: 50%;
   left: 30%;
   font-weight: bold;
-  width: 10rem;
+  width: 8.5rem;
   padding: 0.2rem 0.5rem;
   background-color: #e18d7a;
   border-radius: 0.5rem;
@@ -219,7 +251,7 @@ header {
 
 #photographs {
   width: 100%;
-  margin-top: 7rem;
+  margin-top: 8rem;
 }
 
 .photographerImg {
@@ -242,6 +274,8 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .photographersList {
@@ -368,6 +402,7 @@ header {
 }
 
 .photographerDescriptionQuote {
+  font-family: "Roboto", sans-serif;
   margin: 1rem 0 1rem 0;
 }
 
@@ -391,6 +426,7 @@ header {
   background-color: #fafafa;
   color: #901c1c;
   margin-right: 0.2rem;
+  margin-bottom: 0.3rem;
   font-size: 0.9rem;
 }
 
@@ -438,6 +474,8 @@ header {
 
 .photographerInfoPic {
   position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
   right: 0.3rem;
   top: 1.2rem;
   width: 6rem;
@@ -504,7 +542,12 @@ header {
 
 .filterList {
   background-color: #901c1c;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   text-decoration: none;
   font-size: 1rem;
   padding: 0.8rem 1.7rem 0.8rem 1rem;
@@ -513,6 +556,8 @@ header {
   position: relative;
   z-index: 999;
   overflow: visible;
+  border: none;
+  width: 100%;
 }
 
 #filterIcon {
@@ -527,11 +572,16 @@ header {
   padding: 6px;
   margin-right: 0.2rem;
   z-index: 1005;
+  background: none;
+  border: none;
 }
 
 .notActive {
   visibility: hidden;
   opacity: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -539,7 +589,7 @@ header {
 .notActive.responsive {
   opacity: 1;
   visibility: visible;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .notActive::after {
@@ -715,16 +765,25 @@ header {
   cursor: pointer;
 }
 
-.LikesIcon i {
-  color: #c5c4c4;
-  font-size: 1.2rem;
+.LikesIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.LikesIcon i.resp {
+.LikesIcon button {
+  cursor: pointer;
+  color: #c5c4c4;
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+}
+
+.LikesIcon button.liked {
   color: #901c1c;
 }
 
-.btn-submit {
+.btnSubmit {
   background-color: #d3573c;
   display: block;
   border-radius: 0.4rem;
@@ -735,7 +794,7 @@ header {
   border: 0;
 }
 
-.btn-submit:hover {
+.btnSubmit:hover {
   background-color: #901c1c;
   color: #fafafa;
 }
@@ -746,8 +805,8 @@ header {
       -ms-flex-align: center;
           align-items: center;
   height: 3rem;
-  width: 10rem;
-  font-size: 1.2rem;
+  width: 9rem;
+  font-size: 1.1rem;
   background-color: #d3573c;
   color: black;
   border: none;
@@ -803,18 +862,19 @@ header {
 .bground {
   display: none;
   position: fixed;
-  z-index: 100000;
+  z-index: 1000000;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
+  background-color: #fafafa;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   -webkit-animation-name: formopen;
           animation-name: formopen;
   -webkit-animation-duration: 0.8s;
@@ -901,6 +961,9 @@ textarea::placeholder {
 
 #formValidationMessage {
   visibility: hidden;
+  margin: auto;
+  height: 50%;
+  width: 100%;
   font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -927,6 +990,159 @@ textarea::placeholder {
   font-weight: normal;
   opacity: 1;
   cursor: pointer;
+  background: none;
+  border: none;
+}
+
+#submitBtn {
+  background: none;
+  border: none;
+}
+
+@keyframes likeicon {
+  100% {
+    color: #901c1c;
+  }
+}
+
+@keyframes formopen {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-150px);
+            transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes photographPrice {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 100000;
+  overflow: auto;
+  -webkit-animation: lightboxOpen 0.5s;
+          animation: lightboxOpen 0.5s;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+
+.lightboxNext,
+.lightboxPrev {
+  font-size: 2.5rem;
+  position: absolute;
+  top: calc(50% - 32px);
+  right: 0.5rem;
+  margin-top: -14px;
+  z-index: 100001;
+  color: #d3573c;
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 1rem;
+  background: none;
+  border: none;
+}
+
+.lightboxPrev {
+  right: auto;
+  left: 0.5rem;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100002;
+  opacity: 1;
+  color: #d3573c;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  background: none;
+}
+
+.lightboxPrev:hover,
+.lightboxClose:hover,
+.lightboxNext:hover {
+  color: #901c1c;
+  opacity: 1;
+}
+
+.lightboxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 100vh;
+  z-index: 100001;
+}
+
+.innerLightboxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 90%;
+  height: auto;
+  -webkit-animation: lightboxOpen 0.5s;
+          animation: lightboxOpen 0.5s;
+  max-height: 95vh;
+}
+
+.lightboxContainer img,
+.lightboxContainer video {
+  max-height: 90vh;
+  width: 100%;
+}
+
+.lightboxContainer p {
+  color: #d3573c;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 370px) {
@@ -936,8 +1152,7 @@ textarea::placeholder {
     font-size: 1.4rem;
   }
   .logo_Fisheye {
-    width: 12rem;
-    height: 5rem;
+    width: 9rem;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
@@ -1013,6 +1228,9 @@ textarea::placeholder {
 }
 
 @media screen and (min-width: 600px) {
+  .logo_Fisheye {
+    width: 12rem;
+  }
   .thePricingSec {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1036,6 +1254,9 @@ textarea::placeholder {
     position: fixed;
     bottom: 1.5rem;
     left: 30%;
+  }
+  #photographs {
+    margin-top: 6rem;
   }
   .photographerFullName {
     font-size: 2rem;
@@ -1105,7 +1326,7 @@ textarea::placeholder {
   }
 }
 
-@media screen and (min-width: 1070px) {
+@media screen and (min-width: 1160px) {
   #header_nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1118,119 +1339,7 @@ textarea::placeholder {
         -ms-flex-pack: center;
             justify-content: center;
     position: absolute;
-    top: 1.5rem;
+    top: 1rem;
   }
-}
-
-.previewBox {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0.9);
-          transform: translate(-50%, -50%) scale(0.9);
-  background: #fafafa;
-  max-width: 80%;
-  width: 100%;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-
-.previewBox.show {
-  opacity: 1;
-  padding: 1.8rem 2rem;
-  pointer-events: auto;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.lightboxClosingBtn {
-  color: #d3573c;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 10001;
-}
-
-.lightboxClosingBtn {
-  color: #d3573c;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.lightBoxPhotograph {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  max-height: 600px;
-}
-
-.slide {
-  position: absolute;
-  top: 50%;
-  padding: 2rem 0;
-  overflow: hidden;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  color: #d3573c;
-  font-size: 30px;
-  cursor: pointer;
-  height: 50px;
-  width: 60px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 3px;
-  font-size: 2rem;
-}
-
-.slide.prev {
-  left: -1rem;
-}
-
-.slide.next {
-  right: -1rem;
-}
-
-.lightboxClosingBtn:hover,
-.slide:hover {
-  color: #901c1c;
-}
-
-.lightBoxPhotograph {
-  width: 100%;
-  border-radius: 0 0 3px 3px;
-}
-
-.lightBoxPhotographTitle {
-  position: absolute;
-  bottom: 0.4rem;
-  left: 2.8rem;
-  color: #d3573c;
-  font-family: "Roboto", sans-serif;
-}
-
-.shadow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1000;
-  display: none;
-  background: white;
-  opacity: 0.95;
 }
 /*# sourceMappingURL=Style.css.map */

@@ -1,96 +1,117 @@
-.previewBox {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background: $quaternaryColor;
-  max-width: 80%;
-  width: 100%;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
-  border-radius: 3px;
-  // padding: 2rem 5rem;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  // background-color: #fff;
-}
-.previewBox.show {
-  opacity: 1;
-  padding: 1.8rem 2rem;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-  transition: all 0.3s ease;
-}
-.lightboxClosingBtn {
-  color: $secondaryColor;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 10001;
-}
+@import "../abstracts/keyframes";
+@import "../abstracts/variables";
 
-.lightboxClosingBtn {
-  color: $secondaryColor;
-  font-size: 25px;
-  cursor: pointer;
-}
-.lightBoxPhotograph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  // padding: 1.5rem 2rem;
-  max-height: 600px;
-}
-
-.slide {
-  position: absolute;
-  top: 50%;
-  padding: 2rem 0;
-  overflow: hidden;
-  transform: translateY(-50%);
-  color: $secondaryColor;
-  font-size: 30px;
-  cursor: pointer;
-  height: 50px;
-  width: 60px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 3px;
-  font-size: 2rem;
-}
-.slide.prev {
-  left: -1rem;
-}
-.slide.next {
-  right: -1rem;
-}
-
-.lightboxClosingBtn:hover,
-.slide:hover {
-  color: $primaryColor;
-}
-.lightBoxPhotograph {
-  width: 100%;
-  border-radius: 0 0 3px 3px;
-}
-
-.lightBoxPhotographTitle {
-  position: absolute;
-  bottom: 0.4rem;
-  left: 2.8rem;
-  color: $secondaryColor;
-  font-family: "Roboto", sans-serif;
-}
-.shadow {
+.lightBox {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  z-index: 1000;
-  display: none;
-  background: rgb(255, 255, 255);
-  opacity: 0.95;
+  height: 100%;
+  background-color: white;
+  z-index: 100000;
+  overflow: auto;
+  animation: lightboxOpen 0.5s;
 }
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+.lightboxNext,
+.lightboxPrev {
+  font-size: 2.5rem;
+  position: absolute;
+  top: calc(50% - 32px);
+  right: 0.5rem;
+  margin-top: -14px;
+  z-index: 100001;
+  color: $secondaryColor;
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 1rem;
+  background: none;
+  border: none;
+}
+.lightboxPrev {
+  right: auto;
+  left: 0.5rem;
+  transform: rotate(180deg);
+
+}
+.lightboxClose {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100002;
+  opacity: 1;
+  color: $secondaryColor;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  background: none;
+}
+
+.lightboxPrev:hover,
+.lightboxClose:hover, 
+.lightboxNext:hover {
+  color: $primaryColor;
+  opacity: 1;
+}
+
+.lightboxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 100vh;
+  z-index: 100001;
+
+}
+
+.innerLightboxContainer{
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  height: auto;
+  animation: lightboxOpen 0.5s;
+  max-height: 95vh;
+}
+
+.lightboxContainer img,
+.lightboxContainer video {
+  max-height: 90vh;
+  width: 100%;
+}
+
+.lightboxContainer p{
+  color: $secondaryColor;
+  font-weight: bold;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

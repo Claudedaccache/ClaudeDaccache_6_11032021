@@ -3,19 +3,19 @@
 .bground {
   display: none;
   position: fixed;
-  z-index: 100000;
+  z-index: 1000000;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
-  // background-color: $quaternaryColor;
+  background-color: $quaternaryColor;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   animation-name: formopen;
   animation-duration: 0.8s;
   background: lighten($secondaryColor, 15%);
@@ -29,7 +29,6 @@
 .modal-body {
   align-items: center;
   padding: 15px 10%;
-  // margin: 0rem auto;
 }
 
 .formTitle {
@@ -77,6 +76,9 @@ textarea::placeholder {
 
 #formValidationMessage {
   visibility: hidden;
+  margin: auto;
+  height: 50%;
+  width: 100%;
   font-size: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -93,4 +95,11 @@ textarea::placeholder {
   font-weight: normal;
   opacity: 1;
   cursor: pointer;
+  background: none;
+  border: none;
 }
+
+#submitBtn{
+  background: none;
+  border: none;
+  }

@@ -26,3 +26,12 @@
     opacity: 1;
   }
 }
+
+@keyframes lightboxOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

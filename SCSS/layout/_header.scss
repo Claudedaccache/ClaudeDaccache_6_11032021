@@ -13,14 +13,13 @@ header {
 
 .logo_Fisheye {
   width: 9rem;
-  height: 5rem;
   margin-right: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .photographsListTitle {
   display: block;
-  // padding-right: 1rem;
-  // padding-left: 1rem;
   color: $primaryColor;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -30,11 +29,14 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  // align-items: center;
   position: absolute;
-  top: 5.5rem;
+  top: 4rem;
   flex-wrap: wrap;
-  margin-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 #header_nav {
