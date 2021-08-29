@@ -127,7 +127,16 @@ FilterIcon.addEventListener("keydown", openFilterOnKeyDown);
 
 
 function launchFilter() {
-  FilterNotActive.forEach((btn) => btn.classList.toggle("responsive"));
+  FilterNotActive.forEach((btn) => {
+    btn.classList.toggle("responsive");
+    if (btn.classList.contains("responsive")) {
+      FilterIcon.setAttribute("aria-expanded", "true");
+
+    } else {
+      FilterIcon.setAttribute("aria-expanded", "false");
+
+    }
+  });
 }
 
 function openFilterOnKeyDown(e) {
@@ -199,8 +208,10 @@ function itemlike(){
         return Element.id == icon.dataset.id;
       });
       if (icon.classList.contains("liked")) {
+        icon.setAttribute("aria-label", "liked");
         pic.likes += 1;
       } else {
+        icon.setAttribute("aria-label", "unliked");
         pic.likes -= 1;
       }
       icon.parentNode.parentNode.querySelector(".likesNumber").textContent =

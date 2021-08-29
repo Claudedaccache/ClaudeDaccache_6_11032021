@@ -19,7 +19,7 @@ export default class Image {
     return `<figure class="photographerPhotos ${this.tags}">
   <a href="${this.src}"><img src="${this.src}"
         alt="${this.description}" title="clicker pour voir la photo"
-        class="thePhotograph image" aria-label = ${this.description}></a>
+        class="thePhotograph image"></a>
   <figcaption class="photographDescr">
   <div class="photographDetails">
     <h2>${this.title}</h2>
