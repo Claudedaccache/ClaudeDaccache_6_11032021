@@ -18,7 +18,7 @@ export default class Image {
   displayImageList(){
     return `<figure class="photographerPhotos ${this.tags}">
   <a href="${this.src}"><img src="${this.src}"
-        alt="${this.description}" title="clicker pour voir la photo"
+        alt="${this.description}" title="cliquer pour voir la photo"
         class="thePhotograph image"></a>
   <figcaption class="photographDescr">
   <div class="photographDetails">
